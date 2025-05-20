@@ -2,73 +2,65 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Tags on WJJ</title>
-        <link>http://localhost:1313/Hugo/tags/</link>
+        <link>https://heimi2022.github.io/Hugo/tags/</link>
         <description>Recent content in Tags on WJJ</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Wjj</copyright>
-        <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/Hugo/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://heimi2022.github.io/Hugo/tags/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Css</title>
-        <link>http://localhost:1313/Hugo/tags/css/</link>
+        <link>https://heimi2022.github.io/Hugo/tags/css/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/Hugo/tags/css/</guid>
+        <guid>https://heimi2022.github.io/Hugo/tags/css/</guid>
         <description></description>
         </item>
         <item>
         <title>Html</title>
-        <link>http://localhost:1313/Hugo/tags/html/</link>
+        <link>https://heimi2022.github.io/Hugo/tags/html/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/Hugo/tags/html/</guid>
+        <guid>https://heimi2022.github.io/Hugo/tags/html/</guid>
         <description></description>
         </item>
         <item>
         <title>Markdown</title>
-        <link>http://localhost:1313/Hugo/tags/markdown/</link>
+        <link>https://heimi2022.github.io/Hugo/tags/markdown/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/Hugo/tags/markdown/</guid>
+        <guid>https://heimi2022.github.io/Hugo/tags/markdown/</guid>
         <description></description>
         </item>
         <item>
         <title>Themes</title>
-        <link>http://localhost:1313/Hugo/tags/themes/</link>
+        <link>https://heimi2022.github.io/Hugo/tags/themes/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/Hugo/tags/themes/</guid>
+        <guid>https://heimi2022.github.io/Hugo/tags/themes/</guid>
         <description></description>
         </item>
         <item>
-        <title>ماركداون</title>
-        <link>http://localhost:1313/Hugo/tags/%D9%85%D8%A7%D8%B1%D9%83%D8%AF%D8%A7%D9%88%D9%86/</link>
+        <title>Tag With Whitespaces</title>
+        <link>https://heimi2022.github.io/Hugo/tags/tag-with-whitespaces/</link>
         <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/Hugo/tags/%D9%85%D8%A7%D8%B1%D9%83%D8%AF%D8%A7%D9%88%D9%86/</guid>
+        <guid>https://heimi2022.github.io/Hugo/tags/tag-with-whitespaces/</guid>
         <description></description>
         </item>
         <item>
-        <title>نص</title>
-        <link>http://localhost:1313/Hugo/tags/%D9%86%D8%B5/</link>
+        <title>Text</title>
+        <link>https://heimi2022.github.io/Hugo/tags/text/</link>
         <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/Hugo/tags/%D9%86%D8%B5/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>وسم مع فراغات</title>
-        <link>http://localhost:1313/Hugo/tags/%D9%88%D8%B3%D9%85-%D9%85%D8%B9-%D9%81%D8%B1%D8%A7%D8%BA%D8%A7%D8%AA/</link>
-        <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-        
-        <guid>http://localhost:1313/Hugo/tags/%D9%88%D8%B3%D9%85-%D9%85%D8%B9-%D9%81%D8%B1%D8%A7%D8%BA%D8%A7%D8%AA/</guid>
+        <guid>https://heimi2022.github.io/Hugo/tags/text/</guid>
         <description></description>
         </item>
         <item>
         <title>Emoji</title>
-        <link>http://localhost:1313/Hugo/tags/emoji/</link>
+        <link>https://heimi2022.github.io/Hugo/tags/emoji/</link>
         <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/Hugo/tags/emoji/</guid>
+        <guid>https://heimi2022.github.io/Hugo/tags/emoji/</guid>
         <description></description>
         </item>
         

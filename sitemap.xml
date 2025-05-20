@@ -2,88 +2,85 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/Hugo/</loc>
+    <loc>https://heimi2022.github.io/Hugo/</loc>
+    <lastmod>2025-05-20T20:10:11+08:00</lastmod>
+  </url><url>
+    <loc>https://heimi2022.github.io/Hugo/p/new/</loc>
+    <lastmod>2025-05-20T20:10:11+08:00</lastmod>
+  </url><url>
+    <loc>https://heimi2022.github.io/Hugo/post/</loc>
+    <lastmod>2025-05-20T20:10:11+08:00</lastmod>
+  </url><url>
+    <loc>https://heimi2022.github.io/Hugo/p/first_blog/</loc>
     <lastmod>2025-05-20T15:21:10+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/p/first_blog/</loc>
-    <lastmod>2025-05-20T15:21:10+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/Hugo/post/</loc>
-    <lastmod>2025-05-20T15:21:10+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/Hugo/categories/</loc>
+    <loc>https://heimi2022.github.io/Hugo/categories/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/p/test-chinese/</loc>
+    <loc>https://heimi2022.github.io/Hugo/p/test-chinese/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/categories/test/</loc>
+    <loc>https://heimi2022.github.io/Hugo/categories/test/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/categories/%E6%B5%8B%E8%AF%95/</loc>
+    <loc>https://heimi2022.github.io/Hugo/categories/%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/archives/</loc>
+    <loc>https://heimi2022.github.io/Hugo/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/page/</loc>
+    <loc>https://heimi2022.github.io/Hugo/page/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/tags/css/</loc>
+    <loc>https://heimi2022.github.io/Hugo/tags/css/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/tags/html/</loc>
+    <loc>https://heimi2022.github.io/Hugo/tags/html/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/tags/markdown/</loc>
+    <loc>https://heimi2022.github.io/Hugo/tags/markdown/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/p/markdown-syntax-guide/</loc>
+    <loc>https://heimi2022.github.io/Hugo/p/markdown-syntax-guide/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/categories/syntax/</loc>
+    <loc>https://heimi2022.github.io/Hugo/categories/syntax/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/tags/</loc>
+    <loc>https://heimi2022.github.io/Hugo/tags/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/categories/themes/</loc>
+    <loc>https://heimi2022.github.io/Hugo/categories/themes/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/tags/themes/</loc>
+    <loc>https://heimi2022.github.io/Hugo/tags/themes/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/categories/%D8%AA%D8%AC%D8%B1%D8%A8%D8%A9/</loc>
+    <loc>https://heimi2022.github.io/Hugo/p/placeholder-text/</loc>
     <lastmod>2019-03-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/categories/%D8%AA%D8%AC%D8%B1%D8%A8%D8%A9-%D9%85%D8%B9-%D9%81%D8%B1%D8%A7%D8%BA%D8%A7%D8%AA/</loc>
+    <loc>https://heimi2022.github.io/Hugo/tags/tag-with-whitespaces/</loc>
     <lastmod>2019-03-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/tags/%D9%85%D8%A7%D8%B1%D9%83%D8%AF%D8%A7%D9%88%D9%86/</loc>
+    <loc>https://heimi2022.github.io/Hugo/categories/test-with-whitespaces/</loc>
     <lastmod>2019-03-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/p/%D9%85%D8%AB%D8%A7%D9%84-%D9%86%D8%B5/</loc>
+    <loc>https://heimi2022.github.io/Hugo/tags/text/</loc>
     <lastmod>2019-03-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/tags/%D9%86%D8%B5/</loc>
-    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/Hugo/tags/%D9%88%D8%B3%D9%85-%D9%85%D8%B9-%D9%81%D8%B1%D8%A7%D8%BA%D8%A7%D8%AA/</loc>
-    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/Hugo/p/math-typesetting/</loc>
+    <loc>https://heimi2022.github.io/Hugo/p/math-typesetting/</loc>
     <lastmod>2019-03-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/tags/emoji/</loc>
+    <loc>https://heimi2022.github.io/Hugo/tags/emoji/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/p/emoji-support/</loc>
+    <loc>https://heimi2022.github.io/Hugo/p/emoji-support/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/Hugo/links/</loc>
+    <loc>https://heimi2022.github.io/Hugo/links/</loc>
   </url><url>
-    <loc>http://localhost:1313/Hugo/search/</loc>
+    <loc>https://heimi2022.github.io/Hugo/search/</loc>
   </url><url>
-    <loc>http://localhost:1313/Hugo/%E5%85%B3%E4%BA%8E/</loc>
+    <loc>https://heimi2022.github.io/Hugo/%E5%85%B3%E4%BA%8E/</loc>
   </url>
 </urlset>
