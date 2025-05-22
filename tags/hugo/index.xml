@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Hugo on WJJ</title>
+        <link>https://heimi2022.github.io/Hugo/tags/hugo/</link>
+        <description>Recent content in Hugo on WJJ</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Wjj</copyright>
+        <lastBuildDate>Thu, 22 May 2025 15:53:57 +0800</lastBuildDate><atom:link href="https://heimi2022.github.io/Hugo/tags/hugo/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Hugo使用</title>
+        <link>https://heimi2022.github.io/Hugo/p/hugo%E4%BD%BF%E7%94%A8/</link>
+        <pubDate>Thu, 22 May 2025 15:53:57 +0800</pubDate>
+        
+        <guid>https://heimi2022.github.io/Hugo/p/hugo%E4%BD%BF%E7%94%A8/</guid>
+        <description>&lt;img src="https://heimi2022.github.io/Hugo/p/hugo%E4%BD%BF%E7%94%A8/cover.png" alt="Featured image of post Hugo使用" /&gt;&lt;h2 id=&#34;创建文章&#34;&gt;创建文章
+&lt;/h2&gt;&lt;h3 id=&#34;命令创建&#34;&gt;命令创建
+&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;命令 : hugo new post/foldername/*.md 
+其模板来自 archetypes/default.md
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;手动创建&#34;&gt;手动创建
+&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;在post目录下，手动创建一个文件夹，在文件夹里创建md文件，并将需要的图片资源放入其中。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;文章推送&#34;&gt;文章推送
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;git add .&lt;/li&gt;
+&lt;li&gt;git commit -m&amp;quot;update&amp;quot;&lt;/li&gt;
+&lt;li&gt;git push&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
