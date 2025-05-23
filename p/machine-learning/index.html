@@ -254,6 +254,12 @@
         <li><a href="#无监督学习">无监督学习</a></li>
       </ol>
     </li>
+    <li><a href="#单变量线性回归linear-regression-with-one-variable">单变量线性回归(Linear Regression with One Variable)</a>
+      <ol>
+        <li><a href="#模型表示">模型表示</a></li>
+        <li><a href="#代价函数">代价函数</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -340,7 +346,20 @@ P 就是它在与一些新的对手比赛时，赢得比赛的概率。</p>
 <p>聚类算法 : 将数据分为几类不同的<strong>簇</strong>。<br>
 例子 : 谷歌新闻，同一主题新闻归为一类; 市场分割。</p>
 <p>鸡尾酒算法 : 分离麦克风接收到的不同的人的声音与环境声音。</p>
-
+<h2 id="单变量线性回归linear-regression-with-one-variable">单变量线性回归(Linear Regression with One Variable)
+</h2><h3 id="模型表示">模型表示
+</h3><p>样本数目 : 小写<strong>m</strong><br>
+训练集 : <strong>Training Set</strong><br>
+特征/输入变量 : <strong>$x$</strong><br>
+目标/输出变量 : <strong>$y$</strong><br>
+训练集中的实例 : <strong>($x$,$y$)</strong><br>
+第$i$个观察实例 : <strong>($x^{(i)}$,$y^{(i)}$)</strong><br>
+<strong>学习算法的解决方案或函数也称为假设(hypothesis) : h</strong></p>
+<p>模型表示就是找到将训练集给学习算法找到一个合适的函数$h$ , $y = h(x)$</p>
+<p>函数 $h_\theta(x) = \theta_0 + \theta_1x$<br>
+由于只含有一个特征/输入变量，因此这样的问题叫做单变量线性回归问题。</p>
+<h3 id="代价函数">代价函数
+</h3>
 </section>
 
 
@@ -367,6 +386,32 @@ P 就是它在与一些新的对手比赛时，赢得比赛的概率。</p>
     </section>
     </footer>
 
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
 
     
 </article>
