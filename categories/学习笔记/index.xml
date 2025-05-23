@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>学习笔记 on WJJ</title>
+        <link>https://heimi2022.github.io/Hugo/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+        <description>Recent content in 学习笔记 on WJJ</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Wjj</copyright>
+        <lastBuildDate>Thu, 22 May 2025 16:36:28 +0800</lastBuildDate><atom:link href="https://heimi2022.github.io/Hugo/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Machine-Learning</title>
+        <link>https://heimi2022.github.io/Hugo/p/machine-learning/</link>
+        <pubDate>Thu, 22 May 2025 16:36:28 +0800</pubDate>
+        
+        <guid>https://heimi2022.github.io/Hugo/p/machine-learning/</guid>
+        <description>&lt;h2 id=&#34;引言&#34;&gt;引言
+&lt;/h2&gt;&lt;h3 id=&#34;什么是机器学习&#34;&gt;什么是机器学习
+&lt;/h3&gt;&lt;p&gt;定义如下，一个程序被认为能从&lt;strong&gt;经验 E&lt;/strong&gt; 中学习，解决&lt;strong&gt;任务 T&lt;/strong&gt;，达到&lt;strong&gt;性能度量值P&lt;/strong&gt;，当且仅当，有了经验 E 后，经过 P 评判，程序在处理 T 时的性能有所提升。&lt;/p&gt;
+&lt;p&gt;例如下棋游戏:&lt;br&gt;
+E 就是程序上万次的自我练习的经验。&lt;br&gt;
+T 就是下棋。&lt;br&gt;
+P 就是它在与一些新的对手比赛时，赢得比赛的概率。&lt;/p&gt;
+&lt;h3 id=&#34;监督学习&#34;&gt;监督学习
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;监督学习&lt;/strong&gt;指的就是我们给学习算法一个&lt;strong&gt;数据集&lt;/strong&gt;。这个数据集由“正确答案”组成。学习算法再根据这个数据集作出预测，算出更多的正确答案。&lt;br&gt;
+监督学习的两个例子,&lt;strong&gt;回归问题 与 分类问题&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;回归问题 : 推测出一个&lt;strong&gt;连续&lt;/strong&gt;值的输出结果。&lt;br&gt;
+例如 : 卖水果，数据集3斤卖10元左右，预测4斤能卖多少。&lt;/p&gt;
+&lt;p&gt;分类问题 : 推测出一组&lt;strong&gt;离散&lt;/strong&gt;的结果。&lt;br&gt;
+例如 : 识别红绿灯。&lt;/p&gt;
+&lt;h3 id=&#34;无监督学习&#34;&gt;无监督学习
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;无监督学习&lt;/strong&gt;指的是一种学习策略，它交给算法大量的数据，并让算法为我们从数据中找出某种结构。&lt;br&gt;
+无监督学习中&lt;strong&gt;已知数据没有任何的标签&lt;/strong&gt;是指数据&lt;strong&gt;有相同的标签或者就是没标签&lt;/strong&gt;。&lt;br&gt;
+无监督学习的例子，&lt;strong&gt;聚类算法、鸡尾酒算法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;聚类算法 : 将数据分为几类不同的&lt;strong&gt;簇&lt;/strong&gt;。&lt;br&gt;
+例子 : 谷歌新闻，同一主题新闻归为一类; 市场分割。&lt;/p&gt;
+&lt;p&gt;鸡尾酒算法 : 分离麦克风接收到的不同的人的声音与环境声音。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

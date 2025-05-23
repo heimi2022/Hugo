@@ -28,7 +28,9 @@ git config &amp;ndash;global &amp;ndash;unset https.proxy&lt;/p&gt;
         <pubDate>Thu, 22 May 2025 15:53:57 +0800</pubDate>
         
         <guid>https://heimi2022.github.io/Hugo/p/hugo%E4%BD%BF%E7%94%A8/</guid>
-        <description>&lt;img src="https://heimi2022.github.io/Hugo/p/hugo%E4%BD%BF%E7%94%A8/cover.png" alt="Featured image of post Hugo使用" /&gt;&lt;h2 id=&#34;创建文章&#34;&gt;创建文章
+        <description>&lt;img src="https://heimi2022.github.io/Hugo/p/hugo%E4%BD%BF%E7%94%A8/cover.png" alt="Featured image of post Hugo使用" /&gt;&lt;h2 id=&#34;启动-hugo-服务&#34;&gt;启动 Hugo 服务
+&lt;/h2&gt;&lt;p&gt;hugo server -D&lt;/p&gt;
+&lt;h2 id=&#34;创建文章&#34;&gt;创建文章
 &lt;/h2&gt;&lt;h3 id=&#34;命令创建&#34;&gt;命令创建
 &lt;/h3&gt;&lt;pre&gt;&lt;code&gt;命令 : hugo new post/foldername/*.md 
 其模板来自 archetypes/default.md
