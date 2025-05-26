@@ -47,7 +47,32 @@ P 就是它在与一些新的对手比赛时，赢得比赛的概率。&lt;/p&gt
 &lt;p&gt;函数 $h_\theta(x) = \theta_0 + \theta_1x$&lt;br&gt;
 由于只含有一个特征/输入变量，因此这样的问题叫做单变量线性回归问题。&lt;/p&gt;
 &lt;h3 id=&#34;代价函数&#34;&gt;代价函数
-&lt;/h3&gt;</description>
+&lt;/h3&gt;&lt;p&gt;建模误差:模型所预测的值与训练集中实际值之间的差距 $h_\theta(x^{(i)}) - y^{(i)}$&lt;/p&gt;
+&lt;p&gt;平方误差函数 $J(\theta_0,\theta_1) = \frac{1}{2m}\sum_{i=1}^m(h_\theta(x^{(i)}) - y^{(i)})^2$&lt;br&gt;
+平方误差函数是代价函数之一，对于大多数问题，特别是回归问题，其都是个合理的选择。&lt;br&gt;
+为什么是$\frac{1}{2m}$:&lt;br&gt;
+除以m是为了消除样本数量m对J的影响&lt;br&gt;
+除以2是为了抵消对J关于θ求偏导数时式子多出的一个2，使计算更方便&lt;/p&gt;
+&lt;p&gt;我们的目标就是找到一个合适的参数$\theta_0,\theta_1$使得代价函数最小。 即Goal: $\underset{\theta_0,\theta_1}{minimize}J(\theta_0,\theta_1)$&lt;/p&gt;
+&lt;h3 id=&#34;梯度下降&#34;&gt;梯度下降
+&lt;/h3&gt;&lt;p&gt;梯度下降是一个用来&lt;strong&gt;求函数最小值&lt;/strong&gt;的算法，可以用其来求出使代价函数$J$最小的参数$\theta_0$和$\theta_1$的值。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;梯度下降的思想&lt;/strong&gt; : 开始时，随机选择一组参数$(\theta_0,\theta_1)$,计算代价函数,然后寻找下一个能让代价函数下降最多的参数组合。持续这种操作，直至找到一个局部最小值。&lt;br&gt;
+局部最小值不等同于全局最小值。不同的初始参数会可能会得到完全不同的局部最小值。&lt;/p&gt;
+&lt;h4 id=&#34;批量梯度下降算法batch-gradient-descent&#34;&gt;批量梯度下降算法(batch gradient descent)
+&lt;/h4&gt;&lt;p&gt;批量 batch 指的是，在梯度下降的每一步中，都用到来所有的训练样本。&lt;/p&gt;
+&lt;p&gt;公式为:
+&lt;/p&gt;
+$$
+\begin{aligned}
+&amp;\text{repeat until convergence（重复直至收敛）} \ \{ \\
+&amp;\quad \theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1) \quad (\text{for } j = 0 \text{ and } j = 1) \\
+&amp;\}
+\end{aligned}
+$$&lt;p&gt;其中$\alpha$是学习率，其决定了我们沿代价函数梯度方向向下迈出的幅度有多大。&lt;br&gt;
+$\alpha$太小，需要很多步才能够达到局部最低点。&lt;br&gt;
+$\alpha$太大，梯度下降法可能会越过最低点，甚至可能无法收敛，导致发散。&lt;/p&gt;
+&lt;p&gt;在梯度下降法中，当参数取值接近局部最低点时，梯度下降法会自动采取更小的幅度，因为代价函数导数会趋向于0。&lt;/p&gt;
+</description>
         </item>
         
     </channel>
