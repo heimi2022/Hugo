@@ -16,32 +16,6 @@
         <description>&lt;h2 id=&#34;公式&#34;&gt;公式
 &lt;/h2&gt;&lt;h3 id=&#34;上标与下标&#34;&gt;上标与下标
 &lt;/h3&gt;&lt;p&gt;用^来输出上标，使用_来输出下标，使用{}包含作用范围。&lt;/p&gt;
-&lt;h4 id=&#34;举例&#34;&gt;举例
-&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;\sin^2(\theta) + \cos^2(\theta) = 1
-$$
-    \sin^2(\theta) + \cos^2(\theta) = 1
-    $$&lt;/li&gt;
-&lt;li&gt;\sum_{n=1}^\infty k
-$$
-\sum_{n=1}^\infty k
-$$&lt;/li&gt;
-&lt;li&gt;\int_a^bf(x),dx
-$$
-\int_a^bf(x)\,dx
-$$&lt;/li&gt;
-&lt;li&gt;\lim\limits_{x\to\infty}\exp(-x) = 0
-$$
-\lim\limits_{x\to\infty}\exp(-x) = 0
-$$&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;数学结构&#34;&gt;数学结构
-&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;分式 \frac{a}{b}  :  $\frac{a}{b}$&lt;/li&gt;
-&lt;li&gt;根式 \sqrt[n]{a}  :  $\sqrt[n]{a}$&lt;/li&gt;
-&lt;li&gt;求导 f&amp;rsquo; : $f&#39;$&lt;/li&gt;
-&lt;li&gt;其它 上划线:\overline{a},下划线\underline{a},上右箭头\overrightarrow{a}:$\overrightarrow{a}$&lt;/li&gt;
-&lt;/ol&gt;
 &lt;h3 id=&#34;空格表示&#34;&gt;空格表示
 &lt;/h3&gt;&lt;p&gt;两个quad空格&amp;mdash;&amp;mdash;&amp;mdash;a \qquad b&amp;mdash;&amp;mdash;&amp;mdash;两个m的宽度&lt;br&gt;
 quad空格&amp;mdash;&amp;mdash;&amp;mdash;a \quad b&amp;mdash;&amp;mdash;&amp;mdash;一个m的宽度&lt;br&gt;
@@ -50,13 +24,62 @@ quad空格&amp;mdash;&amp;mdash;&amp;mdash;a \quad b&amp;mdash;&amp;mdash;&amp;m
 小空格	a,b&amp;mdash;&amp;mdash;&amp;mdash;a,b&amp;mdash;&amp;mdash;&amp;mdash;1/6m宽度&lt;br&gt;
 没有空格&amp;mdash;&amp;mdash;&amp;mdash;ab&lt;br&gt;
 紧贴&amp;mdash;&amp;mdash;&amp;mdash;a!b&amp;mdash;&amp;mdash;&amp;mdash;缩进1/6m宽度&lt;/p&gt;
-&lt;h3 id=&#34;其它符号&#34;&gt;其它符号
+&lt;h3 id=&#34;数学结构&#34;&gt;数学结构
 &lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;偏导数 \partial&lt;/li&gt;
+&lt;li&gt;分式 \frac{a}{b}  :  $\frac{a}{b}$&lt;/li&gt;
+&lt;li&gt;根式 \sqrt[n]{a}  :  $\sqrt[n]{a}$&lt;/li&gt;
+&lt;li&gt;求导 f&amp;rsquo; : $f&#39;$&lt;/li&gt;
+&lt;li&gt;求和$\sum$ ：\sum&lt;/li&gt;
+&lt;li&gt;极限 $\lim\limits_{x\to\infty}$：\lim\limits_{x\to\infty}&lt;/li&gt;
+&lt;li&gt;积分号$\int$：\int&lt;/li&gt;
+&lt;li&gt;其它 上划线:\overline{a},下划线\underline{a},上右箭头\overrightarrow{a}:$\overrightarrow{a}$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;数学函数&#34;&gt;数学函数
+&lt;/h3&gt;&lt;p&gt;1.三角函数 $\sin$：\sin ; $\cos$：\cos;&lt;/p&gt;
+&lt;h3 id=&#34;数学符号&#34;&gt;数学符号
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;偏导数 $\partial$  ：\partial&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;数学运算&#34;&gt;数学运算
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;点乘 $a \cdot b$：\cdot&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;叉乘 $a \times b$：\times&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;除以 $a \div b$：\div&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;希腊字母&#34;&gt;希腊字母
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;$\alpha \beta \gamma \delta \epsilon \zeta \eta \theta$：\alpha \beta \gamma \delta \epsilon \zeta \eta \theta&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\iota \kappa \lambda \mu \nu \omicron \xi \pi$  ：\iota \kappa \lambda \mu \nu \omicron \xi \pi&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\rho \sigma \tau \upsilon \phi \chi \psi \omega$：\rho \sigma \tau \upsilon \phi \chi \psi \omega&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\Alpha \Beta \Gamma \Delta \Epsilon \Zeta \Eta \Theta$：\Alpha \Beta \Gamma \Delta \Epsilon \Zeta \Eta \Theta&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\Iota \Kappa \Lambda \Mu \Nu \Xi \Omicron \Pi$：\Iota \Kappa \Lambda \Mu \Nu \Xi \Omicron \Pi&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\Rho \Sigma \Tau \Upsilon \Phi \Chi \Psi \Omega$：\Rho \Sigma \Tau \Upsilon \Phi \Chi \Psi \Omega&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;关系符号&#34;&gt;关系符号
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;$\leqslant ， \geqslant ，\le ，\ge$：\leqslant ， \geqslant ，\le ，\ge&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;括号&#34;&gt;括号
 &lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;大括号 \left{ + \right}&lt;/li&gt;
+&lt;li&gt;大括号 {&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4 id=&#34;其它&#34;&gt;其它
 &lt;/h4&gt;&lt;ol&gt;
