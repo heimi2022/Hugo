@@ -288,6 +288,20 @@
         </li>
       </ol>
     </li>
+    <li><a href="#逻辑回归">逻辑回归</a>
+      <ol>
+        <li><a href="#假说表示">假说表示</a></li>
+        <li><a href="#决策边界">决策边界</a></li>
+        <li><a href="#代价函数-1">代价函数</a>
+          <ol>
+            <li><a href="#逻辑回归中cost函数特点">逻辑回归中Cost函数特点</a></li>
+            <li><a href="#简化后的代价函数">简化后的代价函数</a></li>
+          </ol>
+        </li>
+        <li><a href="#高级优化">高级优化</a></li>
+        <li><a href="#多类别分类">多类别分类</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -515,6 +529,61 @@ $$<h3 id="梯度下降法">梯度下降法
 <li>有两个特征线性相关。  解决：使用正规方程前，剔除相关特征。</li>
 <li>含有大量特征，进而出现$m \leqslant n$时。  解决：剔除特征，用较少特征反应尽可能多的内容。</li>
 </ol>
+<h2 id="逻辑回归">逻辑回归
+</h2><p>逻辑回归算法是一种分类算法。</p>
+<p>分类问题预测的变量$y$为<strong>离散值</strong>。</p>
+<h3 id="假说表示">假说表示
+</h3><p>引入一个<strong>逻辑函数Sigmoid function</strong>，S形函数，公式为$g(z)=\frac{1}{1+e^{-z}}$。</p>
+<p>令逻辑回归模型的假设是：$h_\theta(x)=g(\theta^T X)$,$X$代表特征向量，$g$代表逻辑函数。</p>
+<p>此时模型的输出变量范围始终在0和1之间。</p>
+<p>$h_\theta(x)$表示，对于给定的输入变量，根据选择的参数，计算输出变量为1的可能性，即：
+</p>
+$$
+h_\theta(x)=P(y=1|x;\theta)
+$$<h3 id="决策边界">决策边界
+</h3><p>在逻辑回归中，假设：<br>
+</p>
+$$
+y = \begin{cases}
+1, & \text{if } h_\theta(x) \geq 0.5 \\
+0, & \text{if } h_\theta(x) < 0.5
+\end{cases}
+$$<p>因此当$\theta^T x \geqslant 0$时，预测$y=1$，当$\theta^T x &lt; 0$时，预测$y=0$。</p>
+<p>因此对于一组参数$\theta$，有$\theta^T x=0$，这条<strong>曲线</strong>即为模型的决策边界。</p>
+<h3 id="代价函数-1">代价函数
+</h3><p>为什么逻辑回归的代价函数和线性回归的不同？由于sigmoid函数的非线性，导致逻辑回归的假设函数带入代价函数时，会导致代价函数有很多局部最小值，其是一个非凸函数。因此需对代价函数进行修正。</p>
+<p>定义逻辑回归的代价函数$J(\theta)=\frac{1}{m} \sum^m_{i=1} Cost(h_\theta(x^{(i)}),y^{(i)})$，其中
+</p>
+$$
+Cost(h_\theta(x^{(i)}),y^{(i)}) = \begin{cases}
+   -log( h_\theta(x)) \quad &  if\quad y=1, &  \\
+   -log( 1- h_\theta(x)) &  if\quad y=0, &  \\
+\end{cases}
+\overset{简化}{=} -ylog( h_\theta(x))-(1-y)log( 1- h_\theta(x))
+$$<h4 id="逻辑回归中cost函数特点">逻辑回归中Cost函数特点
+</h4><p>当实际的$y=1$且$h_\theta(x)=1$时，误差为0，当$y=1$但$h_\theta(x)$不为1时，误差随着$h_\theta(x)$的变小而变大。当$h_\theta(x)$减小为0，表示预测与实际完全相反，其误差为无穷大，这时代价函数将会受到很大的惩罚；当实际的$y=0$且$h_\theta(x)=0$时，误差为0，当$y=0$但$h_\theta(x)$不为0时，误差随着$h_\theta(x)$的变大而变大。</p>
+<h4 id="简化后的代价函数">简化后的代价函数
+</h4>$$
+\begin{aligned}
+J(\theta)& = \frac{1}{m} \sum^m_{i=1} Cost(h_\theta(x^{(i)}),y^{(i)}) & \\
+& = -\frac{1}{m} [\sum^m_{i=1}-ylog( h_\theta(x))-(1-y)log( 1- h_\theta(x))] &\\
+\end{aligned}
+$$<p>最小化代价函数的方法<strong>是梯度下降法</strong>：
+</p>
+$$
+\begin{aligned}
+\text{Repeat}& \{ \\
+& \theta_j := \theta_j - \alpha \frac{1}{m} \sum^m_{i=1}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)} \\
+&\}
+\end{aligned}
+$$<p>虽然其形式上与线性回归的梯度下降法相同，但由于回归的模型假设发生了变化，两者是完全不同的函数。</p>
+<h3 id="高级优化">高级优化
+</h3><p>优化算法：共轭梯度法BFGS（变尺度法）和L-BFGS（限制遍尺度法）。</p>
+<p>优点：不需要手动选择学习率。</p>
+<h3 id="多类别分类">多类别分类
+</h3><p>假设有n个类别，则将其分为<strong>n个</strong>1对（n-1）的<strong>二元分类问题</strong>。</p>
+<p>记每一个分类问题的模型为：$h_\theta ^{(i)} (x)= p(y=i|x;\theta)$，其中$i=(1,2,3,&hellip;,k)$。</p>
+<p>最终输出结果为让$h_\theta ^{(i)} (x)$最大的i，即$\mathop{max}\limits_{i} ; h_\theta ^{(i)} (x)$。</p>
 
 </section>
 
