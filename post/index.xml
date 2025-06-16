@@ -353,6 +353,32 @@ $$&lt;p&gt;虽然其形式上与线性回归的梯度下降法相同，但由于
 &lt;/h3&gt;&lt;p&gt;假设有n个类别，则将其分为&lt;strong&gt;n个&lt;/strong&gt;1对（n-1）的&lt;strong&gt;二元分类问题&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;记每一个分类问题的模型为：$h_\theta ^{(i)} (x)= p(y=i|x;\theta)$，其中$i=(1,2,3,&amp;hellip;,k)$。&lt;/p&gt;
 &lt;p&gt;最终输出结果为让$h_\theta ^{(i)} (x)$最大的i，即$\mathop{max}\limits_{i} ; h_\theta ^{(i)} (x)$。&lt;/p&gt;
+&lt;h2 id=&#34;正则化&#34;&gt;正则化
+&lt;/h2&gt;&lt;h3 id=&#34;过拟合&#34;&gt;过拟合
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;过拟合&lt;/strong&gt;指通过学习得到的假设可能能够非常好的适应训练集（代价函数可能几乎为0），但是可能&lt;strong&gt;不会&lt;/strong&gt;推广到预测新的数据。&lt;/p&gt;
+&lt;p&gt;当有&lt;strong&gt;过多的变量但只有很少的训练数据&lt;/strong&gt;时很容易出现过拟合问题。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;欠拟合&lt;/strong&gt;指模型不能适应训练集。&lt;/p&gt;
+&lt;h4 id=&#34;解决过拟合&#34;&gt;解决过拟合
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;减少特征变量的数目 &amp;ndash; 人工选择去除一些变量；模型算法选择（如PCA）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;正则化&lt;/strong&gt; &amp;ndash; 保留所有的特征变量，但减小参数$\theta$的大小。 其适用于有很多特征变量，且每一个特征变量看起来对预测结果都有一点用的情况。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;代价函数-2&#34;&gt;代价函数
+&lt;/h3&gt;&lt;h4 id=&#34;正则化的直观理解&#34;&gt;正则化的直观理解
+&lt;/h4&gt;&lt;p&gt;假设模型为$h_\theta(x)=\theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3 + \theta_4 x^4$，且高次项导致了过拟合的产生，则&lt;strong&gt;假如能让高次项的系数趋向于0，就能够缓解过拟合的问题&lt;/strong&gt;了。 因此修改代价函数 ，对$\theta_3 \text{和}\theta_4$设置一些惩罚，如下所示：
+&lt;/p&gt;
+$$
+J(\theta)=\frac{1}{2m}[\sum^m_{i=1}(h_\theta(x^{(i)})-y^{(i)})^2+1000 \theta_3^2 + 1000 \theta_4^2]
+$$&lt;p&gt;
+则通过这样的代价函数选择出来的$\theta_3 \text{和}\theta_4$对预测结果的影响就很小了。&lt;/p&gt;
+&lt;h4 id=&#34;带正则化参数的代价函数&#34;&gt;带正则化参数的代价函数
+&lt;/h4&gt;&lt;p&gt;修改后的代价函数如下：
+&lt;/p&gt;
+$$
+J(\theta)=\frac{1}{2m}[\sum^m_{i=1}(h_\theta(x^{(i)})-y^{(i)})^2+\lambda \sum^n_{j=1}\theta_j^2]
+$$&lt;p&gt;
+其中，$\lambda$成为正则化参数。&lt;/p&gt;
+&lt;p&gt;假如$\lambda$太大，则所有$\theta$都会趋于0，除了$\theta_0$，这样最终模型为一条平行于x轴的直线，导致欠拟合。&lt;/p&gt;
 </description>
         </item>
         <item>
