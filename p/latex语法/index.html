@@ -257,9 +257,14 @@
         <li><a href="#数学运算">数学运算</a></li>
         <li><a href="#希腊字母">希腊字母</a></li>
         <li><a href="#关系符号">关系符号</a></li>
-        <li><a href="#括号">括号</a>
+        <li><a href="#括号">括号</a></li>
+        <li><a href="#其它">其它</a></li>
+        <li><a href="#矩阵条件表达式方程组">矩阵、条件表达式、方程组</a>
           <ol>
-            <li><a href="#其它">其它</a></li>
+            <li><a href="#无框矩阵-matrix">无框矩阵 matrix</a></li>
+            <li><a href="#有框矩阵-pmatrixbmatrixvmatrix">有框矩阵 pmatrix、bmatrix、vmatrix</a></li>
+            <li><a href="#条件表达式方程组cases">条件表达式、方程组：cases</a></li>
+            <li><a href="#多行等式-aligned">多行等式 aligned</a></li>
           </ol>
         </li>
       </ol>
@@ -370,24 +375,12 @@ quad空格&mdash;&mdash;&mdash;a \quad b&mdash;&mdash;&mdash;一个m的宽度<br
 </ol>
 <h3 id="希腊字母">希腊字母
 </h3><ol>
-<li>
-<p>$\alpha \beta \gamma \delta \epsilon \zeta \eta \theta$：\alpha \beta \gamma \delta \epsilon \zeta \eta \theta</p>
-</li>
-<li>
-<p>$\iota \kappa \lambda \mu \nu \omicron \xi \pi$  ：\iota \kappa \lambda \mu \nu \omicron \xi \pi</p>
-</li>
-<li>
-<p>$\rho \sigma \tau \upsilon \phi \chi \psi \omega$：\rho \sigma \tau \upsilon \phi \chi \psi \omega</p>
-</li>
-<li>
-<p>$\Alpha \Beta \Gamma \Delta \Epsilon \Zeta \Eta \Theta$：\Alpha \Beta \Gamma \Delta \Epsilon \Zeta \Eta \Theta</p>
-</li>
-<li>
-<p>$\Iota \Kappa \Lambda \Mu \Nu \Xi \Omicron \Pi$：\Iota \Kappa \Lambda \Mu \Nu \Xi \Omicron \Pi</p>
-</li>
-<li>
-<p>$\Rho \Sigma \Tau \Upsilon \Phi \Chi \Psi \Omega$：\Rho \Sigma \Tau \Upsilon \Phi \Chi \Psi \Omega</p>
-</li>
+<li>$\alpha \beta \gamma \delta \epsilon \zeta \eta \theta$：\alpha \beta \gamma \delta \epsilon \zeta \eta \theta</li>
+<li>$\iota \kappa \lambda \mu \nu \omicron \xi \pi$  ：\iota \kappa \lambda \mu \nu \omicron \xi \pi</li>
+<li>$\rho \sigma \tau \upsilon \phi \chi \psi \omega$：\rho \sigma \tau \upsilon \phi \chi \psi \omega</li>
+<li>$\Alpha \Beta \Gamma \Delta \Epsilon \Zeta \Eta \Theta$：\Alpha \Beta \Gamma \Delta \Epsilon \Zeta \Eta \Theta</li>
+<li>$\Iota \Kappa \Lambda \Mu \Nu \Xi \Omicron \Pi$：\Iota \Kappa \Lambda \Mu \Nu \Xi \Omicron \Pi</li>
+<li>$\Rho \Sigma \Tau \Upsilon \Phi \Chi \Psi \Omega$：\Rho \Sigma \Tau \Upsilon \Phi \Chi \Psi \Omega</li>
 </ol>
 <h3 id="关系符号">关系符号
 </h3><ol>
@@ -395,16 +388,149 @@ quad空格&mdash;&mdash;&mdash;a \quad b&mdash;&mdash;&mdash;一个m的宽度<br
 </ol>
 <h3 id="括号">括号
 </h3><ol>
-<li>大括号 {</li>
+<li>大括号 <code>\{</code></li>
 </ol>
-<h4 id="其它">其它
-</h4><ol>
+<h3 id="其它">其它
+</h3><ol>
 <li>\underset{123}{abc} : $\underset{123}{abc}$</li>
-<li>换行   $\text{\ \}$</li>
 <li>使用 <strong>\limits</strong> 将下标放在某个文字或者符号的正下方。</li>
 <li>用**\mathop**{文本}命令将文本转化成数学符号</li>
+<li><strong>省略符号</strong>： <code>\cdots</code> $\cdots$ , <code>\ddots</code> $\ddots$ , <code>\vdots</code> $\vdots$</li>
 </ol>
-
+<h3 id="矩阵条件表达式方程组">矩阵、条件表达式、方程组
+</h3><p>语法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">\begin{类型}
+</span></span><span class="line"><span class="cl">	公式内容
+</span></span><span class="line"><span class="cl">\end{类型}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="无框矩阵-matrix">无框矩阵 matrix
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">\begin{matrix}
+</span></span><span class="line"><span class="cl">x &amp; y \\
+</span></span><span class="line"><span class="cl">z &amp; v
+</span></span><span class="line"><span class="cl">\end{matrix}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>$$
+\begin{matrix}
+x & y \\
+z & v
+\end{matrix}
+$$<h4 id="有框矩阵-pmatrixbmatrixvmatrix">有框矩阵 pmatrix、bmatrix、vmatrix
+</h4><ol>
+<li>vmatrix</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">\begin{vmatrix}
+</span></span><span class="line"><span class="cl">x &amp; y \\
+</span></span><span class="line"><span class="cl">z &amp; v
+</span></span><span class="line"><span class="cl">\end{vmatrix}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>$$
+\begin{vmatrix}
+x & y \\
+z & v
+\end{vmatrix}
+$$<ol start="2">
+<li><strong>V</strong>matrix</li>
+</ol>
+$$
+\begin{Vmatrix}
+x & y \\
+z & v
+\end{Vmatrix}
+$$<ol start="3">
+<li>bmatrix</li>
+</ol>
+$$
+\begin{bmatrix}
+0      & \cdots & 0      \\
+\vdots & \ddots & \vdots \\
+0      & \cdots & 0
+\end{bmatrix}
+$$<ol start="4">
+<li><strong>B</strong>matrix</li>
+</ol>
+$$
+\begin{Bmatrix}
+a      & b      \\
+c      & d
+\end{Bmatrix}
+$$<ol start="5">
+<li>pmatrix</li>
+</ol>
+$$
+\begin{pmatrix}
+x & y \\
+z & v
+\end{pmatrix}
+$$<h4 id="条件表达式方程组cases">条件表达式、方程组：cases
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">f(n) =
+</span></span><span class="line"><span class="cl">\begin{cases} 
+</span></span><span class="line"><span class="cl">1,  &amp; \text{if n is 1} \\
+</span></span><span class="line"><span class="cl">2, &amp; \text{if n is 2}
+</span></span><span class="line"><span class="cl">\end{cases}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>$$
+f(n) =
+\begin{cases} 
+1,  & \text{if n is 1} \\
+2, & \text{if n is 2}
+\end{cases}
+$$<h4 id="多行等式-aligned">多行等式 aligned
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">\begin{aligned}
+</span></span><span class="line"><span class="cl">f(x) &amp; = 2 \\
+</span></span><span class="line"><span class="cl">     &amp; = 1+1 \\
+</span></span><span class="line"><span class="cl">\end{aligned}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>$$
+\begin{aligned}
+f(x) & = 2 \\
+     & = 1+1 \\
+\end{aligned}
+$$
 </section>
 
 

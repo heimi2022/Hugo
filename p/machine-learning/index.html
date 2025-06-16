@@ -294,7 +294,7 @@
         <li><a href="#决策边界">决策边界</a></li>
         <li><a href="#代价函数-1">代价函数</a>
           <ol>
-            <li><a href="#逻辑回归中cost函数特点">逻辑回归中Cost函数特点</a></li>
+            <li><a href="#逻辑回归中-cost-函数特点">逻辑回归中 Cost 函数特点</a></li>
             <li><a href="#简化后的代价函数">简化后的代价函数</a></li>
           </ol>
         </li>
@@ -315,6 +315,18 @@
             <li><a href="#带正则化参数的代价函数">带正则化参数的代价函数</a></li>
           </ol>
         </li>
+        <li><a href="#正则化线性回归">正则化线性回归</a>
+          <ol>
+            <li><a href="#梯度下降-1">梯度下降</a></li>
+            <li><a href="#正规化">正规化</a></li>
+          </ol>
+        </li>
+        <li><a href="#正则化逻辑回归">正则化逻辑回归</a></li>
+      </ol>
+    </li>
+    <li><a href="#神经网络">神经网络</a>
+      <ol>
+        <li><a href="#模型表示-1">模型表示</a></li>
       </ol>
     </li>
   </ol>
@@ -452,9 +464,9 @@ $\alpha$ 太大，梯度下降法可能会越过最低点，甚至可能无法�
 $$
 h_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2+...+\theta_nx_n
 $$<p>
-此时模型中参数为一个$n+1$维向量</p>
-<p>任何一个训练实例也都是一个$n+1$维向量</p>
-<p>特征矩阵X的维度是$m*(n+1)$</p>
+此时模型中参数为一个 $n+1$ 维向量</p>
+<p>任何一个训练实例也都是一个 $n+1$ 维向量</p>
+<p>特征矩阵 X 的维度是 $m*(n+1)$</p>
 <p>因此公式可以简化为</p>
 $$
 h_\theta(x)=\theta^TX
@@ -462,7 +474,7 @@ $$<h3 id="多变量梯度下降">多变量梯度下降
 </h3><p>代价函数为所有建模误差的平方和，即:<br>
 </p>
 $$
-J(\theta_0,\theta_1,...,\theta_n)=\frac{1}{2m}\sum^m_{i=1}(h_\theta(x^{(i)})-y^{(i)})^2
+J(\theta_0,\theta_1,...,\theta_n)=\frac{1}{2m}\sum^m_{i = 1}(h_\theta(x^{(i)})-y^{(i)})^2
 $$<p>多变量线性回归的批量梯度下降算法为：
 </p>
 $$
@@ -475,7 +487,7 @@ $$<p>即:</p>
 $$
 \begin{aligned}
 &\text{repeat} \{ \\
-&\quad \theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} \frac{1}{2m} \sum^m_{i=1}(h_\theta(x^{(i)})-y^{(i)})^2 \\
+&\quad \theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} \frac{1}{2m} \sum^m_{i = 1}(h_\theta(x^{(i)})-y^{(i)})^2 \\
 &\}
 \end{aligned}
 $$<p>
@@ -484,34 +496,34 @@ $$<p>
 $$
 \begin{aligned}
 &\text{repeat} \{ \\
-&\quad \theta_j := \theta_j - \alpha  \frac{1}{m} \sum^m_{i=1}(h_\theta(x^{(i)})-y^{(i)}) \cdot x_j^{(i)} \\
+&\quad \theta_j := \theta_j - \alpha  \frac{1}{m} \sum^m_{i = 1}(h_\theta(x^{(i)})-y^{(i)}) \cdot x_j^{(i)} \\
 &\}
 \end{aligned}
 $$<h3 id="梯度下降法">梯度下降法
 </h3><h4 id="特征缩放">特征缩放
 </h4><p>使特征具有相近的尺度有助于梯度下降宣发更快的收敛。</p>
-<p>方法：将所有特征的尺度都尽量缩放到-1到1<strong>这种小范围</strong>内，也不能太小。</p>
-<p>最简单的，令$x_n=\frac{x_n-\mu_n}{s_n}$,其中$\mu_n$是平均值，$s_n$是标准差。</p>
+<p>方法：将所有特征的尺度都尽量缩放到-1 到 1 <strong>这种小范围</strong> 内，也不能太小。</p>
+<p>最简单的，令 $x_n=\frac{x_n-\mu_n}{s_n}$, 其中 $\mu_n$ 是平均值，$s_n$ 是标准差。</p>
 <h4 id="学习率">学习率
-</h4><p>梯度下降算法收敛所需要的迭代次数根据模型的不同而不同，可以绘制<strong>迭代次数-代价函数</strong>的图表来观测算法在何时收敛。</p>
-<p>梯度下降算法的每次迭代受学习率$\alpha $影响：</p>
+</h4><p>梯度下降算法收敛所需要的迭代次数根据模型的不同而不同，可以绘制 <strong>迭代次数-代价函数</strong> 的图表来观测算法在何时收敛。</p>
+<p>梯度下降算法的每次迭代受学习率 $\alpha $ 影响：</p>
 <ol>
-<li>$\alpha$太小，则到达收敛所需的迭代次数很大，但理论上终会收敛。</li>
-<li>$\alpha $太大，每次迭代可能不会减小代价函数，可能会越过局部最小值导致无法收敛。</li>
+<li>$\alpha$ 太小，则到达收敛所需的迭代次数很大，但理论上终会收敛。</li>
+<li>$\alpha $ 太大，每次迭代可能不会减小代价函数，可能会越过局部最小值导致无法收敛。</li>
 </ol>
-<p>调整学习率时可以采用以下<strong>策略</strong>：从0.001开始每次上在原基础上乘3倍，<strong>最终选择一个较大的可以使得代价函数收敛的$\alpha $</strong>。</p>
+<p>调整学习率时可以采用以下 <strong>策略</strong>：从 0.001 开始每次上在原基础上乘 3 倍，<strong>最终选择一个较大的可以使得代价函数收敛的 $\alpha $</strong>。</p>
 <p>如：0.001，0.003，0.01，0.03，0.1</p>
 <h3 id="特征选择与多项式回归">特征选择与多项式回归
 </h3><h4 id="特征选择">特征选择
-</h4><p>建立模型时，可以<strong>根据需要选择适合模型的特征</strong>而不局限于数据集中的特征。比如：数据集给出房子的长和宽，预测房价时，可以创造一个特征为 <strong>面积=长*宽</strong> 作为模型的新特征。</p>
+</h4><p>建立模型时，可以 <strong>根据需要选择适合模型的特征</strong> 而不局限于数据集中的特征。比如：数据集给出房子的长和宽，预测房价时，可以创造一个特征为 *<em>面积 = 长 <em>宽</em></em> 作为模型的新特征。</p>
 <h4 id="多项式回归">多项式回归
 </h4><p><strong>线性回归并不适合所有数据</strong>，有时需要曲线来适应数据，比如：</p>
-<p>三次方模型$h_\theta(x)=\theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3$</p>
+<p>三次方模型 $h_\theta(x)=\theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3$</p>
 <p>使用多项式回归模型，特征缩放很有必要。</p>
 <h3 id="正规方程">正规方程
-</h3><p>当特征数量小于10000时（对于目前的计算机），通常采用正规方程的方法找到一组最优参数$\theta$。</p>
+</h3><p>当特征数量小于 10000 时（对于目前的计算机），通常采用正规方程的方法找到一组最优参数 $\theta$。</p>
 <p>正规方程是通过求解下面的方程来找出使得代价函数最小的参数的：$\frac{\partial}{\partial \theta_j} J(\theta_j)=0$，</p>
-<p>其<strong>解</strong>为$\theta=(X^TX)^{-1}X^Ty$。$X$为训练集特征矩阵，$y$为训练集结果。</p>
+<p>其 <strong>解</strong> 为 $\theta=(X^TX)^{-1}X^Ty$。$X$ 为训练集特征矩阵，$y$ 为训练集结果。</p>
 <h4 id="梯度下降于正规方程的比较">梯度下降于正规方程的比较
 </h4><div class="table-wrapper"><table>
   <thead>
@@ -522,7 +534,7 @@ $$<h3 id="梯度下降法">梯度下降法
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: center">需要选择学习率$\alpha $</td>
+          <td style="text-align: center">需要选择学习率 $\alpha $</td>
           <td style="text-align: center">不需要</td>
       </tr>
       <tr>
@@ -530,8 +542,8 @@ $$<h3 id="梯度下降法">梯度下降法
           <td style="text-align: center">一次运算得出</td>
       </tr>
       <tr>
-          <td style="text-align: center">特征数量n大时也可用</td>
-          <td style="text-align: center">矩阵逆的计算时间复杂度为$O(n^3)$。因此n小于10000时，可以接受</td>
+          <td style="text-align: center">特征数量 n 大时也可用</td>
+          <td style="text-align: center">矩阵逆的计算时间复杂度为 $O(n^3)$。因此 n 小于 10000 时，可以接受</td>
       </tr>
       <tr>
           <td style="text-align: center">使用于各种类型</td>
@@ -542,19 +554,19 @@ $$<h3 id="梯度下降法">梯度下降法
 <p>以下情况时，正规方程不能用：</p>
 <ol>
 <li>有两个特征线性相关。  解决：使用正规方程前，剔除相关特征。</li>
-<li>含有大量特征，进而出现$m \leqslant n$时。  解决：剔除特征，用较少特征反应尽可能多的内容。</li>
+<li>含有大量特征，进而出现 $m \leqslant n$ 时。  解决：剔除特征，用较少特征反应尽可能多的内容。</li>
 </ol>
 <h2 id="逻辑回归">逻辑回归
 </h2><p>逻辑回归算法是一种分类算法。</p>
-<p>分类问题预测的变量$y$为<strong>离散值</strong>。</p>
+<p>分类问题预测的变量 $y$ 为 <strong>离散值</strong>。</p>
 <h3 id="假说表示">假说表示
-</h3><p>引入一个<strong>逻辑函数Sigmoid function</strong>，S形函数，公式为$g(z)=\frac{1}{1+e^{-z}}$。</p>
-<p>令逻辑回归模型的假设是：$h_\theta(x)=g(\theta^T X)$,$X$代表特征向量，$g$代表逻辑函数。</p>
-<p>此时模型的输出变量范围始终在0和1之间。</p>
-<p>$h_\theta(x)$表示，对于给定的输入变量，根据选择的参数，计算输出变量为1的可能性，即：
+</h3><p>引入一个 <strong>逻辑函数 Sigmoid function</strong>，S 形函数，公式为 $g(z)=\frac{1}{1+e^{-z}}$。</p>
+<p>令逻辑回归模型的假设是：$h_\theta(x)=g(\theta^T X)$, $X$ 代表特征向量，$g$ 代表逻辑函数。</p>
+<p>此时模型的输出变量范围始终在 0 和 1 之间。</p>
+<p>$h_\theta(x)$ 表示，对于给定的输入变量，根据选择的参数，计算输出变量为 1 的可能性，即：
 </p>
 $$
-h_\theta(x)=P(y=1|x;\theta)
+h_\theta(x)= P(y = 1|x;\theta)
 $$<h3 id="决策边界">决策边界
 </h3><p>在逻辑回归中，假设：<br>
 </p>
@@ -563,68 +575,113 @@ y = \begin{cases}
 1, & \text{if } h_\theta(x) \geq 0.5 \\
 0, & \text{if } h_\theta(x) < 0.5
 \end{cases}
-$$<p>因此当$\theta^T x \geqslant 0$时，预测$y=1$，当$\theta^T x &lt; 0$时，预测$y=0$。</p>
-<p>因此对于一组参数$\theta$，有$\theta^T x=0$，这条<strong>曲线</strong>即为模型的决策边界。</p>
+$$<p>因此当 $\theta^T x \geqslant 0$ 时，预测 $y=1$，当 $\theta^T x &lt; 0$ 时，预测 $y=0$。</p>
+<p>因此对于一组参数 $\theta$，有 $\theta^T x=0$，这条 <strong>曲线</strong> 即为模型的决策边界。</p>
 <h3 id="代价函数-1">代价函数
-</h3><p>为什么逻辑回归的代价函数和线性回归的不同？由于sigmoid函数的非线性，导致逻辑回归的假设函数带入代价函数时，会导致代价函数有很多局部最小值，其是一个非凸函数。因此需对代价函数进行修正。</p>
-<p>定义逻辑回归的代价函数$J(\theta)=\frac{1}{m} \sum^m_{i=1} Cost(h_\theta(x^{(i)}),y^{(i)})$，其中
+</h3><p>为什么逻辑回归的代价函数和线性回归的不同？由于 sigmoid 函数的非线性，导致逻辑回归的假设函数带入代价函数时，会导致代价函数有很多局部最小值，其是一个非凸函数。因此需对代价函数进行修正。</p>
+<p>定义逻辑回归的代价函数 $J(\theta)=\frac{1}{m} \sum^m_{i=1} Cost(h_\theta(x^{(i)}),y^{(i)})$，其中
 </p>
 $$
-Cost(h_\theta(x^{(i)}),y^{(i)}) = \begin{cases}
-   -log( h_\theta(x)) \quad &  if\quad y=1, &  \\
-   -log( 1- h_\theta(x)) &  if\quad y=0, &  \\
+Cost(h_\theta(x^{(i)}), y^{(i)}) = \begin{cases}
+   -log( h_\theta(x)) \quad &  if\quad y = 1, &  \\
+   -log( 1- h_\theta(x)) &  if\quad y = 0, &  \\
 \end{cases}
 \overset{简化}{=} -ylog( h_\theta(x))-(1-y)log( 1- h_\theta(x))
-$$<h4 id="逻辑回归中cost函数特点">逻辑回归中Cost函数特点
-</h4><p>当实际的$y=1$且$h_\theta(x)=1$时，误差为0，当$y=1$但$h_\theta(x)$不为1时，误差随着$h_\theta(x)$的变小而变大。当$h_\theta(x)$减小为0，表示预测与实际完全相反，其误差为无穷大，这时代价函数将会受到很大的惩罚；当实际的$y=0$且$h_\theta(x)=0$时，误差为0，当$y=0$但$h_\theta(x)$不为0时，误差随着$h_\theta(x)$的变大而变大。</p>
+$$<h4 id="逻辑回归中-cost-函数特点">逻辑回归中 Cost 函数特点
+</h4><p>当实际的 $y=1$ 且 $h_\theta(x)=1$ 时，误差为 0，当 $y=1$ 但 $h_\theta(x)$ 不为 1 时，误差随着 $h_\theta(x)$ 的变小而变大。当 $h_\theta(x)$ 减小为 0，表示预测与实际完全相反，其误差为无穷大，这时代价函数将会受到很大的惩罚；当实际的 $y=0$ 且 $h_\theta(x)=0$ 时，误差为 0，当 $y=0$ 但 $h_\theta(x)$ 不为 0 时，误差随着 $h_\theta(x)$ 的变大而变大。</p>
 <h4 id="简化后的代价函数">简化后的代价函数
 </h4>$$
 \begin{aligned}
-J(\theta)& = \frac{1}{m} \sum^m_{i=1} Cost(h_\theta(x^{(i)}),y^{(i)}) & \\
-& = -\frac{1}{m} [\sum^m_{i=1}-ylog( h_\theta(x))-(1-y)log( 1- h_\theta(x))] &\\
+J(\theta)& = \frac{1}{m} \sum^m_{i = 1} Cost(h_\theta(x^{(i)}), y^{(i)}) & \\
+& = -\frac{1}{m} [\sum^m_{i = 1}-ylog( h_\theta(x))-(1-y)log( 1- h_\theta(x))] &\\
 \end{aligned}
-$$<p>最小化代价函数的方法<strong>是梯度下降法</strong>：
+$$<p>最小化代价函数的方法 <strong>是梯度下降法</strong>：
 </p>
 $$
 \begin{aligned}
-\text{Repeat}& \{ \\
-& \theta_j := \theta_j - \alpha \frac{1}{m} \sum^m_{i=1}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)} \\
+&\text{Repeat} \{ \\
+& \theta_j := \theta_j - \alpha \frac{1}{m} \sum^m_{i = 1}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)} \\
 &\}
 \end{aligned}
 $$<p>虽然其形式上与线性回归的梯度下降法相同，但由于回归的模型假设发生了变化，两者是完全不同的函数。</p>
 <h3 id="高级优化">高级优化
-</h3><p>优化算法：共轭梯度法BFGS（变尺度法）和L-BFGS（限制遍尺度法）。</p>
+</h3><p>优化算法：共轭梯度法 BFGS（变尺度法）和 L-BFGS（限制遍尺度法）。</p>
 <p>优点：不需要手动选择学习率。</p>
 <h3 id="多类别分类">多类别分类
-</h3><p>假设有n个类别，则将其分为<strong>n个</strong>1对（n-1）的<strong>二元分类问题</strong>。</p>
-<p>记每一个分类问题的模型为：$h_\theta ^{(i)} (x)= p(y=i|x;\theta)$，其中$i=(1,2,3,&hellip;,k)$。</p>
-<p>最终输出结果为让$h_\theta ^{(i)} (x)$最大的i，即$\mathop{max}\limits_{i} ; h_\theta ^{(i)} (x)$。</p>
+</h3><p>假设有 n 个类别，则将其分为 <strong>n 个</strong> 1 对（n-1）的 <strong>二元分类问题</strong>。</p>
+<p>记每一个分类问题的模型为：$h_\theta ^{(i)} (x)= p(y=i|x;\theta)$，其中 $i=(1,2,3,&hellip;,k)$。</p>
+<p>最终输出结果为让 $h_\theta ^{(i)} (x)$ 最大的 i，即 $\mathop{max}\limits_{i} ; h_\theta ^{(i)} (x)$。</p>
 <h2 id="正则化">正则化
 </h2><h3 id="过拟合">过拟合
-</h3><p><strong>过拟合</strong>指通过学习得到的假设可能能够非常好的适应训练集（代价函数可能几乎为0），但是可能<strong>不会</strong>推广到预测新的数据。</p>
-<p>当有<strong>过多的变量但只有很少的训练数据</strong>时很容易出现过拟合问题。</p>
-<p><strong>欠拟合</strong>指模型不能适应训练集。</p>
+</h3><p><strong>过拟合</strong> 指通过学习得到的假设可能能够非常好的适应训练集（代价函数可能几乎为 0），但是可能 <strong>不会</strong> 推广到预测新的数据。</p>
+<p>当有 <strong>过多的变量但只有很少的训练数据</strong> 时很容易出现过拟合问题。</p>
+<p><strong>欠拟合</strong> 指模型不能适应训练集。</p>
 <h4 id="解决过拟合">解决过拟合
 </h4><ol>
-<li>减少特征变量的数目 &ndash; 人工选择去除一些变量；模型算法选择（如PCA）。</li>
-<li><strong>正则化</strong> &ndash; 保留所有的特征变量，但减小参数$\theta$的大小。 其适用于有很多特征变量，且每一个特征变量看起来对预测结果都有一点用的情况。</li>
+<li>减少特征变量的数目 &ndash; 人工选择去除一些变量；模型算法选择（如 PCA）。</li>
+<li><strong>正则化</strong> &ndash; 保留所有的特征变量，但减小参数 $\theta$ 的大小。 其适用于有很多特征变量，且每一个特征变量看起来对预测结果都有一点用的情况。</li>
 </ol>
 <h3 id="代价函数-2">代价函数
 </h3><h4 id="正则化的直观理解">正则化的直观理解
-</h4><p>假设模型为$h_\theta(x)=\theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3 + \theta_4 x^4$，且高次项导致了过拟合的产生，则<strong>假如能让高次项的系数趋向于0，就能够缓解过拟合的问题</strong>了。 因此修改代价函数 ，对$\theta_3 \text{和}\theta_4$设置一些惩罚，如下所示：
+</h4><p>假设模型为 $h_\theta(x)=\theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3 + \theta_4 x^4$，且高次项导致了过拟合的产生，则 <strong>假如能让高次项的系数趋向于 0，就能够缓解过拟合的问题</strong> 了。 因此修改代价函数 ，对 $\theta_3 \text{和}\theta_4$ 设置一些惩罚，如下所示：
 </p>
 $$
-J(\theta)=\frac{1}{2m}[\sum^m_{i=1}(h_\theta(x^{(i)})-y^{(i)})^2+1000 \theta_3^2 + 1000 \theta_4^2]
+J(\theta)=\frac{1}{2m}[\sum^m_{i = 1}(h_\theta(x^{(i)})-y^{(i)})^2+1000 \theta_3^2 + 1000 \theta_4^2]
 $$<p>
-则通过这样的代价函数选择出来的$\theta_3 \text{和}\theta_4$对预测结果的影响就很小了。</p>
+则通过这样的代价函数选择出来的 $\theta_3 \text{和}\theta_4$ 对预测结果的影响就很小了。</p>
 <h4 id="带正则化参数的代价函数">带正则化参数的代价函数
 </h4><p>修改后的代价函数如下：
 </p>
 $$
-J(\theta)=\frac{1}{2m}[\sum^m_{i=1}(h_\theta(x^{(i)})-y^{(i)})^2+\lambda \sum^n_{j=1}\theta_j^2]
+J(\theta)=\frac{1}{2m}[\sum^m_{i = 1}(h_\theta(x^{(i)})-y^{(i)})^2+\lambda \sum^n_{j = 1}\theta_j^2]
 $$<p>
-其中，$\lambda$成为正则化参数。</p>
-<p>假如$\lambda$太大，则所有$\theta$都会趋于0，除了$\theta_0$，这样最终模型为一条平行于x轴的直线，导致欠拟合。</p>
+其中，$\lambda$ 成为正则化参数。</p>
+<p>假如 $\lambda$ 太大，则所有 $\theta$ 都会趋于 0，除了 $\theta_0$，这样最终模型为一条平行于 x 轴的直线，导致欠拟合。</p>
+<h3 id="正则化线性回归">正则化线性回归
+</h3><h4 id="梯度下降-1">梯度下降
+</h4>$$
+\begin{aligned}
+& \text{Repeat until convergence} \{ \\
+& \theta_0 := \theta_0 - \alpha \frac{1}{m} \sum^m_{i = 1} (h_\theta(x^{(i)})-y^{(i)})x_0^{(i)} \\
+& \theta_j := \theta_j(1-\alpha \frac{\lambda}{m}) - \alpha \frac{1}{m} \sum^m_{i = 1} (h_\theta(x^{(i)})-y^{(i)})x_j^{(i)} \\
+& \}
+\end{aligned}
+$$<p>正则化线性回归的梯度下降算法的变化在于，每次都在原有算法更新柜子的基础上令 $\theta$ 值减少了一个额外的值。</p>
+<h4 id="正规化">正规化
+</h4>$$
+\theta = (X^T X + \lambda \begin{bmatrix}
+0 & & & & & \\
+& 1 & & & & \\
+& & 1 & & & \\
+& & & \cdot & & \\
+& & & & \cdot & \\
+& & & & & 1 \\
+\end{bmatrix}^{-1})^{-1} X^Ty
+$$<p>图中矩阵尺寸为 $(n+1)*(n+1)$</p>
+<h3 id="正则化逻辑回归">正则化逻辑回归
+</h3><p>正则化逻辑回归的代价函数：
+</p>
+$$
+J(\theta) = \frac{1}{m} [\sum^m_{i = 1}-ylog( h_\theta(x))-(1-y)log( 1- h_\theta(x))] + \frac{\lambda}{2m} \sum^n_{j = 1}\theta^2_j 
+$$<p>
+则梯度下降算法为：
+</p>
+$$
+\begin{aligned}
+& \text{Repeat until convergence} \{ \\
+& \theta_0 := \theta_0 - \alpha \frac{1}{m} \sum^m_{i = 1} (h_\theta(x^{(i)})-y^{(i)})x_0^{(i)} \\
+& \theta_j := \theta_j(1-\alpha \frac{\lambda}{m}) - \alpha \frac{1}{m} \sum^m_{i = 1} (h_\theta(x^{(i)})-y^{(i)})x_j^{(i)} \\
+& \}
+\end{aligned}
+$$<h2 id="神经网络">神经网络
+</h2><h3 id="模型表示-1">模型表示
+</h3><p>神经网络模型建立在很多神经元之上，每一个神经元又是一个学习模型。这些神经元也叫激活单元（activation unit）。</p>
+<p>神经网络模型是许多逻辑单元按照不同的层级组织起来的网络，每一层的输出变量都是下一层的输入变量。</p>
+<p>引入以下标记法来描述模型：</p>
+<ol>
+<li>$\alpha _i ^{(j)}$代表第$j$层的第$i$个激活单元。</li>
+<li>$\theta^{(j)}$代表从第$j$层映射到第$j+1$层时的权重矩阵。其<strong>尺寸</strong>为以第$j+1$层的激活单元数量作为行数，以第$j$层的激活单元数量<strong>加一</strong>作为列数。</li>
+</ol>
 
 </section>
 
