@@ -435,7 +435,13 @@ $$&lt;h3 id=&#34;梯度下降法&#34;&gt;梯度下降法
 &lt;/h2&gt;&lt;p&gt;逻辑回归算法是一种分类算法。&lt;/p&gt;
 &lt;p&gt;分类问题预测的变量 $y$ 为 &lt;strong&gt;离散值&lt;/strong&gt;。&lt;/p&gt;
 &lt;h3 id=&#34;假说表示&#34;&gt;假说表示
-&lt;/h3&gt;&lt;p&gt;引入一个 &lt;strong&gt;逻辑函数 Sigmoid function&lt;/strong&gt;，S 形函数，公式为 $g(z)=\frac{1}{1+e^{-z}}$。&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;引入一个 &lt;strong&gt;逻辑函数 Sigmoid function&lt;/strong&gt;，S 形函数，公式为 $g(z)=\frac{1}{1+e^{-z}}$。其图像如下所示：&lt;/p&gt;
+&lt;center&gt;
+    &lt;img src=&#34;https://raw.githubusercontent.com/heimi2022/img-repo0/main/Machine_Learning_sigmoid_function.png&#34;
+         width=&#34;40%&#34;&gt;
+    &lt;br&gt;
+    sigmoid function
+&lt;/center&gt;
 &lt;p&gt;令逻辑回归模型的假设是：$h_\theta(x)=g(\theta^T X)$, $X$ 代表特征向量，$g$ 代表逻辑函数。&lt;/p&gt;
 &lt;p&gt;此时模型的输出变量范围始终在 0 和 1 之间。&lt;/p&gt;
 &lt;p&gt;$h_\theta(x)$ 表示，对于给定的输入变量，根据选择的参数，计算输出变量为 1 的可能性，即：
