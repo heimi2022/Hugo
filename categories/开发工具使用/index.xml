@@ -64,6 +64,8 @@ quad空格&amp;mdash;&amp;mdash;&amp;mdash;a \quad b&amp;mdash;&amp;mdash;&amp;m
 &lt;h3 id=&#34;关系符号&#34;&gt;关系符号
 &lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;$\leqslant ， \geqslant ，\le ，\ge$：\leqslant ， \geqslant ，\le ，\ge&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\in&lt;/code&gt; ：$\in$&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\ne&lt;/code&gt;：$\ne$&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;括号&#34;&gt;括号
 &lt;/h3&gt;&lt;ol&gt;

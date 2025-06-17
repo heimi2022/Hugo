@@ -326,7 +326,24 @@
     </li>
     <li><a href="#神经网络">神经网络</a>
       <ol>
-        <li><a href="#模型表示-1">模型表示</a></li>
+        <li><a href="#模型表示-1">模型表示</a>
+          <ol>
+            <li><a href="#举例">举例</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#神经网络的学习">神经网络的学习</a>
+      <ol>
+        <li><a href="#代价函数-3">代价函数</a></li>
+        <li><a href="#反向传播算法">反向传播算法</a>
+          <ol>
+            <li><a href="#反向传播算法中误差的计算">反向传播算法中误差的计算</a></li>
+            <li><a href="#忽略代价函数中的正则化项">忽略代价函数中的正则化项</a></li>
+            <li><a href="#考虑正则化处理">考虑正则化处理</a></li>
+          </ol>
+        </li>
+        <li><a href="#梯度检验">梯度检验</a></li>
       </ol>
     </li>
   </ol>
@@ -688,6 +705,93 @@ $$<h2 id="神经网络">神经网络
 <li>$\alpha _i ^{(j)}$代表第$j$层的第$i$个激活单元。</li>
 <li>$\theta^{(j)}$代表从第$j$层映射到第$j+1$层时的权重矩阵。其<strong>尺寸</strong>为以第$j+1$层的激活单元数量作为行数，以第$j$层的激活单元数量<strong>加一</strong>作为列数。</li>
 </ol>
+<h4 id="举例">举例
+</h4><center>
+    <img src="https://raw.githubusercontent.com/heimi2022/img-repo0/main/Machine_Learning_Neural_Network_layer3_example"
+         width="40%">
+    <br>
+    sigmoid function
+</center>
+<p>对于上图所示模型，激活单元和输出分别表达为：
+</p>
+$$
+\begin{aligned}
+& \alpha_1^{(2)}=g(\Theta_{10}^{(1)}x_0 + \Theta_{11}^{(1)}x_1  + \Theta_{12}^{(1)}x_2  + \Theta_{13}^{(1)}x_3 ) \\
+& \alpha_2^{(2)}=g(\Theta_{20}^{(1)}x_0 + \Theta_{21}^{(1)}x_1  + \Theta_{22}^{(1)}x_2  + \Theta_{23}^{(1)}x_3 ) \\
+& \alpha_3^{(2)}=g(\Theta_{30}^{(1)}x_0 + \Theta_{31}^{(1)}x_1  + \Theta_{32}^{(1)}x_2  + \Theta_{33}^{(1)}x_3 ) \\
+& h_\theta(x)=g(\Theta_{10}^{(2)}\alpha_0^{(2)} + \Theta_{11}^{(2)}\alpha_1^{(2)}  + \Theta_{12}^{(2)}\alpha_2^{(2)}  + \Theta_{13}^{(2)}\alpha_3^{(2)} ) \\
+\end{aligned}
+$$<p>
+将例中这种从左往右的算法称为<strong>向前传播算法</strong>。</p>
+<p>若只看输出部分，其输出方式类似逻辑回归模型，可以将$\alpha $看成是更高级的特征值。</p>
+<p><strong>多类分类</strong>问题：输出层用n个神经元，表示n类。</p>
+<h2 id="神经网络的学习">神经网络的学习
+</h2><h3 id="代价函数-3">代价函数
+</h3><p>新的标记方法：</p>
+<p>假设神经网络的训练样本由$m$个，每个包含一组输入$x$和一组输出信号$y$</p>
+<p>$L$表示神经网络的层数</p>
+<p>$S_l$表示$l$层中神经元的个数，$S_L$表示最后一层中神经元的个数</p>
+<p>神经网络的分类定义为两种情况：二类分类和多类分类，</p>
+<pre><code>1. 二类分类：$S_L=1$,$y=0 \text{ or } 1$
+1. $K$类分类：$S_L=k$,$y_i=1$表示分到第$i$类；$(K&gt;2)$
+</code></pre>
+<p>在神经网络中，$h_\theta(x)$是一个维度为$K$的向量，则：$h_\theta(x) \in R^K,(h_\theta(x))_i=i^{th} output$</p>
+<p>代价函数如下：
+</p>
+$$
+J(\Theta)=-\frac{1}{m}[\sum_{i=1}^m \sum_{k=1}^k y_k^{(i)}log(h_\Theta(x^{(i)}))_k + (1 - y_k^{(i)})log(1 - (h_\Theta(x^{(i)}))_k) ] + \frac{\lambda}{2m}\sum_{l=1}^{L-1}\sum_{i=1}^{s_l}\sum_{j=1}^{s_l+1}(\Theta_{ji}^{(l)})^2
+$$<ol>
+<li>对于每一行特征：由于有$K$个特征，可以利用循环，对每一行特征都预测$K$个不同结果，然后利用循环将$K$个预测偏差累加。</li>
+<li>对于正则化这一项，遍历所有层的所有参数。</li>
+</ol>
+<h3 id="反向传播算法">反向传播算法
+</h3><p>为了<strong>计算代价函数的偏导数</strong>$\frac{\partial}{\partial\theta_{ij}^{(l)}}J(\Theta)$，需要采用一种反向传播算法。</p>
+<p>反向传播算法：首先计算最后一层的误差，然后再一层一层反向求出各层的误差，直到倒数第二层。</p>
+<h4 id="反向传播算法中误差的计算">反向传播算法中误差的计算
+</h4><p>用$\delta$来表示误差。对于一个4层的网络，反向传播误差分3步计算：</p>
+<ol>
+<li>$\delta^{(4)}=a^{(4)}-y$</li>
+<li>$\delta^{(3)}=(\Theta^{(3)})^T \delta^{(4)}*g&rsquo;(z^{(3)})$，$g&rsquo;(z^{(3)})$是sigmoid函数的导数，且$g&rsquo;(z^{(3)})= a^{(3)} * (1 - a^{(3)})$，$(\Theta^{(3)})^T \delta^{(4)}$是权重导致的误差的和。</li>
+<li>$\delta^{(2)}=(\Theta^{(2)})^T \delta^{(4)}*g&rsquo;(z^{(2)})$</li>
+</ol>
+<p>对于4层的网络，设隐藏层都只有两个神经元，则$\delta_2^{(2)}=\Theta_{12}^{(2)} \delta_1^{(3)}+\Theta_{22}^{(2)} \delta_2^{(3)}$。</p>
+<h4 id="忽略代价函数中的正则化项">忽略代价函数中的正则化项
+</h4><p><strong>忽略代价函数中正则化项，则$\frac{\partial}{\partial\theta_{ij}^{(l)}}J(\Theta)=a_j^{(l)} \delta_i^{l+1}$。其中上下标的含义：</strong></p>
+<p>$l$代表目前所计算的是第几层</p>
+<p>$j$代表目前计算层中的激活单元的下标，也就是下一层第$j$个输入变量的下标</p>
+<p>$i$代表下一层中误差单元的下标</p>
+<h4 id="考虑正则化处理">考虑正则化处理
+</h4><p>则用$\Delta_{ij}^{(l)}$来表示误差矩阵，则算法表示为：
+</p>
+$$
+\begin{aligned}
+\text{for } i = 1 : m \quad \{ \\
+\quad & a^{(1)} := x^{(i)} \\
+\quad & \text{向前传播计算 } a^{(l)} \text{ for } l = 1, 2, 3, \dots, L \\
+\quad & \text{using } \delta^{(L)} := a^{(L)} - y^{(i)} \\
+\quad & \text{执行向后传播算法计算直至第二层的所有误差} \\
+\quad & \Delta^{(l)}_{ij} := \Delta^{(l)}_{ij} + a^{(l)}_j \delta^{(l+1)}_i \\
+\}
+\end{aligned}
+$$<p>
+在求出了$\Delta_{ij}^{(l)}$之后，则可求出代价函数的偏导数：
+</p>
+$$
+\frac{\partial}{\partial\theta_{ij}^{(l)}}J(\Theta)=D_{ij}^{(l)}:= \begin{cases}
+\frac{1}{m}\Delta_{ij}^{(l)}+\lambda \Theta_{ij}^{(l)}& ,\quad if \quad j \ne 0 \\
+\frac{1}{m}\Delta_{ij}^{(l)}&, \quad if \quad j = 0
+\end{cases}
+$$<h3 id="梯度检验">梯度检验
+</h3><p>对一个复杂模型使用梯度下降算法时，可能会存在一些不易察觉的错误，意味着虽然代价看上去不断减小，但是最终的结果可能并不是最优解。</p>
+<p><strong>解决方法：梯度检验</strong>。</p>
+<p><strong>思想</strong>：通过估计梯度值来检验我门计算的导数值是否真的是预期的。</p>
+<p><strong>方法</strong>：在代价函数上，对于某个特定的$\theta$，我们计算出在$\theta - \epsilon $处和$\theta + \epsilon $的代价值，然后求两个代价的平均，即为估计值。</p>
+<p>针对$\theta_1$进行检验的示例：
+</p>
+$$
+\frac{\partial}{\partial_{\theta_1}}=\frac{J(\theta_1 + \epsilon,\theta_2,\cdots,\theta_n)-J(\theta_1 - \epsilon,\theta_2,\cdots,\theta_n)}{2 \epsilon}
+$$<p>
+对于反向传播算法，计算出的偏导数存储在矩阵$D_{ij}^{(l)}$中，检验时，将该矩阵展开成为向量；与此同时，将$\theta$矩阵也展开为向量，针对每一个$\theta$都计算一个近似的梯度值，将这些值存储于一个近似梯度矩阵中，同$D_{ij}^{(l)}$比较。</p>
 
 </section>
 
