@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="启动 Hugo 服务 hugo server -D\n创建文章 命令创建 命令 : hugo new post/foldername/*.md 其模板来自 archetypes/default.md 手动创建 在post目录下，手动创建一个文件夹，在文件夹里创建md文件，并将需要的图片资源放入其中。 文章推送 git add . git commit -m&quot;update&quot; git push ">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="启动 Hugo 服务 hugo server -D\n创建文章 命令创建 命令 : hugo new post/foldername/*.md 其模板来自 archetypes/default.md 手动创建 在post目录下，手动创建一个文件夹，在文件夹里创建md文件，并将需要的图片资源放入其中。 文章推送 git add . git commit -m&quot;update&quot; git push github 图床使用 创建Github仓库并生成Token 创建仓库 在 GitHub 上新建一个仓库（如 my-image-repo），确保仓库是公开的（Public）。 生成 Token 登录 GitHub，进入 Settings -&gt; Developer settings -&gt; Personal access tokens。 点击 Generate new token，勾选 repo 权限。 生成 Token 后，复制并保存（Token 只会显示一次）。 配置typora PicGo 打开 Typora 的配置文件：\n">
 <title>Hugo使用</title>
 
 <link rel='canonical' href='https://heimi2022.github.io/Hugo/p/hugo%E4%BD%BF%E7%94%A8/'>
 
 <link rel="stylesheet" href="/Hugo/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="Hugo使用">
-<meta property='og:description' content="启动 Hugo 服务 hugo server -D\n创建文章 命令创建 命令 : hugo new post/foldername/*.md 其模板来自 archetypes/default.md 手动创建 在post目录下，手动创建一个文件夹，在文件夹里创建md文件，并将需要的图片资源放入其中。 文章推送 git add . git commit -m&quot;update&quot; git push ">
+<meta property='og:description' content="启动 Hugo 服务 hugo server -D\n创建文章 命令创建 命令 : hugo new post/foldername/*.md 其模板来自 archetypes/default.md 手动创建 在post目录下，手动创建一个文件夹，在文件夹里创建md文件，并将需要的图片资源放入其中。 文章推送 git add . git commit -m&quot;update&quot; git push github 图床使用 创建Github仓库并生成Token 创建仓库 在 GitHub 上新建一个仓库（如 my-image-repo），确保仓库是公开的（Public）。 生成 Token 登录 GitHub，进入 Settings -&gt; Developer settings -&gt; Personal access tokens。 点击 Generate new token，勾选 repo 权限。 生成 Token 后，复制并保存（Token 只会显示一次）。 配置typora PicGo 打开 Typora 的配置文件：\n">
 <meta property='og:url' content='https://heimi2022.github.io/Hugo/p/hugo%E4%BD%BF%E7%94%A8/'>
 <meta property='og:site_name' content='WJJ'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Hugo' /><meta property='article:published_time' content='2025-05-22T15:53:57&#43;08:00'/><meta property='article:modified_time' content='2025-05-22T15:53:57&#43;08:00'/><meta property='og:image' content='https://heimi2022.github.io/Hugo/p/hugo%E4%BD%BF%E7%94%A8/cover.png' />
 <meta name="twitter:title" content="Hugo使用">
-<meta name="twitter:description" content="启动 Hugo 服务 hugo server -D\n创建文章 命令创建 命令 : hugo new post/foldername/*.md 其模板来自 archetypes/default.md 手动创建 在post目录下，手动创建一个文件夹，在文件夹里创建md文件，并将需要的图片资源放入其中。 文章推送 git add . git commit -m&quot;update&quot; git push "><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="启动 Hugo 服务 hugo server -D\n创建文章 命令创建 命令 : hugo new post/foldername/*.md 其模板来自 archetypes/default.md 手动创建 在post目录下，手动创建一个文件夹，在文件夹里创建md文件，并将需要的图片资源放入其中。 文章推送 git add . git commit -m&quot;update&quot; git push github 图床使用 创建Github仓库并生成Token 创建仓库 在 GitHub 上新建一个仓库（如 my-image-repo），确保仓库是公开的（Public）。 生成 Token 登录 GitHub，进入 Settings -&gt; Developer settings -&gt; Personal access tokens。 点击 Generate new token，勾选 repo 权限。 生成 Token 后，复制并保存（Token 只会显示一次）。 配置typora PicGo 打开 Typora 的配置文件：\n"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://heimi2022.github.io/Hugo/p/hugo%E4%BD%BF%E7%94%A8/cover.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
@@ -256,6 +256,12 @@
       </ol>
     </li>
     <li><a href="#文章推送">文章推送</a></li>
+    <li><a href="#github-图床使用">github 图床使用</a>
+      <ol>
+        <li><a href="#创建github仓库并生成token">创建Github仓库并生成Token</a></li>
+        <li><a href="#配置typora-picgo">配置typora PicGo</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -349,6 +355,93 @@
 <li>git commit -m&quot;update&quot;</li>
 <li>git push</li>
 </ol>
+<h2 id="github-图床使用">github 图床使用
+</h2><h3 id="创建github仓库并生成token">创建Github仓库并生成Token
+</h3><ol>
+<li>创建仓库
+<ul>
+<li>在 GitHub 上新建一个仓库（如 <code>my-image-repo</code>），确保仓库是公开的（Public）。</li>
+</ul>
+</li>
+<li>生成 Token
+<ul>
+<li>登录 GitHub，进入 <strong>Settings</strong> -&gt; <strong>Developer settings</strong> -&gt; <strong>Personal access tokens</strong>。</li>
+<li>点击 <strong>Generate new token</strong>，勾选 <code>repo</code> 权限。</li>
+<li>生成 Token 后，复制并保存（Token 只会显示一次）。</li>
+</ul>
+</li>
+</ol>
+<h3 id="配置typora-picgo">配置typora PicGo
+</h3><ul>
+<li>
+<p>打开 Typora 的配置文件：</p>
+<ul>
+<li>
+<p>在 Typora 的图像设置中，点击 <strong>打开配置文件</strong>。</p>
+</li>
+<li>
+<p>这会打开一个 <code>picgo.json</code> 文件（如果没有，可以手动创建）。</p>
+</li>
+<li>
+<p>编辑 <code>picgo.json</code> 文件，添加 GitHub 图床的配置。以下是一个示例配置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;picBed&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;current&#34;: &#34;github&#34;,
+</span></span><span class="line"><span class="cl">    &#34;github&#34;: {
+</span></span><span class="line"><span class="cl">      &#34;repo&#34;: &#34;你的用户名/你的仓库名&#34;, // 例如：your-username/my-image-repo
+</span></span><span class="line"><span class="cl">      &#34;branch&#34;: &#34;main&#34;, // 或 master
+</span></span><span class="line"><span class="cl">      &#34;token&#34;: &#34;你的 GitHub Token&#34;, // 生成的 Personal Access Token
+</span></span><span class="line"><span class="cl">      &#34;path&#34;: &#34;assets/&#34;, // 图片上传到仓库的 assets 目录
+</span></span><span class="line"><span class="cl">      &#34;customUrl&#34;: &#34;&#34; // 如果需要自定义域名，可以填写
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  },
+</span></span><span class="line"><span class="cl">  &#34;picgoPlugins&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;github&#34;: true // 确保启用 GitHub 插件
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>repo</strong>: 你的 GitHub 仓库名，格式为 <code>用户名/仓库名</code>。</p>
+</li>
+<li>
+<p><strong>branch</strong>: 仓库的分支，通常是 <code>main</code> 或 <code>master</code>。</p>
+</li>
+<li>
+<p><strong>token</strong>: 你的 GitHub Personal Access Token（生成方法见下文）。</p>
+</li>
+<li>
+<p><strong>path</strong>: 图片上传的路径，例如 <code>assets/</code>。</p>
+</li>
+<li>
+<p><strong>customUrl</strong>: 如果需要自定义域名（如 CDN），可以填写。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>保存 <code>picgo.json</code> 文件。</p>
+</li>
+</ul>
 
 </section>
 
