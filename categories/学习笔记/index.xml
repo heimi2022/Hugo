@@ -312,7 +312,7 @@ $$&lt;h2 id=&#34;神经网络&#34;&gt;神经网络
     &lt;img src=&#34;https://raw.githubusercontent.com/heimi2022/img-repo0/main/Machine_Learning_Neural_Network_layer3_example&#34;
          width=&#34;40%&#34;&gt;
     &lt;br&gt;
-    sigmoid function
+    3-Layer Neural model
 &lt;/center&gt;
 &lt;p&gt;对于上图所示模型，激活单元和输出分别表达为：
 &lt;/p&gt;
@@ -334,9 +334,10 @@ $$&lt;p&gt;
 &lt;p&gt;$L$表示神经网络的层数&lt;/p&gt;
 &lt;p&gt;$S_l$表示$l$层中神经元的个数，$S_L$表示最后一层中神经元的个数&lt;/p&gt;
 &lt;p&gt;神经网络的分类定义为两种情况：二类分类和多类分类，&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1. 二类分类：$S_L=1$,$y=0 \text{ or } 1$
-1. $K$类分类：$S_L=k$,$y_i=1$表示分到第$i$类；$(K&amp;gt;2)$
-&lt;/code&gt;&lt;/pre&gt;
+&lt;ol&gt;
+&lt;li&gt;二类分类：$S_L=1$,$y=0 \text{ or } 1$&lt;/li&gt;
+&lt;li&gt;$K$类分类：$S_L=k$,$y_i=1$表示分到第$i$类；$(K&amp;gt;2)$&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;在神经网络中，$h_\theta(x)$是一个维度为$K$的向量，则：$h_\theta(x) \in R^K,(h_\theta(x))_i=i^{th} output$&lt;/p&gt;
 &lt;p&gt;代价函数如下：
 &lt;/p&gt;
@@ -394,6 +395,101 @@ $$
 \frac{\partial}{\partial_{\theta_1}}=\frac{J(\theta_1 + \epsilon,\theta_2,\cdots,\theta_n)-J(\theta_1 - \epsilon,\theta_2,\cdots,\theta_n)}{2 \epsilon}
 $$&lt;p&gt;
 对于反向传播算法，计算出的偏导数存储在矩阵$D_{ij}^{(l)}$中，检验时，将该矩阵展开成为向量；与此同时，将$\theta$矩阵也展开为向量，针对每一个$\theta$都计算一个近似的梯度值，将这些值存储于一个近似梯度矩阵中，同$D_{ij}^{(l)}$比较。&lt;/p&gt;
+&lt;h3 id=&#34;随机初始化&#34;&gt;随机初始化
+&lt;/h3&gt;&lt;p&gt;任何优化算法都需要一些初始的参数。&lt;/p&gt;
+&lt;p&gt;对于神经网络，&lt;strong&gt;令所有的初试参数都为一个相同的值是不可行的&lt;/strong&gt;，这意味着对于一个层的所有激活单元都为相同的值。进而在梯度下降时，对于每一个激活单元的误差都是相同的，这意味着高度的冗余。因此需要对参数进行随机初始化。&lt;/p&gt;
+&lt;h3 id=&#34;神经网络的训练&#34;&gt;神经网络的训练
+&lt;/h3&gt;&lt;h4 id=&#34;网络结构&#34;&gt;网络结构
+&lt;/h4&gt;&lt;p&gt;第一层的单元数：训练集的特征数量&lt;/p&gt;
+&lt;p&gt;最后一层的单元数：训练集的结果的类的数量&lt;/p&gt;
+&lt;p&gt;隐藏层：该层大小最好为1。如果层数大于1，应确保每个隐藏层的单元个数相同，通常情况下隐藏层单元个数越多越好。&lt;/p&gt;
+&lt;h4 id=&#34;训练神经网络&#34;&gt;训练神经网络
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;参数随机初始化&lt;/li&gt;
+&lt;li&gt;正向传播算法，计算所有的$h_\theta(x)$&lt;/li&gt;
+&lt;li&gt;选择代价函数&lt;/li&gt;
+&lt;li&gt;反向传播算法，计算所有偏导数&lt;/li&gt;
+&lt;li&gt;梯度检验&lt;/li&gt;
+&lt;li&gt;使用优化算法来最小化代价函数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;机器学习诊断法&#34;&gt;机器学习诊断法
+&lt;/h2&gt;&lt;h3 id=&#34;评估一个假设&#34;&gt;评估一个假设
+&lt;/h3&gt;&lt;p&gt;如何&lt;strong&gt;评估一个假设是否过拟合&lt;/strong&gt;呢？ 将训练数据分为训练集和测试集。 一般训练集：测试集=7：3。&lt;/p&gt;
+&lt;h4 id=&#34;用测试集计算误差&#34;&gt;用测试集计算误差
+&lt;/h4&gt;&lt;p&gt;对于线性回归模型，可以利用测试集数据计算代价函数$J$。&lt;/p&gt;
+&lt;p&gt;对于逻辑回归模型，除了可以用测试集数据计算代价函数外，还可利用误分类的比率对每一个测试集实例计算：
+&lt;/p&gt;
+$$
+err(h_\theta(x),y)= \begin{cases}
+1,&amp;if \quad h_\theta(x) \ge 0.5 \quad and \quad y=0,or \quad if \quad h_\theta(x) &lt; 0.5 \quad and \quad y=1  \\
+0，&amp;其它
+\end{cases}
+$$&lt;p&gt;
+然后对计算结果求平均。&lt;/p&gt;
+&lt;h3 id=&#34;模型选择和交叉验证集&#34;&gt;模型选择和交叉验证集
+&lt;/h3&gt;&lt;p&gt;越高次数的多项式模型越能够适应训练数据集，但适应训练数据集的模型不一定能够推广到一般状况。&lt;strong&gt;可以使用交叉验证集，简称验证集，来帮助选择模型&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;典型的数据集的&lt;strong&gt;比例&lt;/strong&gt;，训练集：验证集：测试集=6：2：2。&lt;/p&gt;
+&lt;h4 id=&#34;模型选择方法&#34;&gt;模型选择方法
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;使用训练集训练出几个模型&lt;/li&gt;
+&lt;li&gt;用几个模型分别对验证集计算得出交叉验证误差（代价函数的值）&lt;/li&gt;
+&lt;li&gt;选取代价函数值最小的模型&lt;/li&gt;
+&lt;li&gt;用步骤3中选出的模型对测试集计算得出推广误差。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;模型阶数和偏差方差&#34;&gt;模型阶数和偏差/方差
+&lt;/h3&gt;&lt;p&gt;对于训练集，当模型阶数$d$较小时，模型的拟合程度低，误差较大。随着$d$的增长。拟合程度提高，误差减小。&lt;/p&gt;
+&lt;p&gt;对于验证集，误差随着$d$先减小后增大，转折点为模型开始过拟合的时候。&lt;/p&gt;
+&lt;p&gt;训练集误差和验证集误差都比较大，且接近时： 偏差/欠拟合。&lt;/p&gt;
+&lt;p&gt;验证集误差远大于训练集误差时：方差/过拟合。&lt;/p&gt;
+&lt;center&gt;
+    &lt;img src=&#34;https://raw.githubusercontent.com/heimi2022/img-repo0/main/Machine_Learning_bias_var_polynomial_d_curve&#34;
+         width=&#34;40%&#34;&gt;
+    &lt;br&gt;
+    polynomial_d
+&lt;/center&gt;
+&lt;h3 id=&#34;正则化和偏差方差&#34;&gt;正则化和偏差/方差
+&lt;/h3&gt;&lt;h4 id=&#34;选择正则化参数&#34;&gt;选择正则化参数
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;使用训练集训练几个不同程度正则化的模型。正则化参数一般从小到达，按2的倍数增加。&lt;/li&gt;
+&lt;li&gt;用这几个模型分别对验证集计算交叉验证误差&lt;/li&gt;
+&lt;li&gt;选择得出交叉验证误差最小的模型&lt;/li&gt;
+&lt;li&gt;用步骤3中选出的模型对测试集计算得出推广误差&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;偏差和方差&#34;&gt;偏差和方差
+&lt;/h4&gt;&lt;p&gt;当$\lambda$较小时。表现为方差，训练集误差较小（过拟合），交叉验证集误差较大。&lt;/p&gt;
+&lt;p&gt;随着$\lambda$的增加，训练集误差不断增加（欠拟合），交叉验证集误差先减小后增大。&lt;/p&gt;
+&lt;center&gt;
+    &lt;img src=&#34;https://raw.githubusercontent.com/heimi2022/img-repo0/main/Machine_Learning_bias_var_regularization_curve&#34;
+         width=&#34;40%&#34;&gt;
+    &lt;br&gt;
+    Bias/variance as function of the regularzation 
+&lt;/center&gt;
+&lt;h3 id=&#34;学习曲线&#34;&gt;学习曲线
+&lt;/h3&gt;&lt;h4 id=&#34;高偏差欠拟合&#34;&gt;高偏差，欠拟合
+&lt;/h4&gt;&lt;p&gt;对于高偏差，欠拟合的情况，曲线如下图所示：&lt;/p&gt;
+&lt;center&gt;
+    &lt;img src=&#34;https://raw.githubusercontent.com/heimi2022/img-repo0/main/Machine_Learning_High_bias_learning_curve&#34;
+         width=&#34;40%&#34;&gt;
+    &lt;br&gt;
+    High bias
+&lt;/center&gt;
+&lt;p&gt;曲线有如下特点：对于验证集和训练集，误差都很大，且二者很接近。无论训练集多大，其误差不会有太大改变&lt;/p&gt;
+&lt;h4 id=&#34;高方差过拟合&#34;&gt;高方差，过拟合
+&lt;/h4&gt;&lt;p&gt;对于高偏差，欠拟合的情况，曲线如下图所示：&lt;/p&gt;
+&lt;center&gt;
+    &lt;img src=&#34;https://raw.githubusercontent.com/heimi2022/img-repo0/main/Machine_Learning_High__variance_learning_curve&#34;
+         width=&#34;40%&#34;&gt;
+    &lt;br&gt;
+    High variance
+&lt;/center&gt;
+&lt;p&gt;曲线有以下特点，训练集误差很小，验证集误差很大。但是增加训练集数据可以提高模型效果。&lt;/p&gt;
+&lt;h3 id=&#34;总结&#34;&gt;总结
+&lt;/h3&gt;&lt;p&gt;解决高方差：获取更多的训练数据，尝试减少特征的数量，增加正则化程度&lt;/p&gt;
+&lt;p&gt;解决高偏差：增加特征的数量，增加多项式特征，减小正则化程度&lt;/p&gt;
+&lt;p&gt;较小的神经网络，类似于参数较少的情况，容易导致高偏差和欠拟合。
+较大的神经网络，类似于参数较多的情况，容易导致高方差和过拟合，但可以通过正则化手段来调整而更加适应数据。&lt;/p&gt;
+&lt;p&gt;通常选择较大的神经网络并采用正则化处理会比采用较小的神经网络效果要好。&lt;/p&gt;
+&lt;p&gt;对于神经网络中的隐藏层的层数的选择，通常从一层开始逐渐增加层数。&lt;/p&gt;
 </description>
         </item>
         
