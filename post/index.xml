@@ -29,7 +29,8 @@ quad空格&amp;mdash;&amp;mdash;&amp;mdash;a \quad b&amp;mdash;&amp;mdash;&amp;m
 &lt;li&gt;分式 \frac{a}{b}  :  $\frac{a}{b}$&lt;/li&gt;
 &lt;li&gt;根式 \sqrt[n]{a}  :  $\sqrt[n]{a}$&lt;/li&gt;
 &lt;li&gt;求导 f&amp;rsquo; : $f&#39;$&lt;/li&gt;
-&lt;li&gt;求和$\sum$ ：\sum&lt;/li&gt;
+&lt;li&gt;累加$\sum$ ：\sum&lt;/li&gt;
+&lt;li&gt;累乘$\prod$：&lt;code&gt;\prod&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;极限 $\lim\limits_{x\to\infty}$：\lim\limits_{x\to\infty}&lt;/li&gt;
 &lt;li&gt;积分号$\int$：\int&lt;/li&gt;
 &lt;li&gt;其它 上划线:\overline{a},下划线\underline{a},上右箭头\overrightarrow{a}:$\overrightarrow{a}$&lt;/li&gt;
@@ -447,8 +448,8 @@ $$&lt;h3 id=&#34;梯度下降法&#34;&gt;梯度下降法
 &lt;h3 id=&#34;假说表示&#34;&gt;假说表示
 &lt;/h3&gt;&lt;p&gt;引入一个 &lt;strong&gt;逻辑函数 Sigmoid function&lt;/strong&gt;，S 形函数，公式为 $g(z)=\frac{1}{1+e^{-z}}$。其图像如下所示：&lt;/p&gt;
 &lt;center&gt;
-    &lt;img src=&#34;https://raw.githubusercontent.com/heimi2022/img-repo0/main/Machine_Learning_sigmoid_function.png&#34;
-         width=&#34;40%&#34;&gt;
+    &lt; img src = &#34;https://raw.githubusercontent.com/heimi2022/img-repo0/main/Machine_Learning_sigmoid_function.png&#34;
+         width = &#34;40%&#34; &gt;
     &lt;br&gt;
     sigmoid function
 &lt;/center&gt;
@@ -570,13 +571,13 @@ $$&lt;h2 id=&#34;神经网络&#34;&gt;神经网络
 &lt;p&gt;神经网络模型是许多逻辑单元按照不同的层级组织起来的网络，每一层的输出变量都是下一层的输入变量。&lt;/p&gt;
 &lt;p&gt;引入以下标记法来描述模型：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;$\alpha _i ^{(j)}$代表第$j$层的第$i$个激活单元。&lt;/li&gt;
-&lt;li&gt;$\theta^{(j)}$代表从第$j$层映射到第$j+1$层时的权重矩阵。其&lt;strong&gt;尺寸&lt;/strong&gt;为以第$j+1$层的激活单元数量作为行数，以第$j$层的激活单元数量&lt;strong&gt;加一&lt;/strong&gt;作为列数。&lt;/li&gt;
+&lt;li&gt;$\alpha _i ^{(j)}$ 代表第 $j$ 层的第 $i$ 个激活单元。&lt;/li&gt;
+&lt;li&gt;$\theta^{(j)}$ 代表从第 $j$ 层映射到第 $j+1$ 层时的权重矩阵。其 &lt;strong&gt;尺寸&lt;/strong&gt; 为以第 $j+1$ 层的激活单元数量作为行数，以第 $j$ 层的激活单元数量 &lt;strong&gt;加一&lt;/strong&gt; 作为列数。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4 id=&#34;举例&#34;&gt;举例
 &lt;/h4&gt;&lt;center&gt;
-    &lt;img src=&#34;https://raw.githubusercontent.com/heimi2022/img-repo0/main/Machine_Learning_Neural_Network_layer3_example&#34;
-         width=&#34;40%&#34;&gt;
+    &lt; img src = &#34;https://raw.githubusercontent.com/heimi2022/img-repo0/main/Machine_Learning_Neural_Network_layer3_example&#34;
+         width = &#34;40%&#34; &gt;
     &lt;br&gt;
     3-Layer Neural model
 &lt;/center&gt;
@@ -584,53 +585,53 @@ $$&lt;h2 id=&#34;神经网络&#34;&gt;神经网络
 &lt;/p&gt;
 $$
 \begin{aligned}
-&amp; \alpha_1^{(2)}=g(\Theta_{10}^{(1)}x_0 + \Theta_{11}^{(1)}x_1  + \Theta_{12}^{(1)}x_2  + \Theta_{13}^{(1)}x_3 ) \\
-&amp; \alpha_2^{(2)}=g(\Theta_{20}^{(1)}x_0 + \Theta_{21}^{(1)}x_1  + \Theta_{22}^{(1)}x_2  + \Theta_{23}^{(1)}x_3 ) \\
-&amp; \alpha_3^{(2)}=g(\Theta_{30}^{(1)}x_0 + \Theta_{31}^{(1)}x_1  + \Theta_{32}^{(1)}x_2  + \Theta_{33}^{(1)}x_3 ) \\
-&amp; h_\theta(x)=g(\Theta_{10}^{(2)}\alpha_0^{(2)} + \Theta_{11}^{(2)}\alpha_1^{(2)}  + \Theta_{12}^{(2)}\alpha_2^{(2)}  + \Theta_{13}^{(2)}\alpha_3^{(2)} ) \\
+&amp; \alpha_1^{(2)}= g(\Theta_{10}^{(1)}x_0 + \Theta_{11}^{(1)}x_1  + \Theta_{12}^{(1)}x_2  + \Theta_{13}^{(1)}x_3 ) \\
+&amp; \alpha_2^{(2)}= g(\Theta_{20}^{(1)}x_0 + \Theta_{21}^{(1)}x_1  + \Theta_{22}^{(1)}x_2  + \Theta_{23}^{(1)}x_3 ) \\
+&amp; \alpha_3^{(2)}= g(\Theta_{30}^{(1)}x_0 + \Theta_{31}^{(1)}x_1  + \Theta_{32}^{(1)}x_2  + \Theta_{33}^{(1)}x_3 ) \\
+&amp; h_\theta(x)= g(\Theta_{10}^{(2)}\alpha_0^{(2)} + \Theta_{11}^{(2)}\alpha_1^{(2)}  + \Theta_{12}^{(2)}\alpha_2^{(2)}  + \Theta_{13}^{(2)}\alpha_3^{(2)} ) \\
 \end{aligned}
 $$&lt;p&gt;
-将例中这种从左往右的算法称为&lt;strong&gt;向前传播算法&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;若只看输出部分，其输出方式类似逻辑回归模型，可以将$\alpha $看成是更高级的特征值。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;多类分类&lt;/strong&gt;问题：输出层用n个神经元，表示n类。&lt;/p&gt;
+将例中这种从左往右的算法称为 &lt;strong&gt;向前传播算法&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;若只看输出部分，其输出方式类似逻辑回归模型，可以将 $\alpha $ 看成是更高级的特征值。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;多类分类&lt;/strong&gt; 问题：输出层用 n 个神经元，表示 n 类。&lt;/p&gt;
 &lt;h2 id=&#34;神经网络的学习&#34;&gt;神经网络的学习
 &lt;/h2&gt;&lt;h3 id=&#34;代价函数-3&#34;&gt;代价函数
 &lt;/h3&gt;&lt;p&gt;新的标记方法：&lt;/p&gt;
-&lt;p&gt;假设神经网络的训练样本由$m$个，每个包含一组输入$x$和一组输出信号$y$&lt;/p&gt;
-&lt;p&gt;$L$表示神经网络的层数&lt;/p&gt;
-&lt;p&gt;$S_l$表示$l$层中神经元的个数，$S_L$表示最后一层中神经元的个数&lt;/p&gt;
+&lt;p&gt;假设神经网络的训练样本由 $m$ 个，每个包含一组输入 $x$ 和一组输出信号 $y$&lt;/p&gt;
+&lt;p&gt;$L$ 表示神经网络的层数&lt;/p&gt;
+&lt;p&gt;$S_l$ 表示 $l$ 层中神经元的个数，$S_L$ 表示最后一层中神经元的个数&lt;/p&gt;
 &lt;p&gt;神经网络的分类定义为两种情况：二类分类和多类分类，&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;二类分类：$S_L=1$,$y=0 \text{ or } 1$&lt;/li&gt;
-&lt;li&gt;$K$类分类：$S_L=k$,$y_i=1$表示分到第$i$类；$(K&amp;gt;2)$&lt;/li&gt;
+&lt;li&gt;二类分类：$S_L=1$, $y=0 \text{ or } 1$&lt;/li&gt;
+&lt;li&gt;$K$ 类分类：$S_L=k$, $y_i=1$ 表示分到第 $i$ 类；$(K&amp;gt;2)$&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;在神经网络中，$h_\theta(x)$是一个维度为$K$的向量，则：$h_\theta(x) \in R^K,(h_\theta(x))_i=i^{th} output$&lt;/p&gt;
+&lt;p&gt;在神经网络中，$h_\theta(x)$ 是一个维度为 $K$ 的向量，则：$h_\theta(x) \in R^K,(h_\theta(x))_i=i^{th} output$&lt;/p&gt;
 &lt;p&gt;代价函数如下：
 &lt;/p&gt;
 $$
-J(\Theta)=-\frac{1}{m}[\sum_{i=1}^m \sum_{k=1}^k y_k^{(i)}log(h_\Theta(x^{(i)}))_k + (1 - y_k^{(i)})log(1 - (h_\Theta(x^{(i)}))_k) ] + \frac{\lambda}{2m}\sum_{l=1}^{L-1}\sum_{i=1}^{s_l}\sum_{j=1}^{s_l+1}(\Theta_{ji}^{(l)})^2
+J(\Theta)=-\frac{1}{m}[\sum_{i = 1}^m \sum_{k = 1}^k y_k^{(i)}log(h_\Theta(x^{(i)}))_k + (1 - y_k^{(i)})log(1 - (h_\Theta(x^{(i)}))_k) ] + \frac{\lambda}{2m}\sum_{l = 1}^{L-1}\sum_{i = 1}^{s_l}\sum_{j = 1}^{s_l+1}(\Theta_{ji}^{(l)})^2
 $$&lt;ol&gt;
-&lt;li&gt;对于每一行特征：由于有$K$个特征，可以利用循环，对每一行特征都预测$K$个不同结果，然后利用循环将$K$个预测偏差累加。&lt;/li&gt;
+&lt;li&gt;对于每一行特征：由于有 $K$ 个特征，可以利用循环，对每一行特征都预测 $K$ 个不同结果，然后利用循环将 $K$ 个预测偏差累加。&lt;/li&gt;
 &lt;li&gt;对于正则化这一项，遍历所有层的所有参数。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;反向传播算法&#34;&gt;反向传播算法
-&lt;/h3&gt;&lt;p&gt;为了&lt;strong&gt;计算代价函数的偏导数&lt;/strong&gt;$\frac{\partial}{\partial\theta_{ij}^{(l)}}J(\Theta)$，需要采用一种反向传播算法。&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;为了 &lt;strong&gt;计算代价函数的偏导数&lt;/strong&gt; $\frac{\partial}{\partial\theta_{ij}^{(l)}}J(\Theta)$，需要采用一种反向传播算法。&lt;/p&gt;
 &lt;p&gt;反向传播算法：首先计算最后一层的误差，然后再一层一层反向求出各层的误差，直到倒数第二层。&lt;/p&gt;
 &lt;h4 id=&#34;反向传播算法中误差的计算&#34;&gt;反向传播算法中误差的计算
-&lt;/h4&gt;&lt;p&gt;用$\delta$来表示误差。对于一个4层的网络，反向传播误差分3步计算：&lt;/p&gt;
+&lt;/h4&gt;&lt;p&gt;用 $\delta$ 来表示误差。对于一个 4 层的网络，反向传播误差分 3 步计算：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;$\delta^{(4)}=a^{(4)}-y$&lt;/li&gt;
-&lt;li&gt;$\delta^{(3)}=(\Theta^{(3)})^T \delta^{(4)}*g&amp;rsquo;(z^{(3)})$，$g&amp;rsquo;(z^{(3)})$是sigmoid函数的导数，且$g&amp;rsquo;(z^{(3)})= a^{(3)} * (1 - a^{(3)})$，$(\Theta^{(3)})^T \delta^{(4)}$是权重导致的误差的和。&lt;/li&gt;
+&lt;li&gt;$\delta^{(3)}=(\Theta^{(3)})^T \delta^{(4)}*g&amp;rsquo;(z^{(3)})$，$g&amp;rsquo;(z^{(3)})$ 是 sigmoid 函数的导数，且 $g&amp;rsquo;(z^{(3)})= a^{(3)} * (1 - a^{(3)})$，$(\Theta^{(3)})^T \delta^{(4)}$ 是权重导致的误差的和。&lt;/li&gt;
 &lt;li&gt;$\delta^{(2)}=(\Theta^{(2)})^T \delta^{(4)}*g&amp;rsquo;(z^{(2)})$&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;对于4层的网络，设隐藏层都只有两个神经元，则$\delta_2^{(2)}=\Theta_{12}^{(2)} \delta_1^{(3)}+\Theta_{22}^{(2)} \delta_2^{(3)}$。&lt;/p&gt;
+&lt;p&gt;对于 4 层的网络，设隐藏层都只有两个神经元，则 $\delta_2^{(2)}=\Theta_{12}^{(2)} \delta_1^{(3)}+\Theta_{22}^{(2)} \delta_2^{(3)}$。&lt;/p&gt;
 &lt;h4 id=&#34;忽略代价函数中的正则化项&#34;&gt;忽略代价函数中的正则化项
-&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;忽略代价函数中正则化项，则$\frac{\partial}{\partial\theta_{ij}^{(l)}}J(\Theta)=a_j^{(l)} \delta_i^{l+1}$。其中上下标的含义：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;$l$代表目前所计算的是第几层&lt;/p&gt;
-&lt;p&gt;$j$代表目前计算层中的激活单元的下标，也就是下一层第$j$个输入变量的下标&lt;/p&gt;
-&lt;p&gt;$i$代表下一层中误差单元的下标&lt;/p&gt;
+&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;忽略代价函数中正则化项，则 $\frac{\partial}{\partial\theta_{ij}^{(l)}}J(\Theta)=a_j^{(l)} \delta_i^{l+1}$。其中上下标的含义：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;$l$ 代表目前所计算的是第几层&lt;/p&gt;
+&lt;p&gt;$j$ 代表目前计算层中的激活单元的下标，也就是下一层第 $j$ 个输入变量的下标&lt;/p&gt;
+&lt;p&gt;$i$ 代表下一层中误差单元的下标&lt;/p&gt;
 &lt;h4 id=&#34;考虑正则化处理&#34;&gt;考虑正则化处理
-&lt;/h4&gt;&lt;p&gt;则用$\Delta_{ij}^{(l)}$来表示误差矩阵，则算法表示为：
+&lt;/h4&gt;&lt;p&gt;则用 $\Delta_{ij}^{(l)}$ 来表示误差矩阵，则算法表示为：
 &lt;/p&gt;
 $$
 \begin{aligned}
@@ -643,10 +644,10 @@ $$
 \}
 \end{aligned}
 $$&lt;p&gt;
-在求出了$\Delta_{ij}^{(l)}$之后，则可求出代价函数的偏导数：
+在求出了 $\Delta_{ij}^{(l)}$ 之后，则可求出代价函数的偏导数：
 &lt;/p&gt;
 $$
-\frac{\partial}{\partial\theta_{ij}^{(l)}}J(\Theta)=D_{ij}^{(l)}:= \begin{cases}
+\frac{\partial}{\partial\theta_{ij}^{(l)}}J(\Theta)= D_{ij}^{(l)}:= \begin{cases}
 \frac{1}{m}\Delta_{ij}^{(l)}+\lambda \Theta_{ij}^{(l)}&amp; ,\quad if \quad j \ne 0 \\
 \frac{1}{m}\Delta_{ij}^{(l)}&amp;, \quad if \quad j = 0
 \end{cases}
@@ -654,13 +655,13 @@ $$&lt;h3 id=&#34;梯度检验&#34;&gt;梯度检验
 &lt;/h3&gt;&lt;p&gt;对一个复杂模型使用梯度下降算法时，可能会存在一些不易察觉的错误，意味着虽然代价看上去不断减小，但是最终的结果可能并不是最优解。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;解决方法：梯度检验&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;思想&lt;/strong&gt;：通过估计梯度值来检验我门计算的导数值是否真的是预期的。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;方法&lt;/strong&gt;：在代价函数上，对于某个特定的$\theta$，我们计算出在$\theta - \epsilon $处和$\theta + \epsilon $的代价值，然后求两个代价的平均，即为估计值。&lt;/p&gt;
-&lt;p&gt;针对$\theta_1$进行检验的示例：
+&lt;p&gt;&lt;strong&gt;方法&lt;/strong&gt;：在代价函数上，对于某个特定的 $\theta$，我们计算出在 $\theta - \epsilon $ 处和 $\theta + \epsilon $ 的代价值，然后求两个代价的平均，即为估计值。&lt;/p&gt;
+&lt;p&gt;针对 $\theta_1$ 进行检验的示例：
 &lt;/p&gt;
 $$
 \frac{\partial}{\partial_{\theta_1}}=\frac{J(\theta_1 + \epsilon,\theta_2,\cdots,\theta_n)-J(\theta_1 - \epsilon,\theta_2,\cdots,\theta_n)}{2 \epsilon}
 $$&lt;p&gt;
-对于反向传播算法，计算出的偏导数存储在矩阵$D_{ij}^{(l)}$中，检验时，将该矩阵展开成为向量；与此同时，将$\theta$矩阵也展开为向量，针对每一个$\theta$都计算一个近似的梯度值，将这些值存储于一个近似梯度矩阵中，同$D_{ij}^{(l)}$比较。&lt;/p&gt;
+对于反向传播算法，计算出的偏导数存储在矩阵 $D_{ij}^{(l)}$ 中，检验时，将该矩阵展开成为向量；与此同时，将 $\theta$ 矩阵也展开为向量，针对每一个 $\theta$ 都计算一个近似的梯度值，将这些值存储于一个近似梯度矩阵中，同 $D_{ij}^{(l)}$ 比较。&lt;/p&gt;
 &lt;h3 id=&#34;随机初始化&#34;&gt;随机初始化
 &lt;/h3&gt;&lt;p&gt;任何优化算法都需要一些初始的参数。&lt;/p&gt;
 &lt;p&gt;对于神经网络，&lt;strong&gt;令所有的初试参数都为一个相同的值是不可行的&lt;/strong&gt;，这意味着对于一个层的所有激活单元都为相同的值。进而在梯度下降时，对于每一个激活单元的误差都是相同的，这意味着高度的冗余。因此需要对参数进行随机初始化。&lt;/p&gt;
@@ -668,11 +669,11 @@ $$&lt;p&gt;
 &lt;/h3&gt;&lt;h4 id=&#34;网络结构&#34;&gt;网络结构
 &lt;/h4&gt;&lt;p&gt;第一层的单元数：训练集的特征数量&lt;/p&gt;
 &lt;p&gt;最后一层的单元数：训练集的结果的类的数量&lt;/p&gt;
-&lt;p&gt;隐藏层：该层大小最好为1。如果层数大于1，应确保每个隐藏层的单元个数相同，通常情况下隐藏层单元个数越多越好。&lt;/p&gt;
+&lt;p&gt;隐藏层：该层大小最好为 1。如果层数大于 1，应确保每个隐藏层的单元个数相同，通常情况下隐藏层单元个数越多越好。&lt;/p&gt;
 &lt;h4 id=&#34;训练神经网络&#34;&gt;训练神经网络
 &lt;/h4&gt;&lt;ol&gt;
 &lt;li&gt;参数随机初始化&lt;/li&gt;
-&lt;li&gt;正向传播算法，计算所有的$h_\theta(x)$&lt;/li&gt;
+&lt;li&gt;正向传播算法，计算所有的 $h_\theta(x)$&lt;/li&gt;
 &lt;li&gt;选择代价函数&lt;/li&gt;
 &lt;li&gt;反向传播算法，计算所有偏导数&lt;/li&gt;
 &lt;li&gt;梯度检验&lt;/li&gt;
@@ -680,53 +681,53 @@ $$&lt;p&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;机器学习诊断法&#34;&gt;机器学习诊断法
 &lt;/h2&gt;&lt;h3 id=&#34;评估一个假设&#34;&gt;评估一个假设
-&lt;/h3&gt;&lt;p&gt;如何&lt;strong&gt;评估一个假设是否过拟合&lt;/strong&gt;呢？ 将训练数据分为训练集和测试集。 一般训练集：测试集=7：3。&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;如何 &lt;strong&gt;评估一个假设是否过拟合&lt;/strong&gt; 呢？ 将训练数据分为训练集和测试集。 一般训练集：测试集 = 7：3。&lt;/p&gt;
 &lt;h4 id=&#34;用测试集计算误差&#34;&gt;用测试集计算误差
-&lt;/h4&gt;&lt;p&gt;对于线性回归模型，可以利用测试集数据计算代价函数$J$。&lt;/p&gt;
+&lt;/h4&gt;&lt;p&gt;对于线性回归模型，可以利用测试集数据计算代价函数 $J$。&lt;/p&gt;
 &lt;p&gt;对于逻辑回归模型，除了可以用测试集数据计算代价函数外，还可利用误分类的比率对每一个测试集实例计算：
 &lt;/p&gt;
 $$
-err(h_\theta(x),y)= \begin{cases}
-1,&amp;if \quad h_\theta(x) \ge 0.5 \quad and \quad y=0,or \quad if \quad h_\theta(x) &lt; 0.5 \quad and \quad y=1  \\
+err(h_\theta(x), y)= \begin{cases}
+1,&amp;if \quad h_\theta(x) \ge 0.5 \quad and \quad y = 0, or \quad if \quad h_\theta(x) &lt; 0.5 \quad and \quad y = 1  \\
 0，&amp;其它
 \end{cases}
 $$&lt;p&gt;
 然后对计算结果求平均。&lt;/p&gt;
 &lt;h3 id=&#34;模型选择和交叉验证集&#34;&gt;模型选择和交叉验证集
 &lt;/h3&gt;&lt;p&gt;越高次数的多项式模型越能够适应训练数据集，但适应训练数据集的模型不一定能够推广到一般状况。&lt;strong&gt;可以使用交叉验证集，简称验证集，来帮助选择模型&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;典型的数据集的&lt;strong&gt;比例&lt;/strong&gt;，训练集：验证集：测试集=6：2：2。&lt;/p&gt;
+&lt;p&gt;典型的数据集的 &lt;strong&gt;比例&lt;/strong&gt;，训练集：验证集：测试集 = 6：2：2。&lt;/p&gt;
 &lt;h4 id=&#34;模型选择方法&#34;&gt;模型选择方法
 &lt;/h4&gt;&lt;ol&gt;
 &lt;li&gt;使用训练集训练出几个模型&lt;/li&gt;
 &lt;li&gt;用几个模型分别对验证集计算得出交叉验证误差（代价函数的值）&lt;/li&gt;
 &lt;li&gt;选取代价函数值最小的模型&lt;/li&gt;
-&lt;li&gt;用步骤3中选出的模型对测试集计算得出推广误差。&lt;/li&gt;
+&lt;li&gt;用步骤 3 中选出的模型对测试集计算得出推广误差。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;模型阶数和偏差方差&#34;&gt;模型阶数和偏差/方差
-&lt;/h3&gt;&lt;p&gt;对于训练集，当模型阶数$d$较小时，模型的拟合程度低，误差较大。随着$d$的增长。拟合程度提高，误差减小。&lt;/p&gt;
-&lt;p&gt;对于验证集，误差随着$d$先减小后增大，转折点为模型开始过拟合的时候。&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;对于训练集，当模型阶数 $d$ 较小时，模型的拟合程度低，误差较大。随着 $d$ 的增长。拟合程度提高，误差减小。&lt;/p&gt;
+&lt;p&gt;对于验证集，误差随着 $d$ 先减小后增大，转折点为模型开始过拟合的时候。&lt;/p&gt;
 &lt;p&gt;训练集误差和验证集误差都比较大，且接近时： 偏差/欠拟合。&lt;/p&gt;
 &lt;p&gt;验证集误差远大于训练集误差时：方差/过拟合。&lt;/p&gt;
 &lt;center&gt;
-    &lt;img src=&#34;https://raw.githubusercontent.com/heimi2022/img-repo0/main/Machine_Learning_bias_var_polynomial_d_curve&#34;
-         width=&#34;40%&#34;&gt;
+    &lt; img src = &#34;https://raw.githubusercontent.com/heimi2022/img-repo0/main/Machine_Learning_bias_var_polynomial_d_curve&#34;
+         width = &#34;40%&#34; &gt;
     &lt;br&gt;
     polynomial_d
 &lt;/center&gt;
 &lt;h3 id=&#34;正则化和偏差方差&#34;&gt;正则化和偏差/方差
 &lt;/h3&gt;&lt;h4 id=&#34;选择正则化参数&#34;&gt;选择正则化参数
 &lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;使用训练集训练几个不同程度正则化的模型。正则化参数一般从小到达，按2的倍数增加。&lt;/li&gt;
+&lt;li&gt;使用训练集训练几个不同程度正则化的模型。正则化参数一般从小到达，按 2 的倍数增加。&lt;/li&gt;
 &lt;li&gt;用这几个模型分别对验证集计算交叉验证误差&lt;/li&gt;
 &lt;li&gt;选择得出交叉验证误差最小的模型&lt;/li&gt;
-&lt;li&gt;用步骤3中选出的模型对测试集计算得出推广误差&lt;/li&gt;
+&lt;li&gt;用步骤 3 中选出的模型对测试集计算得出推广误差&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4 id=&#34;偏差和方差&#34;&gt;偏差和方差
-&lt;/h4&gt;&lt;p&gt;当$\lambda$较小时。表现为方差，训练集误差较小（过拟合），交叉验证集误差较大。&lt;/p&gt;
-&lt;p&gt;随着$\lambda$的增加，训练集误差不断增加（欠拟合），交叉验证集误差先减小后增大。&lt;/p&gt;
+&lt;/h4&gt;&lt;p&gt;当 $\lambda$ 较小时。表现为方差，训练集误差较小（过拟合），交叉验证集误差较大。&lt;/p&gt;
+&lt;p&gt;随着 $\lambda$ 的增加，训练集误差不断增加（欠拟合），交叉验证集误差先减小后增大。&lt;/p&gt;
 &lt;center&gt;
-    &lt;img src=&#34;https://raw.githubusercontent.com/heimi2022/img-repo0/main/Machine_Learning_bias_var_regularization_curve&#34;
-         width=&#34;40%&#34;&gt;
+    &lt; img src = &#34;https://raw.githubusercontent.com/heimi2022/img-repo0/main/Machine_Learning_bias_var_regularization_curve&#34;
+         width = &#34;40%&#34; &gt;
     &lt;br&gt;
     Bias/variance as function of the regularzation 
 &lt;/center&gt;
@@ -734,8 +735,8 @@ $$&lt;p&gt;
 &lt;/h3&gt;&lt;h4 id=&#34;高偏差欠拟合&#34;&gt;高偏差，欠拟合
 &lt;/h4&gt;&lt;p&gt;对于高偏差，欠拟合的情况，曲线如下图所示：&lt;/p&gt;
 &lt;center&gt;
-    &lt;img src=&#34;https://raw.githubusercontent.com/heimi2022/img-repo0/main/Machine_Learning_High_bias_learning_curve&#34;
-         width=&#34;40%&#34;&gt;
+    &lt; img src = &#34;https://raw.githubusercontent.com/heimi2022/img-repo0/main/Machine_Learning_High_bias_learning_curve&#34;
+         width = &#34;40%&#34; &gt;
     &lt;br&gt;
     High bias
 &lt;/center&gt;
@@ -743,8 +744,8 @@ $$&lt;p&gt;
 &lt;h4 id=&#34;高方差过拟合&#34;&gt;高方差，过拟合
 &lt;/h4&gt;&lt;p&gt;对于高偏差，欠拟合的情况，曲线如下图所示：&lt;/p&gt;
 &lt;center&gt;
-    &lt;img src=&#34;https://raw.githubusercontent.com/heimi2022/img-repo0/main/Machine_Learning_High__variance_learning_curve&#34;
-         width=&#34;40%&#34;&gt;
+    &lt; img src =&#34; https://raw.githubusercontent.com/heimi2022/img-repo0/main/Machine_Learning_High__variance_learning_curve &#34;
+         width = &#34;40%&#34; &gt;
     &lt;br&gt;
     High variance
 &lt;/center&gt;
@@ -756,6 +757,364 @@ $$&lt;p&gt;
 较大的神经网络，类似于参数较多的情况，容易导致高方差和过拟合，但可以通过正则化手段来调整而更加适应数据。&lt;/p&gt;
 &lt;p&gt;通常选择较大的神经网络并采用正则化处理会比采用较小的神经网络效果要好。&lt;/p&gt;
 &lt;p&gt;对于神经网络中的隐藏层的层数的选择，通常从一层开始逐渐增加层数。&lt;/p&gt;
+&lt;h2 id=&#34;误差分析&#34;&gt;误差分析
+&lt;/h2&gt;&lt;h3 id=&#34;构建一个学习算法的方法&#34;&gt;构建一个学习算法的方法：
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;从一个简单且能快速实现的算法开始，实现并用验证集测试这个算法&lt;/li&gt;
+&lt;li&gt;绘制学习曲线，决定增加更多数据 or 添加更多特征&amp;hellip;..&lt;/li&gt;
+&lt;li&gt;进行误差分析&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;类偏斜的误差度量&#34;&gt;类偏斜的误差度量
+&lt;/h3&gt;&lt;p&gt;类偏斜情况表现为我们的训练集中有非常多的同一种类的实例，只有很少或没有其他类的实例。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;strong&gt;Positive（预测）&lt;/strong&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;strong&gt;Negtive（预测）&lt;/strong&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Positive（实际）&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;TP&lt;/td&gt;
+          &lt;td&gt;FN&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Negtive（实际）&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;FP&lt;/td&gt;
+          &lt;td&gt;TN&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;TP&lt;/strong&gt;：正确肯定，预测为真，实际为真&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;FP&lt;/strong&gt;：错误肯定，预测为真，实际为假&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TN&lt;/strong&gt;：正确否定，预测为假，实际为假&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;FN&lt;/strong&gt;：错误否定，预测为假，实际为真&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;查准率（Precision）：&lt;/strong&gt; $P=\frac{TP}{TP+FP}$。在预测的所有真的里面，实际上为真的比例。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;查全率(Recall)：&lt;/strong&gt; $R=\frac{TP}{TP+FN}$。在所有实际上为真的里面，预测为真的比例。&lt;/p&gt;
+&lt;h3 id=&#34;查准率和查全率之间的平衡&#34;&gt;查准率和查全率之间的平衡
+&lt;/h3&gt;&lt;p&gt;假如 $h_\theta(x)\ge p$ 预测为真，那么将 p 调大，查准率上升，查全率下降；将 p 调小，查准率下降，查全率上升。
+又因为我们希望两者都比较大，则我们需要做一个权衡。&lt;/p&gt;
+&lt;p&gt;选择阈值的方法，一种是 &lt;strong&gt;计算 F1 值(F1 Score)&lt;/strong&gt;。其计算公式为：
+&lt;/p&gt;
+$$
+F1 \, Score = 2\frac{PR}{P+R}
+$$&lt;p&gt;
+应选择使得 F1 值最高的阈值。&lt;/p&gt;
+&lt;h2 id=&#34;支持向量机svm&#34;&gt;支持向量机（SVM）
+&lt;/h2&gt;&lt;h3 id=&#34;svm-定义&#34;&gt;SVM 定义
+&lt;/h3&gt;&lt;p&gt;SVM：
+&lt;/p&gt;
+$$
+\underset{\theta}{min}C\sum^m_{i = 1}[y^{(i)}cost_1(\theta^Tx^{(i)})+(1-y^{(i)})cost_0(\theta^Tx^{(i)})]+\frac12\sum^n_{i = 1}\theta^2_j, C =\frac1\lambda
+$$&lt;p&gt;
+这里将正则化常数移到了第一项。在逻辑回归中，若 $\lambda$ 很大，则意味着给正则化项一个很大的权重。在这里若 $C$ 很小, 则也等同于给正则化项一个很大的权重。&lt;/p&gt;
+&lt;p&gt;$C$ 较大时，相当于 $\lambda$ 很小，可能导致过拟合，高方差。
+$C$ 较小时，相当于 $\lambda$ 很大，可能导致欠拟合，高偏差。&lt;/p&gt;
+&lt;p&gt;对于 SVM，若存在一个正样本，我们会希望代价函数中 $\theta^T x \ge 1$ 而不仅仅要求 $\theta^T x &amp;gt; 0$。这相当于在 SVM 中嵌入了一个额外的安全因子。
+同样，对于一个负样本，我们会希望代价函数中 $\theta^T x \le 1$ 而不仅仅要求 $\theta^T x &amp;lt; 0$。这在 SVM 中表现为决策边界的间距。&lt;/p&gt;
+&lt;p&gt;支持向量机具有鲁棒性？因为其用一个最大间距来分离样本，因此有时支持向量机被称为大间距分类器。&lt;/p&gt;
+&lt;h3 id=&#34;svm-原理&#34;&gt;SVM 原理
+&lt;/h3&gt;&lt;p&gt;支持向量机做的事情是 &lt;strong&gt;极小化&lt;/strong&gt; 参数向量 $\theta$ 范数（长度）的平方。&lt;/p&gt;
+&lt;p&gt;支持向量机中参数向量 $\theta$ 是与决策边界 90 度 &lt;strong&gt;正交&lt;/strong&gt; 的。
+若决策边界选择不合理，那意味着样本在参数向量上的投影数值很小，若要求 $\theta^T x \ge 1$ 或者 $\theta^T x \le 1$ 则需要使得参数向量 $\theta$ 范数的平方很大，则会舍弃该决策边界。&lt;/p&gt;
+&lt;h3 id=&#34;核函数&#34;&gt;核函数
+&lt;/h3&gt;&lt;p&gt;用一系列新的特征 $f$ 来替代模型中的每一项，则
+&lt;/p&gt;
+$$
+h_\theta(x)=\theta_1 f_1 + \theta_2 f_2 + \cdots + \theta_n f_n
+$$&lt;h4 id=&#34;构造-f&#34;&gt;构造 $f$
+&lt;/h4&gt;&lt;p&gt;给定一个训练实例 $x$，利用 $x$ 的各个特征与我们预先选定的地标（landmarks）$l^{(1)}，l^{(2)},l^{(3)}$ 的近似程度来选取新的特征 $f_1,f_2,f_3$。&lt;/p&gt;
+&lt;p&gt;一个核函数&amp;mdash;&lt;strong&gt;高斯核函数&lt;/strong&gt;
+&lt;/p&gt;
+$$
+f_1 = similarity(x, l^{(1)})= exp(-\frac{||x-l^{(1)}||^2}{2 \sigma^2})
+$$&lt;p&gt;
+其中 $||x-l^{(1)}||^2=\sum_{j=1}^n(x_j-l_j^{(1)})^2$，为实例 $x$ 中所有特征与地标 $l^{(1)}$ 之间距离的和。&lt;/p&gt;
+&lt;p&gt;则，对于 $x$，如果其离地标 $l$ 距离近似为 0，则新特征 $f=1$；如果其离地标 $l$ 距离较远，则新特征 $f=0$。&lt;/p&gt;
+&lt;p&gt;随着 $x$ 的改变，$f$ 值改变的速率受到 $\sigma^2$ 的控制。
+$\sigma^2$ 越大，改变速率越慢，可能导致高偏差。
+$\sigma^2$ 越小，改变速率越快，可能导致高方差。&lt;/p&gt;
+&lt;h4 id=&#34;如何选择地标&#34;&gt;如何选择地标
+&lt;/h4&gt;&lt;p&gt;通常根据训练集的数量选择地标的数量，如果训练集中有 $m$ 个实例，则选择 $m$ 个地标，
+并且令：$l^{(1)}=x^{(1)},l^{(2)}=x^{(3)},\cdots,l^{(m)}=x^{(m)}$。&lt;/p&gt;
+&lt;p&gt;好处：此时的新特征是建立在原有特征与训练集中所有其它特征之间距离的基础之上的。&lt;/p&gt;
+&lt;h3 id=&#34;修改支持向量机&#34;&gt;修改支持向量机
+&lt;/h3&gt;&lt;p&gt;给定 $x$，计算新特征 $f$，当 $\theta^Tf \ge 0$ 时，预测 $y=1$。否则反之。
+相应的修改正则化项为：$\sum_{j=1}^{n=m}\theta_j^2=\theta^T\theta$。则有如下式子：
+&lt;/p&gt;
+$$
+\underset{\theta}{min}C\sum^m_{i = 1}[y^{(i)}cost_1(\theta^Tf^{(i)})+(1-y^{(i)})cost_0(\theta^Tf^{(i)})]+\frac12\theta^TM\theta
+$$&lt;p&gt;
+其中 $M$ 是随核函数变化的一个矩阵。&lt;/p&gt;
+&lt;h3 id=&#34;使用支持向量机&#34;&gt;使用支持向量机
+&lt;/h3&gt;&lt;p&gt;$n$ 为特征数，$m$ 为训练样本数。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;若相较于 $m$ 而言，$n$ 大很多，即训练集数据量不够支持我们训练一个复杂的非线性模型，我们选用逻辑回归模型或者不带核函数的支持向量机。&lt;/li&gt;
+&lt;li&gt;若 $n$ 较小，而且 $m$ 大小中等，例如 $n$ 在 1-1000 之间，而 $m$ 在 10-10000 之间，选用高斯核函数的支持向量机。&lt;/li&gt;
+&lt;li&gt;若 $n$ 较小，而且 $m$ 较大，例如 $n$ 在 1-1000 之间，而 $m$ 大于 50000，则使用支持向量机会非常慢，解决方案是创造、增加更多的特征，然后使用逻辑回归或不带核函数的支持向量机。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;选择支持向量机的原因在于它的代价函数为凸函数，不存在局部最小值。&lt;/p&gt;
+&lt;h2 id=&#34;聚类算法&#34;&gt;聚类算法
+&lt;/h2&gt;&lt;p&gt;这是一个非监督学习算法，其数据没有附带任何标签。&lt;/p&gt;
+&lt;h3 id=&#34;k-均值算法&#34;&gt;K-均值算法
+&lt;/h3&gt;&lt;p&gt;K-均值算法是最普及的聚类算法，其将未标记的数据聚类成不同组。&lt;/p&gt;
+&lt;h4 id=&#34;k-均值算法的思想&#34;&gt;K-均值算法的思想
+&lt;/h4&gt;&lt;p&gt;K-均值算法是一个迭代算法，假设将数据分为 K 组，其方法为：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;选择 K 个随机点，称为聚类中心&lt;/li&gt;
+&lt;li&gt;对于数据集中的每一个数据，按照距离 K 个中心点的距离，将其与距离最近的中心点关起来，与同一个中心点关联的所有数据聚成一类。&lt;/li&gt;
+&lt;li&gt;计算每一个类的平均值，将该类的中心点移到其平均值的位置。&lt;/li&gt;
+&lt;li&gt;重复 2-3，直至中心点不再变化。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;k-均值算法的优化目标&#34;&gt;K-均值算法的优化目标
+&lt;/h4&gt;&lt;p&gt;K-均值算法最小化问题，是要最小化所有的数据点与其所关联的聚类中心点之间的距离之和。因此 K-均值算法的代价函数（又称畸变函数 Distortion function）为：
+&lt;/p&gt;
+$$
+min \, J(c^{(1)}, c^{(2)},\cdots, c^{(n)},\mu^1,\mu^2,\cdots,\mu^k)=\frac 1m\sum_{i = 1}^m||X^{(i)}-\mu_{c^{(i)}}||^2
+$$&lt;h4 id=&#34;k-均值算法的伪代码&#34;&gt;K-均值算法的伪代码
+&lt;/h4&gt;$$
+\begin{aligned}
+&amp; \text{Repeat} \{ \\
+&amp; \text{for i = 1 to m}  \\
+&amp; \text{c(i) := 距离实例数据最近的聚类中心的索引}  \\
+&amp; \text{for k = 1 to k}  \\
+&amp; \mu_k \text{ := 聚到该类的数据均值}  \\
+&amp; \} 
+\end{aligned}
+$$&lt;p&gt;
+其中第一个循环是用于减小 $c^{(i)}$ 引起的代价，第二个循环则是用于减小 $\mu_i$ 引起的代价。&lt;/p&gt;
+&lt;h4 id=&#34;随机初始化-1&#34;&gt;随机初始化
+&lt;/h4&gt;&lt;p&gt;在运行 K-均值算法时，我们要随机初始化所有聚类中心点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;应使得聚类中心点的个数 K 小于所有训练集实例的数量 m。&lt;/li&gt;
+&lt;li&gt;随机选择 K 个训练实例，然后令 K 个聚类中心分别与 K 个训练实例相等。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;K-均值算法可能会停留在局部最小值处，因此需要多次运行该算法，每一次都重新进行随机初始化，最后在选择使代价函数最小的结果。&lt;/p&gt;
+&lt;h4 id=&#34;选择聚类数&#34;&gt;选择聚类数
+&lt;/h4&gt;&lt;p&gt;利用 &amp;ldquo;肘部法则&amp;rdquo;，画出代价函数 J-聚类数目 K 的图像，当图像中出现一个拐点时，则可以选择该 K 值。&lt;/p&gt;
+&lt;h2 id=&#34;降维&#34;&gt;降维
+&lt;/h2&gt;&lt;p&gt;特征之间可能存在高度冗余，可以采取降维将数据从高纬度降到低维度。&lt;/p&gt;
+&lt;p&gt;降维的原因：数据压缩、数据可视化。
+数据压缩意义：减少数据占用的内存，加快学习算法。
+数据可视化意义：将数据降低至低维，能够使得数据可视化，便于找到一个更好的解决方案。&lt;/p&gt;
+&lt;h3 id=&#34;主成分分析pca&#34;&gt;主成分分析（PCA）
+&lt;/h3&gt;&lt;p&gt;主成分分析（PCA）是最常见的降维算法。&lt;/p&gt;
+&lt;p&gt;在 PCA 中，我们需要找到一个方向向量，当把所有数据都投射到该向量上时，能够使得投射平均均方误差尽可能地小。
+方向向量是一个经过原点的向量，而投射误差是从特征向量向该方向向量作垂线的长度。&lt;/p&gt;
+&lt;p&gt;当要将 n 维数据降至 k 维数据时，其目标是找到向量 $u^{(1)},u^{(2)},\cdots,u^{(k)}$ 使得总的投射误差最小。相比于线性回归，其不做任何预测。&lt;/p&gt;
+&lt;p&gt;PCA 的优点：其保证数据降维后特性损失最小；降维后结果只与数据相关，与用户是独立的。&lt;/p&gt;
+&lt;h3 id=&#34;pca-算法&#34;&gt;PCA 算法
+&lt;/h3&gt;&lt;p&gt;PCA 减少 n 维到 k 维：&lt;/p&gt;
+&lt;p&gt;训练集 $x^{(1)},\cdots,x^{(m)}$&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;均值归一化，计算所有特征的均值 $\mu_j=\frac1m\sum_{i=1}^m x_j^{(i)}$，然后令 $x_j=x_j - ,u_j$。如果特征是在不同的数量级上，我们还需要将其除以标准差 $\sigma^2$。&lt;/li&gt;
+&lt;li&gt;计算协方差矩阵 $\Sigma= \frac1m \sum_{i=1}^m (x^{(i)})(x^{(i)})^T$&lt;/li&gt;
+&lt;li&gt;对协方差矩阵 $\Sigma$ 进行求特征向量，得到特征矩阵（按特征值从大到小排列），提取千 K 列组成矩阵 $P_{n*k}$，$P$ 就相当于是一个坐标系，P 中的每一列就是一个坐标轴。&lt;/li&gt;
+&lt;li&gt;将原始数据投影到 $P$ 坐标系下即可得到降维后的数据，$Y_{k&lt;em&gt;m}=P_{n&lt;/em&gt;k}^T X_{n*m}$。其中降维后的向量 $z^{(i)}=P^T x^{(i)}$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;选择主成分的数量&#34;&gt;选择主成分的数量
+&lt;/h3&gt;&lt;p&gt;训练集的方差为：$\frac1m \sum_{i=1}^m||x^{(i)}||^2$&lt;/p&gt;
+&lt;p&gt;平均均方误差为：$\frac1m \sum_{i=1}^m||x^{(i)} - x_{approx}^{(i)}||^2$&lt;/p&gt;
+&lt;p&gt;选择的依据：在平均均方误差与训练集的比例尽可能小的情况下选择尽可能小的 k 值。&lt;/p&gt;
+&lt;p&gt;如果希望这个比例小于 1%，就意味着原本数据的偏差有 99%都保留下来了。&lt;/p&gt;
+&lt;p&gt;步骤：先确定保留的偏差，再从小到大选择 k，运行 PCA 算法，观察比例。&lt;/p&gt;
+&lt;p&gt;也可以采用特征矩阵（对角矩阵），则只需要修改上述方法为：
+&lt;/p&gt;
+$$
+\frac{\frac1m \sum_{i = 1}^m||x^{(i)} - x_{approx}^{(i)}||^2}{\frac1m \sum_{i = 1}^m||x^{(i)}||^2}= 1-\frac{\sum_{i = 1}^ks_{ii}}{\sum_{i = 1}^ms_{ii}}\le1 \%
+$$&lt;h3 id=&#34;pca-重建&#34;&gt;PCA 重建
+&lt;/h3&gt;&lt;p&gt;$x_{approx}^{(i)}=Pz^{(i)}$&lt;/p&gt;
+&lt;h3 id=&#34;pca-应用&#34;&gt;PCA 应用
+&lt;/h3&gt;&lt;p&gt;当逻辑回归等算法，输入特征过大，可以先采用 PCA 将其输入特征压缩，再连带着原来的标注一起训练模型。利用验证集以及测试集验证该模型时，注意需要使用训练集得出的 PCA 特征矩阵的 $P$。&lt;/p&gt;
+&lt;h2 id=&#34;异常检测&#34;&gt;异常检测
+&lt;/h2&gt;&lt;p&gt;虽然异常检测主要用于非监督学习问题，但从一些角度，其又类似于一些监督学习问题。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;异常检测定义&lt;/strong&gt;：给定数据集$x^{(1)},\cdots,x^{(m)}$，假设数据集是正常的，我们希望知道$x_{text}$是否正常，即这个测试数据不属于该组数据的几率如何 。我们所构建的模型应该能根据该测试数据的位置告诉我们其属于一组数据的可能性$p(x)$。&lt;/p&gt;
+&lt;p&gt;检测方法&amp;ndash;密度估计
+$$
+if \quad p(x) \begin{cases}
+&amp;lt; \epsilon \quad anomaly \
+\ge \epsilon \quad normal&lt;/p&gt;
+&lt;p&gt;\end{cases}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;高斯分布&#34;&gt;高斯分布
+&lt;/h3&gt;&lt;p&gt;若$x \sim N(\mu,\sigma^2)$，则其概率密度分布函数为$p(x,\mu,\sigma^2)=\frac{1}{\sqrt{2\pi} \sigma}exp(-\frac{(x-\mu)^2}{2 \sigma^2})$。&lt;/p&gt;
+&lt;p&gt;则 $\mu = \frac{1}{m}\sum^m_{i=1}x^{(i)}$，$\sigma^2=\frac1m\sum^m_{i=1}(x^{(i)}-\mu)^2$。
+在机器学习中对于方差我们通常指除以$m$而非统计学中的$m-1$。&lt;/p&gt;
+&lt;h3 id=&#34;异常检测算法&#34;&gt;异常检测算法
+&lt;/h3&gt;&lt;p&gt;应该高斯分布开发异常检测算法。&lt;/p&gt;
+&lt;p&gt;对于给定的数据集$x^{(1)},\cdots,x^{(m)}$，需要针对每一特征计算$\mu$和$\sigma^2$。则：
+&lt;/p&gt;
+$$
+\mu_j = \frac{1}{m}\sum^m_{i=1}x^{(i)}_j
+$$$$
+\sigma^2_j=\frac1m\sum^m_{i=1}(x^{(i)}_j-\mu_j)^2
+$$&lt;p&gt;则对于一个新的实例有
+&lt;/p&gt;
+$$
+p(x)=\prod_{j=1}^np(x_j;\mu_j;\sigma_j^2)=\prod_{j=1}^n\frac{1}{\sqrt{2\pi} \sigma_j}exp(-\frac{(x_j-\mu_j)^2}{2 \sigma^2_j})
+$$&lt;h3 id=&#34;评价一个异常检测系统&#34;&gt;评价一个异常检测系统
+&lt;/h3&gt;&lt;p&gt;使用带标记（正常/异常）的数集着手，选择其中一部分正常数据用于构建训练集，然后用剩下的正常数据和异常数据混合的数据来构建验证集以及测试集。&lt;/p&gt;
+&lt;p&gt;具体评价方法如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;根据测试集数据，我们估计特征的平均值和方差并构建$p(x)$函数。&lt;/li&gt;
+&lt;li&gt;对交叉检验集，我们尝试使用不同的$\epsilon$值作为阈值，并预测数据是否异常，根据F1值或者查准率与查全率的比例来选择$\epsilon $。&lt;/li&gt;
+&lt;li&gt;选出$\epsilon$后，针对测试集进行预测，计算异常检验系统的F1值，或者查准率与查全率之比。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;异常检测与监督学习对比&#34;&gt;异常检测与监督学习对比
+&lt;/h3&gt;&lt;p&gt;异常检测：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;有非常少量的正向类（异常数据 $y=1$），大量的负向类（$y=0$）。&lt;/li&gt;
+&lt;li&gt;有许多不同种类的异常。根据非常少量的正向类数据来训练算法。&lt;/li&gt;
+&lt;li&gt;未来遇到的异常可能与已掌握的异常、非常的不同。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;监督学习：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;同时又大量的正向类和负向类&lt;/li&gt;
+&lt;li&gt;有足够多的正向类实例，足够用于训练算法，未来遇到的正向类实例可能与训练集中的非常近似。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;选择特征&#34;&gt;选择特征
+&lt;/h3&gt;&lt;p&gt;异常检测假设特征符合高斯分布，如果数据的分布不是高斯分布，异常检测算法也能够工作，但是最好还是将数据转换成高斯分布。可以对特征进行一些小转换，如变为log，或者取一些指数等方法。&lt;/p&gt;
+&lt;p&gt;误差分析：有些异常的数据可能也会有较高的$p(x)$值，因而被算法认为是正常的。此时可通过误差分析，发现问题，并从中增加一些新的特征。将一些相关的特征进行组合。&lt;/p&gt;
+&lt;h2 id=&#34;推荐系统&#34;&gt;推荐系统
+&lt;/h2&gt;&lt;p&gt;假设有5部电影，4个用户。要求根据用户对电影的打分情况，为用户推荐电影，给指定用户未打分的电影ai打分。&lt;/p&gt;
+&lt;p&gt;引入一些标记：&lt;/p&gt;
+&lt;p&gt;$n_u$：用户的数量&lt;/p&gt;
+&lt;p&gt;$n_m$：电影的数量&lt;/p&gt;
+&lt;p&gt;$r(i,j)$：若用户$j$给电影$i$评过分，则$r(i,j)=1$.&lt;/p&gt;
+&lt;p&gt;$y^{(i,j)}$ ：用户$j$给电影$i$的评分&lt;/p&gt;
+&lt;p&gt;$m_j$：用户$j$评过分的电影的总数&lt;/p&gt;
+&lt;h3 id=&#34;基于内容的推荐系统&#34;&gt;基于内容的推荐系统
+&lt;/h3&gt;&lt;p&gt;对于每部电影，假设有特征$x^{(i)}$。则基于这些特征来构建一个推荐系统算法。假设采用线性回归模型，且针对每一个用户都训练一个线性回归模型。有：&lt;/p&gt;
+&lt;p&gt;$\theta^{(j)}$为用户$j$的参数向量。&lt;/p&gt;
+&lt;p&gt;$x^{(i)}$ 为电影$i$的特征向量&lt;/p&gt;
+&lt;p&gt;对于用户$j$和电影$i$，我们的预测评分为$(\theta^{(j)})^Tx^{(i)}$&lt;/p&gt;
+&lt;p&gt;则对于用户$j$，其代价函数为：
+&lt;/p&gt;
+$$
+\min_{\theta^{(j)}} \frac{1}{2} \sum_{i: r(i,j)=1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i,j)} \right)^2 + \frac{\lambda}{2} (\theta^{(j)}_k)^2
+$$&lt;p&gt;
+其中$i: r(i,j)=1$表示只计算哪些用户$j$评价过的电影。&lt;/p&gt;
+&lt;p&gt;为了学习所有用户，我们将所有用户的代价函数求和：
+&lt;/p&gt;
+$$
+\min_{\theta^{(1)}, \ldots, \theta^{(n_u)}} \frac{1}{2} \sum_{j=1}^{n_u}\sum_{i: r(i,j)=1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i,j)} \right)^2 + \frac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^{n} \left( \theta_k^{(j)} \right)^2
+$$&lt;p&gt;
+用梯度下降算法求最优解，则：
+&lt;/p&gt;
+$$
+\theta_k^{(j)}:=\theta_k^{(j)} - \alpha\sum_{i:r(i,j)=1}((\theta^{j})^Tx^{(i)}-y^{(i,j)})x_k^{(i)} \quad(for \, k = 0)
+$$$$
+\theta_k^{(j)}:=\theta_k^{(j)} - \alpha(\sum_{i:r(i,j)=1}((\theta^{j})^Tx^{(i)}-y^{(i,j)})x_k^{(i)} + \lambda \theta_k^{(j)}) \quad(for \, k \ne 0)
+$$&lt;h3 id=&#34;协同过滤&#34;&gt;协同过滤
+&lt;/h3&gt;&lt;p&gt;前面，基于每一部电影可用的特征，我们可训练得到每一个用户的参数。同样，如果我们有用户的参数，我们则可以学习出电影的特征。
+&lt;/p&gt;
+$$
+\min_{x^{(1)},\cdots,x^{(n_m)}} \frac{1}{2} \sum_{i=1}^{n_m} \sum_{j: r(i,j)=1} \left( \left( \theta^{(j)} \right)^T x^{(i)} - y^{(i,j)} \right)^2 + \frac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n \left( x_k^{(i)} \right)^2
+$$&lt;p&gt;
+假如既没有用户的参数，也没有电影的特征。则不能采用上述的两种方法。则可采用协同过滤来同时学习这两者，其代价函数为：
+&lt;/p&gt;
+$$
+J(x^{(1)},\ldots,x^{(n_m)},\theta^{(1)},\ldots,\theta^{(n_u)}) \\= \frac{1}{2} \sum_{(i:j):r(i,j)=1} \left( \left( \theta^{(j)} \right)^T x^{(i)} - y^{(i,j)} \right)^2 + \frac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n \left( x_k^{(i)} \right)^2 \\
+\quad + \frac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n \left( \theta_k^{(j)} \right)^2
+$$&lt;p&gt;
+采用梯度下降法寻找最小值：
+&lt;/p&gt;
+$$
+x_k^{(i)} := x_k^{(i)} - \alpha \left( \sum_{j: r(i,j)=1} \left( \left( \theta^{(j)} \right)^T x^{(i)} - y^{(i,j)} \right) \theta_k^{(j)} + \lambda x_k^{(i)} \right) \\
+\theta_k^{(j)} := \theta_k^{(j)} - \alpha \left( \sum_{i: r(i,j)=1} \left( \left( \theta^{(j)} \right)^T x^{(i)} - y^{(i,j)} \right) x_k^{(i)} + \lambda \theta_k^{(j)} \right) \\
+\min_{x^{(1)},\ldots,x^{(n_m)}} \frac{1}{2} \sum_{i=1}^{n_m} \sum_{j: r(i,j)=1} \left( \left( \theta^{(j)} \right)^T x^{(i)} - y^{(i,j)} \right)^2 + \frac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n \left( x_k^{(i)} \right)^2
+$$&lt;p&gt;
+协同过滤算法使用步骤如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;初始$x^{(1)}, x^{(2)}, \ldots, x^{(nm)}, \theta^{(1)}, \theta^{(2)}, \ldots, \theta^{(n_u)}$为一些随机最小值。&lt;/li&gt;
+&lt;li&gt;使用梯度下降法来最小化代价函数&lt;/li&gt;
+&lt;li&gt;训练完算法后，我们预测$(\theta^{(j)})^Tx^{(i)}$为用户$j$给电影$i$评分&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;均值归一化&#34;&gt;均值归一化
+&lt;/h3&gt;&lt;p&gt;若新增一个用户，其没有为任何电影评过分。可用均值归一化的方法为其推荐电影。&lt;/p&gt;
+&lt;p&gt;步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;对结果Y矩阵进行均值归一化处理，将每一个用户对某一电影的评分减去所有用户对该电影评分的平均值。&lt;/li&gt;
+&lt;li&gt;然后利用新的Y矩阵来训练算法。&lt;/li&gt;
+&lt;li&gt;训练完毕后需要将平均值加回去。&lt;/li&gt;
+&lt;li&gt;对于新用户，该算法认为他给每部电影的评分都是该电影的平均值。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;大规模机器学习&#34;&gt;大规模机器学习
+&lt;/h2&gt;&lt;p&gt;对于大型数据集的学习，首先要做的事是，去检查一个大规模的训练集是否真的有必要。可以绘制学习曲线来帮助判断。&lt;/p&gt;
+&lt;p&gt;若一定需要一个大规模的训练集，可以采用**随机梯度下降法（SGD）**来代替批量梯度下降法。&lt;/p&gt;
+&lt;h3 id=&#34;随机梯度下降法&#34;&gt;随机梯度下降法
+&lt;/h3&gt;&lt;p&gt;在随机梯度下降法中，我们定义代价函数为一个单一训练实例的代价：
+&lt;/p&gt;
+$$
+cost(\theta,(x^{(i)},y{(i)}))=\frac12(h_\theta(x^{(i)})-y^{(i)})^2
+$$&lt;p&gt;
+随机梯度下降算法为：
+首先对训练集进行随机洗牌，然后：
+&lt;/p&gt;
+$$
+\begin{aligned}
+&amp; Repeat \{ \\
+&amp; \quad for \, i=1:m \{ \\
+&amp; \quad  \theta_j:=\theta_j - \alpha(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)} \\
+&amp; \quad  (for \, j=0:n) \\
+&amp; \quad  \} \\
+&amp; \}
+\end{aligned}
+$$&lt;p&gt;
+随机梯度下降算法在每一次计算之后便更新参数$\theta$，不需要首先将所有的训练集求和，在梯度下降算法还没有完成一次迭代时，随机梯度下降算法便已经走出了很远。但是这样的算法存在的问题是，不是每一步都是朝着”正确”的方向迈出的。因此算法虽然会逐渐走向全局最小值的位置，但是可能无法站到那个最小值的那一点，而是在最小值点附近徘徊。&lt;/p&gt;
+&lt;h3 id=&#34;小批量梯度下降算法&#34;&gt;小批量梯度下降算法
+&lt;/h3&gt;&lt;p&gt;小批量梯度下降算法是介于批量梯度下降算法和随机梯度下降算法之间的算法，每计算
+常数b次训练实例，便会更新一次参数$\theta$。
+&lt;/p&gt;
+$$
+\begin{aligned}
+&amp; Repeat \{ \\
+&amp; \quad for \, i=1:m \{ \\
+&amp; \quad  \theta_j:=\theta_j - \alpha\frac{1}{b}\sum_{k=i}^{i+b-1}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)} \\
+&amp; \quad  (for \, j=0:n) \\
+&amp; \quad i+=b \\
+&amp; \quad  \} \\
+&amp; \}
+\end{aligned}
+$$&lt;p&gt;
+通常会令b在2-100之间。&lt;/p&gt;
+&lt;h3 id=&#34;随机梯度下降收敛&#34;&gt;随机梯度下降收敛
+&lt;/h3&gt;&lt;p&gt;如何对随机梯度下降算法进行调试以及选取学习率$\alpha$？&lt;/p&gt;
+&lt;p&gt;在随机梯度下降中，我们在每一次更新$\theta$前都计算一次代价，然后每x次迭代后，求出这x次对训练实例计算代价的平均值，然后绘制这些平均值宇x次迭代的次数之间的函数图表。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;若曲线发散，则选取较小学习率。&lt;/li&gt;
+&lt;li&gt;曲线在收敛，但噪声比较大（曲线小幅度上下起伏），选取较小学习率，或增大x。&lt;/li&gt;
+&lt;li&gt;曲线基本保持平坦，模型有错误，或者增大x。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;在线学习&#34;&gt;在线学习
+&lt;/h3&gt;&lt;p&gt;在线学习算法指的是对数据流而非离线的静态数据集的学习。&lt;/p&gt;
+&lt;p&gt;若有一个由连续的用户流引发的连续的数据流，则可以使用在线学习机制，从数据流中学习用户的偏好，然后使用这些信息来优化一些关于网站的决策。&lt;/p&gt;
+&lt;p&gt;其与随机梯度下降算法有些类似，都对单一的实例进行学习。
+&lt;/p&gt;
+$$
+\begin{aligned}
+&amp; Repeat \,forever(\text{若网站一直在运行}) \{ \\
+&amp; \quad \text{获取数据}(x,y)  \\
+&amp; \quad  \theta_j:=\theta_j - \alpha(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)} \\
+&amp; \quad  (for \, j=0:n) \\
+&amp; \}
+\end{aligned}
+$$&lt;h3 id=&#34;映射简化&#34;&gt;映射简化
+&lt;/h3&gt;&lt;p&gt;映射简化：将数据集分配给不同台计算机，让每一台计算机处理数据集的一个子集，然后将计算结果汇总求和。（或是一台计算机的多个核）&lt;/p&gt;
+&lt;h2 id=&#34;其它&#34;&gt;其它
+&lt;/h2&gt;&lt;h3 id=&#34;大量数据获取&#34;&gt;大量数据获取
+&lt;/h3&gt;&lt;p&gt;利用已有的数据，对其进行修改，如将已又的字符图片进行一些扭曲、旋转、模糊处理。只要认为实际数据又可能核经过这样处理后的数据类似，我们就可以采用这样的方法来创造大量数据。&lt;/p&gt;
+&lt;p&gt;有关获取数据的几种方法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;人工数据合成&lt;/li&gt;
+&lt;li&gt;手动收集、标注数据&lt;/li&gt;
+&lt;li&gt;众包&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;上限分析&#34;&gt;上限分析
+&lt;/h3&gt;&lt;p&gt;在机器学习应用中，我们通常需要通过几个步骤才能进行最终的预测，&lt;strong&gt;利用上限分析可以知道哪一个步骤最值得投入时间&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;每一个步骤中，上一个步骤的输出是下一个步骤的输入。在上限分析中，我们选取一个步骤，手工提供100%正确的输出结果，然后看应用的整体效果提升了多少。若提升效果较大，则可投入大量精力至该步骤中；反之，该步骤对模型整体性能提升效果不大。&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -868,15 +1227,6 @@ $$&lt;p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        </item>
-        <item>
-        <title>To_YSM</title>
-        <link>https://heimi2022.github.io/Hugo/p/to_ysm/</link>
-        <pubDate>Tue, 20 May 2025 21:27:55 +0800</pubDate>
-        
-        <guid>https://heimi2022.github.io/Hugo/p/to_ysm/</guid>
-        <description>&lt;h1 id=&#34;我的第一条博客送给杨思敏同学&#34;&gt;我的第一条博客送给杨思敏同学
-&lt;/h1&gt;</description>
         </item>
         
     </channel>

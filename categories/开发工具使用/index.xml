@@ -29,7 +29,8 @@ quad空格&amp;mdash;&amp;mdash;&amp;mdash;a \quad b&amp;mdash;&amp;mdash;&amp;m
 &lt;li&gt;分式 \frac{a}{b}  :  $\frac{a}{b}$&lt;/li&gt;
 &lt;li&gt;根式 \sqrt[n]{a}  :  $\sqrt[n]{a}$&lt;/li&gt;
 &lt;li&gt;求导 f&amp;rsquo; : $f&#39;$&lt;/li&gt;
-&lt;li&gt;求和$\sum$ ：\sum&lt;/li&gt;
+&lt;li&gt;累加$\sum$ ：\sum&lt;/li&gt;
+&lt;li&gt;累乘$\prod$：&lt;code&gt;\prod&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;极限 $\lim\limits_{x\to\infty}$：\lim\limits_{x\to\infty}&lt;/li&gt;
 &lt;li&gt;积分号$\int$：\int&lt;/li&gt;
 &lt;li&gt;其它 上划线:\overline{a},下划线\underline{a},上右箭头\overrightarrow{a}:$\overrightarrow{a}$&lt;/li&gt;
