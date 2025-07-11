@@ -7,7 +7,23 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Wjj</copyright>
-        <lastBuildDate>Fri, 23 May 2025 20:12:04 +0800</lastBuildDate><atom:link href="https://heimi2022.github.io/Hugo/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 11 Jul 2025 15:00:00 +0800</lastBuildDate><atom:link href="https://heimi2022.github.io/Hugo/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Linux</title>
+        <link>https://heimi2022.github.io/Hugo/tags/linux/</link>
+        <pubDate>Fri, 11 Jul 2025 15:00:00 +0800</pubDate>
+        
+        <guid>https://heimi2022.github.io/Hugo/tags/linux/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>大模型</title>
+        <link>https://heimi2022.github.io/Hugo/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/</link>
+        <pubDate>Mon, 07 Jul 2025 16:00:00 +0800</pubDate>
+        
+        <guid>https://heimi2022.github.io/Hugo/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Markdown</title>
         <link>https://heimi2022.github.io/Hugo/tags/markdown/</link>
         <pubDate>Fri, 23 May 2025 20:12:04 +0800</pubDate>

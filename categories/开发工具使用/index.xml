@@ -67,6 +67,7 @@ quad空格&amp;mdash;&amp;mdash;&amp;mdash;a \quad b&amp;mdash;&amp;mdash;&amp;m
 &lt;li&gt;$\leqslant ， \geqslant ，\le ，\ge$：\leqslant ， \geqslant ，\le ，\ge&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;\in&lt;/code&gt; ：$\in$&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;\ne&lt;/code&gt;：$\ne$&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\approx&lt;/code&gt;：$\approx$&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;括号&#34;&gt;括号
 &lt;/h3&gt;&lt;ol&gt;
@@ -78,6 +79,7 @@ quad空格&amp;mdash;&amp;mdash;&amp;mdash;a \quad b&amp;mdash;&amp;mdash;&amp;m
 &lt;li&gt;使用 &lt;strong&gt;\limits&lt;/strong&gt; 将下标放在某个文字或者符号的正下方。&lt;/li&gt;
 &lt;li&gt;用**\mathop**{文本}命令将文本转化成数学符号&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;省略符号&lt;/strong&gt;： &lt;code&gt;\cdots&lt;/code&gt; $\cdots$ , &lt;code&gt;\ddots&lt;/code&gt; $\ddots$ , &lt;code&gt;\vdots&lt;/code&gt; $\vdots$&lt;/li&gt;
+&lt;li&gt;$\widetilde{x}$：&lt;code&gt;\widetilde{x}&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;矩阵条件表达式方程组&#34;&gt;矩阵、条件表达式、方程组
 &lt;/h3&gt;&lt;p&gt;语法：&lt;/p&gt;
@@ -249,7 +251,50 @@ $$</description>
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;/center&amp;gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description>
+&lt;/div&gt;&lt;h2 id=&#34;列表&#34;&gt;列表
+&lt;/h2&gt;&lt;h3 id=&#34;无序列表&#34;&gt;无序列表
+&lt;/h3&gt;&lt;p&gt;无序列表&lt;strong&gt;使用星号(*)、加号(+)或是减号(-)作为列表标记&lt;/strong&gt;，这些标记后面要添加一个空格，然后再填写内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;建议统一使用减号 &lt;strong&gt;-&lt;/strong&gt;，因为它在视觉上更清晰&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;有序列表&#34;&gt;有序列表
+&lt;/h3&gt;&lt;p&gt;数字加一点。 数字可以不从1开始。&lt;/p&gt;
+&lt;h3 id=&#34;列表嵌套&#34;&gt;列表嵌套
+&lt;/h3&gt;&lt;p&gt;列表可以嵌套使用，创建多层次的结构：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;水果
+&lt;ul&gt;
+&lt;li&gt;苹果
+&lt;ul&gt;
+&lt;li&gt;青苹果&lt;/li&gt;
+&lt;li&gt;红苹果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;水果
+&lt;ul&gt;
+&lt;li&gt;苹果
+&lt;ol&gt;
+&lt;li&gt;青苹果&lt;/li&gt;
+&lt;li&gt;红苹果&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;任务列表&#34;&gt;任务列表
+&lt;/h3&gt;&lt;p&gt;使用&lt;code&gt;- [ ] 1&lt;/code&gt;创建&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;使用&lt;code&gt;- [x] 2&lt;/code&gt;创建&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 2&lt;/li&gt;
+&lt;/ul&gt;
+</description>
         </item>
         <item>
         <title>Git使用</title>

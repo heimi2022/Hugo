@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="shell命令 1. ls : 目录信息查看 1. ls -a : 显示目录所有文件及文件夹，包括隐藏文件 2. ls -l : 所有文件信息用单列格式输出 3. ll = ls -l 2. cd : 目录切换 1. cd / 进入根目录 2. cd - 进入用户目录 3. cd ../ 返回上一级目录 3. pwd : 显示当前路径 4. uname : 系统信息查看 5. clear : 清屏 6. cat : 显示文件内容 7. sudo : 切换用户身份 8. su : 切换用户 9. cp : 文件拷贝 10. touch : 创建文件 11. cp : 拷贝文件 12. rm : 删除文件 1. rm -f 删除只读 2. rm -r 删除目录 13. rmdir : 删除目录 14. mv : 移动文件(重命名) 15. ifconfig : 显示网络信息 16. reboot : 重启系统 17. poweroff : 关机 18. man : 系统帮助 19. sync : 数据同步写入磁盘 20. find : 查找文件 1. find -name 文件 (./表示当前目录) 21. grep : 查找内容 1. grep -nr 2. grep -ir 忽略大小写 3. grep -nir 22. du : 查看文件夹大小 1. du -sh 加单位 23. df : 磁盘空间检测 24. gedit : 打开某个文件 25. ps : 查看当前系统进程 26. top : 进程实时运行状态查看 27. file : 文件类型查看 Ubuntu 软件安装 sudo apt-get install sudo dpkg -i xxx.deb 自己下载源码安装 make make install appstore Ubuntu 文件系统结构 根目录 &quot;/&quot; 文件系统 /bin 可执行文件 /boot 启动 /dev 设备驱动文件 /etc 配置文件 /home 用户文件夹 /lib lib64 库文件 /media 可插拔设备 /proc 系统运行文件、运行信息 绝对路径和相对路径 绝对路径 : 从根目录&quot;/&ldquo;算起的路径 相对路径 : 不是以&rdquo;/&quot; 开头的路径 &ldquo;.&rdquo; &ldquo;./&ldquo;代表当前路径 &ldquo;..&rdquo; &ldquo;../&ldquo;代表上一层目录 磁盘管理 磁盘文件 /dev/sd* 磁盘设备文件，不能直接访问磁盘，必须先挂载到某一目录 磁盘和目录容量查询 df 主要查看文件系统使用量 du 主要查看单个文件大小 du -h &ndash;max-depth=1(查看目录后1层) 磁盘挂载、卸载、分区、格式化 挂载、卸载 sudo umount /media/heimi/udisk sudo mount -o iocharset=utf8 /dev/sdb1 /media/heimi/udisk/ 分区 fdisk sudo fdisk /dev/sdb sudo fdisk -l 查看分区大小 格式化 磁盘分区创建好后可以格式化磁盘 mkfs mkfs -t vfta /dev/sdx 压缩 与 解压缩 linux 常用压缩格式 : .tar .tar.bz2 .tar.gz\n">
+<title>Linux</title>
+
+<link rel='canonical' href='https://heimi2022.github.io/Hugo/p/linux/'>
+
+<link rel="stylesheet" href="/Hugo/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="Linux">
+<meta property='og:description' content="shell命令 1. ls : 目录信息查看 1. ls -a : 显示目录所有文件及文件夹，包括隐藏文件 2. ls -l : 所有文件信息用单列格式输出 3. ll = ls -l 2. cd : 目录切换 1. cd / 进入根目录 2. cd - 进入用户目录 3. cd ../ 返回上一级目录 3. pwd : 显示当前路径 4. uname : 系统信息查看 5. clear : 清屏 6. cat : 显示文件内容 7. sudo : 切换用户身份 8. su : 切换用户 9. cp : 文件拷贝 10. touch : 创建文件 11. cp : 拷贝文件 12. rm : 删除文件 1. rm -f 删除只读 2. rm -r 删除目录 13. rmdir : 删除目录 14. mv : 移动文件(重命名) 15. ifconfig : 显示网络信息 16. reboot : 重启系统 17. poweroff : 关机 18. man : 系统帮助 19. sync : 数据同步写入磁盘 20. find : 查找文件 1. find -name 文件 (./表示当前目录) 21. grep : 查找内容 1. grep -nr 2. grep -ir 忽略大小写 3. grep -nir 22. du : 查看文件夹大小 1. du -sh 加单位 23. df : 磁盘空间检测 24. gedit : 打开某个文件 25. ps : 查看当前系统进程 26. top : 进程实时运行状态查看 27. file : 文件类型查看 Ubuntu 软件安装 sudo apt-get install sudo dpkg -i xxx.deb 自己下载源码安装 make make install appstore Ubuntu 文件系统结构 根目录 &quot;/&quot; 文件系统 /bin 可执行文件 /boot 启动 /dev 设备驱动文件 /etc 配置文件 /home 用户文件夹 /lib lib64 库文件 /media 可插拔设备 /proc 系统运行文件、运行信息 绝对路径和相对路径 绝对路径 : 从根目录&quot;/&ldquo;算起的路径 相对路径 : 不是以&rdquo;/&quot; 开头的路径 &ldquo;.&rdquo; &ldquo;./&ldquo;代表当前路径 &ldquo;..&rdquo; &ldquo;../&ldquo;代表上一层目录 磁盘管理 磁盘文件 /dev/sd* 磁盘设备文件，不能直接访问磁盘，必须先挂载到某一目录 磁盘和目录容量查询 df 主要查看文件系统使用量 du 主要查看单个文件大小 du -h &ndash;max-depth=1(查看目录后1层) 磁盘挂载、卸载、分区、格式化 挂载、卸载 sudo umount /media/heimi/udisk sudo mount -o iocharset=utf8 /dev/sdb1 /media/heimi/udisk/ 分区 fdisk sudo fdisk /dev/sdb sudo fdisk -l 查看分区大小 格式化 磁盘分区创建好后可以格式化磁盘 mkfs mkfs -t vfta /dev/sdx 压缩 与 解压缩 linux 常用压缩格式 : .tar .tar.bz2 .tar.gz\n">
+<meta property='og:url' content='https://heimi2022.github.io/Hugo/p/linux/'>
+<meta property='og:site_name' content='WJJ'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Linux' /><meta property='article:published_time' content='2025-07-11T15:00:00&#43;08:00'/><meta property='article:modified_time' content='2025-07-11T15:00:00&#43;08:00'/>
+<meta name="twitter:title" content="Linux">
+<meta name="twitter:description" content="shell命令 1. ls : 目录信息查看 1. ls -a : 显示目录所有文件及文件夹，包括隐藏文件 2. ls -l : 所有文件信息用单列格式输出 3. ll = ls -l 2. cd : 目录切换 1. cd / 进入根目录 2. cd - 进入用户目录 3. cd ../ 返回上一级目录 3. pwd : 显示当前路径 4. uname : 系统信息查看 5. clear : 清屏 6. cat : 显示文件内容 7. sudo : 切换用户身份 8. su : 切换用户 9. cp : 文件拷贝 10. touch : 创建文件 11. cp : 拷贝文件 12. rm : 删除文件 1. rm -f 删除只读 2. rm -r 删除目录 13. rmdir : 删除目录 14. mv : 移动文件(重命名) 15. ifconfig : 显示网络信息 16. reboot : 重启系统 17. poweroff : 关机 18. man : 系统帮助 19. sync : 数据同步写入磁盘 20. find : 查找文件 1. find -name 文件 (./表示当前目录) 21. grep : 查找内容 1. grep -nr 2. grep -ir 忽略大小写 3. grep -nir 22. du : 查看文件夹大小 1. du -sh 加单位 23. df : 磁盘空间检测 24. gedit : 打开某个文件 25. ps : 查看当前系统进程 26. top : 进程实时运行状态查看 27. file : 文件类型查看 Ubuntu 软件安装 sudo apt-get install sudo dpkg -i xxx.deb 自己下载源码安装 make make install appstore Ubuntu 文件系统结构 根目录 &quot;/&quot; 文件系统 /bin 可执行文件 /boot 启动 /dev 设备驱动文件 /etc 配置文件 /home 用户文件夹 /lib lib64 库文件 /media 可插拔设备 /proc 系统运行文件、运行信息 绝对路径和相对路径 绝对路径 : 从根目录&quot;/&ldquo;算起的路径 相对路径 : 不是以&rdquo;/&quot; 开头的路径 &ldquo;.&rdquo; &ldquo;./&ldquo;代表当前路径 &ldquo;..&rdquo; &ldquo;../&ldquo;代表上一层目录 磁盘管理 磁盘文件 /dev/sd* 磁盘设备文件，不能直接访问磁盘，必须先挂载到某一目录 磁盘和目录容量查询 df 主要查看文件系统使用量 du 主要查看单个文件大小 du -h &ndash;max-depth=1(查看目录后1层) 磁盘挂载、卸载、分区、格式化 挂载、卸载 sudo umount /media/heimi/udisk sudo mount -o iocharset=utf8 /dev/sdb1 /media/heimi/udisk/ 分区 fdisk sudo fdisk /dev/sdb sudo fdisk -l 查看分区大小 格式化 磁盘分区创建好后可以格式化磁盘 mkfs mkfs -t vfta /dev/sdx 压缩 与 解压缩 linux 常用压缩格式 : .tar .tar.bz2 .tar.gz\n">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/Hugo/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/Hugo/img/avatar_hu_be2515b413f73217.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">📖</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/Hugo">WJJ</a></h1>
+            <h2 class="site-description">欢迎来到我的博客</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/heimi2022/'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/Hugo/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Hugo/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Hugo/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Hugo/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Hugo/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#shell命令">shell命令</a></li>
+    <li><a href="#ubuntu-软件安装">Ubuntu 软件安装</a></li>
+    <li><a href="#ubuntu-文件系统结构">Ubuntu 文件系统结构</a>
+      <ol>
+        <li><a href="#根目录">根目录</a></li>
+        <li><a href="#文件系统">文件系统</a></li>
+        <li><a href="#绝对路径和相对路径">绝对路径和相对路径</a></li>
+      </ol>
+    </li>
+    <li><a href="#磁盘管理">磁盘管理</a>
+      <ol>
+        <li><a href="#磁盘文件">磁盘文件</a></li>
+        <li><a href="#磁盘和目录容量查询">磁盘和目录容量查询</a></li>
+        <li><a href="#磁盘挂载卸载分区格式化">磁盘挂载、卸载、分区、格式化</a></li>
+      </ol>
+    </li>
+    <li><a href="#压缩-与-解压缩">压缩 与 解压缩</a>
+      <ol>
+        <li><a href="#gzip">gzip</a></li>
+        <li><a href="#bzip2">bzip2</a></li>
+        <li><a href="#tar-打包工具">tar 打包工具</a></li>
+        <li><a href="#rar">rar</a></li>
+        <li><a href="#zip">zip</a></li>
+      </ol>
+    </li>
+    <li><a href="#文件权限">文件权限</a>
+      <ol>
+        <li><a href="#-rw-rw-r">-rw-rw-r&ndash;</a></li>
+        <li><a href="#lrw-rw-rwx">lrw-rw-rwx</a></li>
+        <li><a href="#修改权限">修改权限</a></li>
+        <li><a href="#linux-连接文件">linux 连接文件</a></li>
+      </ol>
+    </li>
+    <li><a href="#vim-编辑器">vim 编辑器</a>
+      <ol>
+        <li><a href="#vi">vi</a></li>
+        <li><a href="#vim模式">vim模式</a>
+          <ol>
+            <li><a href="#输入模式">输入模式</a></li>
+            <li><a href="#底行模式">底行模式</a></li>
+            <li><a href="#指令模式">指令模式</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#linux-c">linux c</a>
+      <ol>
+        <li><a href="#gcc">gcc</a></li>
+        <li><a href="#makefile">makefile</a>
+          <ol>
+            <li><a href="#命令">命令</a></li>
+            <li><a href="#语法">语法</a></li>
+            <li><a href="#变量">变量</a></li>
+            <li><a href="#伪目标创建">伪目标创建</a></li>
+            <li><a href="#函数">函数</a></li>
+            <li><a href="#例">例</a></li>
+            <li><a href="#例-1">例</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#环境变量">环境变量</a></li>
+    <li><a href="#shell-脚本">shell 脚本</a>
+      <ol>
+        <li><a href="#语法-1">语法</a></li>
+      </ol>
+    </li>
+    <li><a href="#linux-alias命令查看和设定别名">linux alias命令查看和设定别名</a>
+      <ol>
+        <li><a href="#alias">alias</a></li>
+        <li><a href="#设定别名">设定别名</a></li>
+        <li><a href="#删除别名">删除别名</a></li>
+        <li><a href="#使别名永久生效">使别名永久生效</a></li>
+      </ol>
+    </li>
+    <li><a href="#pip-换源">pip 换源</a></li>
+    <li><a href="#重启网络服务">重启网络服务</a></li>
+    <li><a href="#利用wget命令即可从网页下载下面的例子是将网页上的该文件下载到当前路径下">利用wget命令即可从网页下载，下面的例子是将网页上的该文件下载到当前路径下</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/Hugo/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="background-color: #2a9d8f; color: #fff;">
+                学习笔记
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/Hugo/p/linux/">Linux</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-07-11</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="shell命令">shell命令
+</h2><pre><code>1. ls : 目录信息查看
+   1. ls -a : 显示目录所有文件及文件夹，包括隐藏文件
+   2. ls -l : 所有文件信息用单列格式输出
+   3. ll = ls -l
+2. cd : 目录切换
+   1. cd / 进入根目录
+   2. cd - 进入用户目录
+   3. cd ../ 返回上一级目录
+3. pwd : 显示当前路径
+4. uname : 系统信息查看
+5. clear : 清屏
+6. cat : 显示文件内容
+7. sudo : 切换用户身份
+8. su : 切换用户
+9. cp : 文件拷贝
+10. touch : 创建文件
+11. cp : 拷贝文件
+12. rm : 删除文件
+    1.  rm -f 删除只读
+    2.  rm -r 删除目录
+13. rmdir : 删除目录
+14. mv : 移动文件(重命名)
+15. ifconfig : 显示网络信息 
+16. reboot : 重启系统
+17. poweroff : 关机
+18. man : 系统帮助
+19. sync : 数据同步写入磁盘
+20. find : 查找文件
+    1.  find -name 文件 (./表示当前目录)
+21. grep : 查找内容
+    1.  grep -nr
+    2.  grep -ir 忽略大小写
+    3.  grep -nir
+22. du : 查看文件夹大小
+    1.  du -sh 加单位
+23. df : 磁盘空间检测
+24. gedit : 打开某个文件
+25. ps : 查看当前系统进程
+26. top : 进程实时运行状态查看
+27. file : 文件类型查看
+</code></pre>
+<h2 id="ubuntu-软件安装">Ubuntu 软件安装
+</h2><ol>
+<li>sudo apt-get install</li>
+<li>sudo dpkg -i xxx.deb</li>
+<li>自己下载源码安装
+<ol>
+<li>make</li>
+<li>make install</li>
+</ol>
+</li>
+<li>appstore</li>
+</ol>
+<h2 id="ubuntu-文件系统结构">Ubuntu 文件系统结构
+</h2><h3 id="根目录">根目录
+</h3><pre><code>&quot;/&quot;
+</code></pre>
+<h3 id="文件系统">文件系统
+</h3><ol>
+<li>/bin 可执行文件</li>
+<li>/boot 启动</li>
+<li>/dev 设备驱动文件</li>
+<li>/etc 配置文件</li>
+<li>/home 用户文件夹</li>
+<li>/lib lib64 库文件</li>
+<li>/media 可插拔设备</li>
+<li>/proc 系统运行文件、运行信息</li>
+</ol>
+<h3 id="绝对路径和相对路径">绝对路径和相对路径
+</h3><ol>
+<li>绝对路径 : 从根目录&quot;/&ldquo;算起的路径</li>
+<li>相对路径 : 不是以&rdquo;/&quot; 开头的路径
+<ol>
+<li>&ldquo;.&rdquo; &ldquo;./&ldquo;代表当前路径</li>
+<li>&ldquo;..&rdquo; &ldquo;../&ldquo;代表上一层目录</li>
+</ol>
+</li>
+</ol>
+<h2 id="磁盘管理">磁盘管理
+</h2><h3 id="磁盘文件">磁盘文件
+</h3><ol>
+<li>/dev/sd* 磁盘设备文件，不能直接访问磁盘，必须先挂载到某一目录</li>
+</ol>
+<h3 id="磁盘和目录容量查询">磁盘和目录容量查询
+</h3><ol>
+<li>df 主要查看文件系统使用量</li>
+<li>du 主要查看单个文件大小
+<ol>
+<li>du -h &ndash;max-depth=1(查看目录后1层)</li>
+</ol>
+</li>
+</ol>
+<h3 id="磁盘挂载卸载分区格式化">磁盘挂载、卸载、分区、格式化
+</h3><ol>
+<li>挂载、卸载
+<ol>
+<li>sudo umount /media/heimi/udisk</li>
+<li>sudo mount -o iocharset=utf8 /dev/sdb1 /media/heimi/udisk/</li>
+</ol>
+</li>
+<li>分区
+fdisk
+<ol>
+<li>sudo fdisk /dev/sdb</li>
+<li>sudo fdisk -l 查看分区大小</li>
+</ol>
+</li>
+<li>格式化
+<ol>
+<li>磁盘分区创建好后可以格式化磁盘 mkfs
+<ol>
+<li>mkfs -t vfta /dev/sdx</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="压缩-与-解压缩">压缩 与 解压缩
+</h2><p>linux 常用压缩格式 : .tar  .tar.bz2  .tar.gz</p>
+<h3 id="gzip">gzip
+</h3><ol>
+<li>gzip xxx  压缩</li>
+<li>gzip -d 解压缩</li>
+<li>gzip -r 对文件夹里的文件进行压缩但不打包</li>
+<li>gzip -rd 对文件夹里的文件进行解压缩</li>
+</ol>
+<h3 id="bzip2">bzip2
+</h3><ol>
+<li>bzip2 -z 压缩文件</li>
+<li>bzip2 -d 解压缩文件</li>
+</ol>
+<h3 id="tar-打包工具">tar 打包工具
+</h3><ol>
+<li>参数
+<ol>
+<li>-c 创建新归档,创建压缩文件</li>
+<li>-x 从归档中解出文件，解压缩</li>
+<li>-j 使用bzip 压缩格式</li>
+<li>-z 使用gzip</li>
+<li>-v 打印出命令执行过程</li>
+<li>-f 使用归档文件</li>
+</ol>
+</li>
+<li>bzip2
+<ol>
+<li>vcjf 压缩
+<ol>
+<li>tar -vcjf xxx.tar.bz2 xxx</li>
+</ol>
+</li>
+<li>vxjf 解压缩</li>
+</ol>
+</li>
+<li>gzip
+<ol>
+<li>vczf 压缩
+<ol>
+<li>tar -vczf xxx.tar.gz xxx</li>
+</ol>
+</li>
+<li>vxzf 解压缩
+<ol>
+<li>tar -vxzf xxx.tar.gz xxx</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="rar">rar
+</h3><ol>
+<li>rar a xxx.rar xxx 压缩</li>
+<li>rar x 解压缩</li>
+</ol>
+<h3 id="zip">zip
+</h3><ol>
+<li>unzip 解压缩</li>
+<li>zip -rv 压缩</li>
+</ol>
+<h2 id="文件权限">文件权限
+</h2><p>r=4  w=2  x=1
+读 写 执行</p>
+<h3 id="-rw-rw-r">-rw-rw-r&ndash;
+</h3><ul>
+<li>用户 - 用户组 - 其他用户</li>
+</ul>
+<ol>
+<li>用户 :  能读写 不能执行</li>
+<li>用户组 : 能读写 不能执行</li>
+<li>其他用户 : 只能读</li>
+</ol>
+<h3 id="lrw-rw-rwx">lrw-rw-rwx
+</h3><pre><code>l 表示 该文件是个链接文件
+</code></pre>
+<h3 id="修改权限">修改权限
+</h3><ol>
+<li>chmod 777(权限全开) xxx  修改文件权限</li>
+<li>chown             修改文件所属用户
+<ol>
+<li>sudo chown heimi.heimi hello 修改用户和用户组</li>
+<li>sudo chown .root hello 修改用户组</li>
+<li>sudo chown root hello 修改用户</li>
+</ol>
+</li>
+</ol>
+<h3 id="linux-连接文件">linux 连接文件
+</h3><ol>
+<li>软连接 ln -s 快捷方式
+<ol>
+<li>要使用绝对路径</li>
+<li>cp 默认复制，如果为软链接，会将源文件一同复制过去</li>
+<li>cp -d，代表复制时在源文件中除了links不复制其他符号链接</li>
+</ol>
+</li>
+<li>硬连接 ln  inode 产生新的文件名
+防止文件被删除
+其中一个文件被修改 其他也会被改
+ll -i xx* 打印文件节点信息</li>
+</ol>
+<h2 id="vim-编辑器">vim 编辑器
+</h2><h3 id="vi">vi
+</h3><p>退出 vi ESC + Shitf + :  wq</p>
+<h3 id="vim模式">vim模式
+</h3><h4 id="输入模式">输入模式
+</h4><p>i 在当前光标所在字符的前面，转为输入模式。
+I 在当前光标所在行的行首转换为输入模式。
+a 在当前光标所在字符的后面，转为输入模式。
+A 在光标所在行的行尾，转换为输入模式。
+o 在当前光标所在行的下方，新建一行，并转为输入模式。
+O 在当前光标所在行的上方，新建一行，并转为输入模式。
+s 删除光标所在字符。
+r 替换光标处字符。</p>
+<h4 id="底行模式">底行模式
+</h4><p>x 保存当前文档并且退出
+q 退出。
+w 保存文档。
+q! 退出 VI/VIM，不保存文档</p>
+<h4 id="指令模式">指令模式
+</h4><p>1、移动光标指令：
+h(或左方向键) 光标左移一个字符。
+l(或右方向键) 光标右移一个字符。
+j(或下方向键) 光标下移一行。
+k(或上方向键) 光标上移一行。
+nG 光标移动到第 n 行首。
+n+ 光标下移 n 行。
+n- 光标上移 n 行。
+2、屏幕翻滚指令
+Ctrl+f 屏幕向下翻一页，相当于下一页。
+Ctrl+b 屏幕向上翻一页，相当于上一页。
+3、复制、删除和粘贴指令
+cc 删除整行，并且修改整行内容。
+dd 删除该行，不提供修改功能。
+ndd 删除当前行向下 n 行。
+x 删除光标所在的字符。
+X 删除光标前面的一个字符。
+nyy 复制当前行及其下面 n 行。
+p 粘贴最近复制的内容。</p>
+<h2 id="linux-c">linux c
+</h2><h3 id="gcc">gcc
+</h3><p>-c   编译和汇编, 不链接   生成.o
+-o   output 生成可执行文件</p>
+<h3 id="makefile">makefile
+</h3><h4 id="命令">命令
+</h4><p>make
+make clean
+行首不能用空格</p>
+<h4 id="语法">语法
+</h4><p>目标 : 依赖文件集合
+命令1
+命令2
+&hellip;</p>
+<p>最主要目标放第一条规则</p>
+<h4 id="变量">变量
+</h4><p>makeflie变量类似c语言宏定义</p>
+<p>变量引用 $(变量)</p>
+<ol>
+<li>&ldquo;=&rdquo;  变量类似指针</li>
+<li>&ldquo;:=&rdquo; 变量类似c语言等号</li>
+<li>&ldquo;?=&rdquo; 如果变量没被赋值 ,则赋值变量</li>
+<li>&ldquo;+=&rdquo; 变量追加  字符串后拼接字符串</li>
+</ol>
+<p>&ldquo;%&rdquo; 通配符</p>
+<p>自动化变量</p>
+<ol>
+<li>$@规则中的目标集合，在模式规则中，如果有多个目标的话，“$@”表示匹配模
+式中定义的目标集合。</li>
+<li>$&lt; 依赖文件集合中的第一个文件 如果依赖文件是以模式(即“%”)定义的，那么
+“$&lt;”就是符合模式的一系列的文件集合。</li>
+<li>$^所有依赖文件的集合，使用空格分开，如果在依赖文件中有多个重复的文件，
+“$^”会去除重复的依赖文件，值保留一份。</li>
+</ol>
+<h4 id="伪目标创建">伪目标创建
+</h4><p>.PHONY 伪目标</p>
+<h4 id="函数">函数
+</h4><h4 id="例">例
+</h4><p>object = main.o input.o caclu.o
+main: $(object)
+gcc -o main $(object)</p>
+<p>main.o: main.c
+gcc -c main.c</p>
+<p>input.o: input.c
+gcc -c input.c</p>
+<p>caclu.o: caclu.c
+gcc -c caclu.c</p>
+<p>clean:
+rm *.o
+rm main</p>
+<h4 id="例-1">例
+</h4><p>1 object = main.o input.o caclu.o
+2 main: $(object)
+3     gcc -o main $(object)
+4
+5 %.o: %.c
+6     gcc -c $&lt;
+7
+8 clean:
+9     rm *.o
+10     rm main</p>
+<h2 id="环境变量">环境变量
+</h2><p>echo $PATH 查看环境变量</p>
+<p>export PATH=命令行路径:$PATH  添加环境变量</p>
+<h2 id="shell-脚本">shell 脚本
+</h2><p>.sh
+第一行 #!/bin/bash</p>
+<h3 id="语法-1">语法
+</h3><p>echo 在终端上显示字符串]</p>
+<ol>
+<li>
+<p>cmd1 &amp;&amp; cmd2 : cmd1执行完且执行正确再开始执行cmd2</p>
+</li>
+<li>
+<p>cmd1 || cmd2 : cmd1执行完且执行正确则cmd2不执行</p>
+</li>
+<li>
+<p>read 输入</p>
+<ol>
+<li>read -p 输出提示符</li>
+</ol>
+</li>
+<li>
+<p>数值计算 $(表达式) 变量=$(表达式) &ldquo;=&ldquo;两边不能有空格</p>
+</li>
+<li>
+<p>test 文件,数值, 字符<br>
+[test]:(<a class="link" href="https://www.runoob.com/linux/linux-shell-test.html"  target="_blank" rel="noopener"
+    >https://www.runoob.com/linux/linux-shell-test.html</a>)</p>
+<ol>
+<li>文件测试
+<ol>
+<li>test -e</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>中括号[]</p>
+<ol>
+<li>只能输 == 或 !=</li>
+<li>[&quot;$input1&rdquo; == &ldquo;$input2&rdquo;] 需要加双引号</li>
+</ol>
+</li>
+<li>
+<p>默认参数</p>
+<ol>
+<li>$# 表示最后参数的编号</li>
+<li>$@ 输出各个参数</li>
+<li>$0-$n shell脚本参数  $0为shell本身</li>
+</ol>
+</li>
+<li>
+<p>条件判断
+exit 0 退出条件
+1.
+if 条件判断 ; then
+&hellip;
+elif 条件判断 ; then
+&hellip;
+else
+&hellip;
+fi
+2.
+case $变量 in
+&ldquo;变量值&rdquo;)
+程序段
+;; //表示该程序块结束
+&ldquo;变量值&rdquo;)
+程序段
+;;
+*)  //其他
+程序段
+esac</p>
+</li>
+<li>
+<p>脚本函数
+function fname()
+{
+函数代码段
+}
+10 .循环
+while [条件]
+do
+循环代码段
+done</p>
+<p>for var in con1 con2 con3
+do
+&hellip;
+done</p>
+<p>for((初始值;限制值;执行步长))
+do
+&hellip;
+done</p>
+</li>
+</ol>
+<h2 id="linux-alias命令查看和设定别名">linux alias命令查看和设定别名
+</h2><h3 id="alias">alias
+</h3><p>:查看系统中所有的命令别名</p>
+<h3 id="设定别名">设定别名
+</h3><p>alias 别名=&lsquo;原命令&rsquo;</p>
+<h3 id="删除别名">删除别名
+</h3><p>unalias 别名</p>
+<h3 id="使别名永久生效">使别名永久生效
+</h3><p>vi  ~/.bashrc  写入这个文件中即可永久生效   编辑完之后记得使环境变量生效: source .bashrc</p>
+<h2 id="pip-换源">pip 换源
+</h2><p>pip install [需要安装的库] -i <a class="link" href="https://pypi.tuna.tsinghua.edu.cn/simple"  target="_blank" rel="noopener"
+    >https://pypi.tuna.tsinghua.edu.cn/simple</a></p>
+<h2 id="重启网络服务">重启网络服务
+</h2><p>service network-manager restart</p>
+<h2 id="利用wget命令即可从网页下载下面的例子是将网页上的该文件下载到当前路径下">利用wget命令即可从网页下载，下面的例子是将网页上的该文件下载到当前路径下
+</h2><p>wget <a class="link" href="https://download.pytorch.org/models/resnet18-5c106cde.pth"  target="_blank" rel="noopener"
+    >https://download.pytorch.org/models/resnet18-5c106cde.pth</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/Hugo/tags/linux/">Linux</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/Hugo/p/big_model_system/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Big_Model_System</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/Hugo/p/machine-learning/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Machine-Learning</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 Wjj
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/Hugo/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
