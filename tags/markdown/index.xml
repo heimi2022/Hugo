@@ -294,6 +294,26 @@ $$</description>
 &lt;ul&gt;
 &lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 2&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;markdown-分隔线语法&#34;&gt;Markdown 分隔线语法
+&lt;/h2&gt;&lt;p&gt;要创建分隔线，请在单独一行上使用三个或多个星号 (&lt;code&gt;***&lt;/code&gt;)、破折号 (&lt;code&gt;---&lt;/code&gt;) 或下划线 (&lt;code&gt;___&lt;/code&gt;) ，并且不能包含其他内容。&lt;/p&gt;
+&lt;p&gt;以上三个分隔线的渲染效果看起来都一样：&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;分隔线horizontal-rule用法最佳实践&#34;&gt;分隔线（Horizontal Rule）用法最佳实践
+&lt;/h3&gt;&lt;p&gt;为了兼容性，请在分隔线的前后均添加空白行。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;✅ Do this&lt;/th&gt;
+          &lt;th&gt;❌ Don&amp;rsquo;t do this&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;Try to put a blank line before...---...and after a horizontal rule.&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Without blank lines, this would be a heading.---Don&#39;t do this!&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </description>
         </item>
         

@@ -248,8 +248,144 @@ $$&lt;p&gt;
 &lt;p&gt;&lt;strong&gt;Input = BPE + PE&lt;/strong&gt;&lt;/p&gt;
 &lt;h4 id=&#34;encoder-block&#34;&gt;Encoder Block
 &lt;/h4&gt;&lt;p&gt;整体由两大块组成，分别为Muti-Head Attention网络，Feed-Forward Network前馈神经网络（本质上是一个带激活函数的MLP全连接）&lt;/p&gt;
+&lt;p&gt;两个技巧：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
 &lt;p&gt;残差连接：将输入和输出直接相加，缓解模型过深后带来的梯度消失问题。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;正则化：将输入变为一个均值为0，方差为一的分布，解决梯度消失与梯度爆炸。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;注意力机制-1&#34;&gt;&lt;strong&gt;注意力机制&lt;/strong&gt;
+&lt;/h5&gt;&lt;p&gt;&lt;strong&gt;输入&lt;/strong&gt;为&lt;strong&gt;query q&lt;/strong&gt;和key-value(k，v)的集合。query和key向量的维度为$d_k$，Value向量的维度为$d_v$。&lt;/p&gt;
+&lt;p&gt;**输出：**先对value向量做加权平均
+&lt;/p&gt;
+$$
+A(q,K,V)=\sum_i\frac{e^{q\cdot k_i}}{\sum_j e^{q\cdot k_j}}v_i
+$$&lt;p&gt;
+当有多个q时，其可以组成矩阵Q，则：
+&lt;/p&gt;
+$$
+A(Q,K,V)=softmax(QK^T)V
+$$&lt;p&gt;
+&lt;strong&gt;Scaled Dot-Product Attention:&lt;/strong&gt;
+若没有Scale，当$d_k$增大时，$q^T k$的方差也随之增大，则softmax后概率分布可能会更尖锐，导致梯度越来越小，使得参数不利于更新。&lt;/p&gt;
+&lt;p&gt;加入Scale，如下：
+&lt;/p&gt;
+$$
+A(Q,K,V)=softmax(\frac{QK^T}{\sqrt{d_k}})V
+$$&lt;p&gt;
+使得注意力分数方差依然为1.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意力机制的流程如下：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://heimi2022.github.io/Hugo/assets/image-20250711172044512.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250711172044512&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h5 id=&#34;多头注意力机制&#34;&gt;多头注意力机制
+&lt;/h5&gt;&lt;p&gt;采用多个结构相同，但参数不同的注意力模块，组成多头注意力机制。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://heimi2022.github.io/Hugo/assets/image-20250711172243703.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250711172243703&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;每一个注意力头的计算方式为：
+&lt;/p&gt;
+$$
+head_i=A(QW_i^Q,KW_i^K,VW_i^V)
+$$&lt;p&gt;
+当每一个注意力头得到输出后，将输出在维度上进行拼接，然后通过一个线性层进行整合：
+&lt;/p&gt;
+$$
+MultiHead(Q,K,V)=Concat(head_1,\cdots,head_h)W^O
+$$&lt;p&gt;
+一个Encodr Block的结构：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://heimi2022.github.io/Hugo/assets/image-20250711173107761.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250711173107761&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;decoder-block&#34;&gt;Decoder Block
+&lt;/h4&gt;&lt;p&gt;一个Decoder Block的结构：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://heimi2022.github.io/Hugo/assets/image-20250711173227452.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20250711173227452&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Masked Attention Score：将注意力分数修改为$-\infty$，使得在softmax时，使之变0。用于decoder在文本生成时，不受前面生成文本的影响。&lt;/p&gt;
+&lt;h3 id=&#34;优点和缺点&#34;&gt;优点和缺点
+&lt;/h3&gt;&lt;h4 id=&#34;优点&#34;&gt;优点
+&lt;/h4&gt;&lt;p&gt;表示能力强，本身适合并行计算，成为预训练语言模型的一个主要框架&lt;/p&gt;
+&lt;h4 id=&#34;缺点&#34;&gt;缺点
+&lt;/h4&gt;&lt;p&gt;对于参数敏感，优化困难。处理文本复杂度与文本长度$n$为平方关系$O(n^2)$，导致对长度特别长的文本束手无策。&lt;/p&gt;
+&lt;h2 id=&#34;预训练语言模型&#34;&gt;预训练语言模型
+&lt;/h2&gt;&lt;p&gt;对语言模型的预训练的一个过程&lt;/p&gt;
+&lt;h3 id=&#34;plmspre-trained-lanuage-models&#34;&gt;PLMs（Pre-trained Lanuage Models）
+&lt;/h3&gt;&lt;p&gt;好处：在语言模型的预训练之后，学习到的知识可以非常容易地去迁移到各种下游任务。&lt;/p&gt;
+&lt;p&gt;预训练语言模型整体可以分为两种范式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Feature-based：作为feature的提取器，在大规模的预料上预训练好模型参数后，把它编码的表示作为一个固定的feature，来交给下游做具体任务的模型，作为下游任务模型的输入。&lt;/li&gt;
+&lt;li&gt;Fine-turning（主流）：&lt;strong&gt;通过特定领域数据对预训练模型进行针对性优化，以提升其在特定任务上的性能。&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;masked-lm&#34;&gt;Masked LM
+&lt;/h3&gt;&lt;p&gt;BERT为了解决LM是单向的过程，提出Masked LM。 其是Bert预训练中最核心的任务。&lt;/p&gt;
+&lt;p&gt;基本思想：利用双向信息来预测target token。&lt;strong&gt;掩盖掉$k %$（15% in Bert）的input word，然后去预测这些被掩盖的word。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;mask太少，预训练花的时间很长。&lt;/p&gt;
+&lt;p&gt;mask太多，文章可利用的信息太少。&lt;/p&gt;
+&lt;h3 id=&#34;few-shotin-context-learning&#34;&gt;few-shot/in-context learning
+&lt;/h3&gt;&lt;p&gt;zero-shot：不给任何数据，只给任务的描述，就能完成任务&lt;/p&gt;
+&lt;p&gt;few-shot：给一点样例，使之完成任务。&lt;/p&gt;
+&lt;p&gt;in-context learning：没有针对下游任务做任何参数的更新，只是在上下文中给了这个任务的描述以及样例，通过语言模型自回归地生成去完成任务&lt;/p&gt;
+&lt;p&gt;Mixture of Experts：把模型参数分成一块一块的模块，每次模型的输入会调用其中的部分子模块来参与计算。每一个子模块相当于experts。&lt;/p&gt;
+&lt;h2 id=&#34;transformer-使用&#34;&gt;Transformer 使用
+&lt;/h2&gt;&lt;h3 id=&#34;pipeline&#34;&gt;Pipeline
+&lt;/h3&gt;&lt;p&gt;自动帮忙选择适配任务的模型&lt;/p&gt;
+&lt;h3 id=&#34;tokenization&#34;&gt;Tokenization
+&lt;/h3&gt;&lt;p&gt;不同的模型有不同的tokenization方式&lt;/p&gt;
+&lt;h2 id=&#34;prompt-learning&#34;&gt;Prompt-learning
+&lt;/h2&gt;&lt;p&gt;Promopt-learning给模型额外加一些上下文，去trigger一些想要的token，再用这些token进行后续的处理，进行分类等操作。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;prompt-learning使用预训练语言模型作为基础的encoders&lt;/li&gt;
+&lt;li&gt;其加入了一些额外的包含mask的内容，称为template&lt;/li&gt;
+&lt;li&gt;将标签映射为标签词的过程，称为verbalizer&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;verbalizer&#34;&gt;Verbalizer
+&lt;/h3&gt;&lt;p&gt;构成：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;人经验的选取一个初始词&lt;/li&gt;
+&lt;li&gt;利用初始词，进行同义词改写扩大词表&lt;/li&gt;
+&lt;li&gt;利用初始词，用额外的知识库扩大词表&lt;/li&gt;
+&lt;li&gt;把一个长label分解为多个label&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;bmtrain&#34;&gt;BMtrain
+&lt;/h2&gt;&lt;h3 id=&#34;数据并行&#34;&gt;数据并行
+&lt;/h3&gt;&lt;p&gt;把数据分成3份，送至3张显卡上，且每张显卡复制所有的参数。每张显卡对数据进行前向传播和反向传播，得到各自的梯度。将所有梯度进行聚合，利用聚合好的参数调整模型。&lt;/p&gt;
+&lt;h4 id=&#34;分布式数据并行&#34;&gt;分布式数据并行
+&lt;/h4&gt;&lt;p&gt;其没有参数服务器。&lt;/p&gt;
+&lt;p&gt;每张显卡各自完成参数的更新，让所有显卡参数更新保持一致。&lt;/p&gt;
+&lt;h3 id=&#34;模型并行&#34;&gt;模型并行
+&lt;/h3&gt;&lt;p&gt;以线性层为例，把模型分成很多个小的部分，即将参数分成n份，n为显卡的个数，分别发送至每张显卡上，每张显卡上的参数与完整的输入数据进行乘法。最后进行聚合。 由于每张显卡都需要处理完整的输入数据，导致其中间计算结果并没有减少，仍然可能造成显存的溢出。&lt;/p&gt;
 </description>
         </item>
         

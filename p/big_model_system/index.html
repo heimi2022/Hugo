@@ -295,8 +295,43 @@
             <li><a href="#模型结构">模型结构</a></li>
             <li><a href="#输入编码-bpepe">输入编码 BPE，PE</a></li>
             <li><a href="#encoder-block">Encoder Block</a></li>
+            <li><a href="#decoder-block">Decoder Block</a></li>
           </ol>
         </li>
+        <li><a href="#优点和缺点">优点和缺点</a>
+          <ol>
+            <li><a href="#优点">优点</a></li>
+            <li><a href="#缺点">缺点</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#预训练语言模型">预训练语言模型</a>
+      <ol>
+        <li><a href="#plmspre-trained-lanuage-models">PLMs（Pre-trained Lanuage Models）</a></li>
+        <li><a href="#masked-lm">Masked LM</a></li>
+        <li><a href="#few-shotin-context-learning">few-shot/in-context learning</a></li>
+      </ol>
+    </li>
+    <li><a href="#transformer-使用">Transformer 使用</a>
+      <ol>
+        <li><a href="#pipeline">Pipeline</a></li>
+        <li><a href="#tokenization">Tokenization</a></li>
+      </ol>
+    </li>
+    <li><a href="#prompt-learning">Prompt-learning</a>
+      <ol>
+        <li><a href="#verbalizer">Verbalizer</a></li>
+      </ol>
+    </li>
+    <li><a href="#bmtrain">BMtrain</a>
+      <ol>
+        <li><a href="#数据并行">数据并行</a>
+          <ol>
+            <li><a href="#分布式数据并行">分布式数据并行</a></li>
+          </ol>
+        </li>
+        <li><a href="#模型并行">模型并行</a></li>
       </ol>
     </li>
   </ol>
@@ -599,8 +634,144 @@ $$<p>
 <p><strong>Input = BPE + PE</strong></p>
 <h4 id="encoder-block">Encoder Block
 </h4><p>整体由两大块组成，分别为Muti-Head Attention网络，Feed-Forward Network前馈神经网络（本质上是一个带激活函数的MLP全连接）</p>
+<p>两个技巧：</p>
+<ol>
+<li>
 <p>残差连接：将输入和输出直接相加，缓解模型过深后带来的梯度消失问题。</p>
+</li>
+<li>
 <p>正则化：将输入变为一个均值为0，方差为一的分布，解决梯度消失与梯度爆炸。</p>
+</li>
+</ol>
+<h5 id="注意力机制-1"><strong>注意力机制</strong>
+</h5><p><strong>输入</strong>为<strong>query q</strong>和key-value(k，v)的集合。query和key向量的维度为$d_k$，Value向量的维度为$d_v$。</p>
+<p>**输出：**先对value向量做加权平均
+</p>
+$$
+A(q,K,V)=\sum_i\frac{e^{q\cdot k_i}}{\sum_j e^{q\cdot k_j}}v_i
+$$<p>
+当有多个q时，其可以组成矩阵Q，则：
+</p>
+$$
+A(Q,K,V)=softmax(QK^T)V
+$$<p>
+<strong>Scaled Dot-Product Attention:</strong>
+若没有Scale，当$d_k$增大时，$q^T k$的方差也随之增大，则softmax后概率分布可能会更尖锐，导致梯度越来越小，使得参数不利于更新。</p>
+<p>加入Scale，如下：
+</p>
+$$
+A(Q,K,V)=softmax(\frac{QK^T}{\sqrt{d_k}})V
+$$<p>
+使得注意力分数方差依然为1.</p>
+<p><strong>注意力机制的流程如下：</strong></p>
+<p><img src="/Hugo/assets/image-20250711172044512.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250711172044512"
+	
+	
+></p>
+<h5 id="多头注意力机制">多头注意力机制
+</h5><p>采用多个结构相同，但参数不同的注意力模块，组成多头注意力机制。</p>
+<p><img src="/Hugo/assets/image-20250711172243703.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250711172243703"
+	
+	
+></p>
+<p>每一个注意力头的计算方式为：
+</p>
+$$
+head_i=A(QW_i^Q,KW_i^K,VW_i^V)
+$$<p>
+当每一个注意力头得到输出后，将输出在维度上进行拼接，然后通过一个线性层进行整合：
+</p>
+$$
+MultiHead(Q,K,V)=Concat(head_1,\cdots,head_h)W^O
+$$<p>
+一个Encodr Block的结构：</p>
+<p><img src="/Hugo/assets/image-20250711173107761.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250711173107761"
+	
+	
+></p>
+<h4 id="decoder-block">Decoder Block
+</h4><p>一个Decoder Block的结构：</p>
+<p><img src="/Hugo/assets/image-20250711173227452.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250711173227452"
+	
+	
+></p>
+<p>Masked Attention Score：将注意力分数修改为$-\infty$，使得在softmax时，使之变0。用于decoder在文本生成时，不受前面生成文本的影响。</p>
+<h3 id="优点和缺点">优点和缺点
+</h3><h4 id="优点">优点
+</h4><p>表示能力强，本身适合并行计算，成为预训练语言模型的一个主要框架</p>
+<h4 id="缺点">缺点
+</h4><p>对于参数敏感，优化困难。处理文本复杂度与文本长度$n$为平方关系$O(n^2)$，导致对长度特别长的文本束手无策。</p>
+<h2 id="预训练语言模型">预训练语言模型
+</h2><p>对语言模型的预训练的一个过程</p>
+<h3 id="plmspre-trained-lanuage-models">PLMs（Pre-trained Lanuage Models）
+</h3><p>好处：在语言模型的预训练之后，学习到的知识可以非常容易地去迁移到各种下游任务。</p>
+<p>预训练语言模型整体可以分为两种范式：</p>
+<ul>
+<li>Feature-based：作为feature的提取器，在大规模的预料上预训练好模型参数后，把它编码的表示作为一个固定的feature，来交给下游做具体任务的模型，作为下游任务模型的输入。</li>
+<li>Fine-turning（主流）：<strong>通过特定领域数据对预训练模型进行针对性优化，以提升其在特定任务上的性能。</strong></li>
+</ul>
+<h3 id="masked-lm">Masked LM
+</h3><p>BERT为了解决LM是单向的过程，提出Masked LM。 其是Bert预训练中最核心的任务。</p>
+<p>基本思想：利用双向信息来预测target token。<strong>掩盖掉$k %$（15% in Bert）的input word，然后去预测这些被掩盖的word。</strong></p>
+<p>mask太少，预训练花的时间很长。</p>
+<p>mask太多，文章可利用的信息太少。</p>
+<h3 id="few-shotin-context-learning">few-shot/in-context learning
+</h3><p>zero-shot：不给任何数据，只给任务的描述，就能完成任务</p>
+<p>few-shot：给一点样例，使之完成任务。</p>
+<p>in-context learning：没有针对下游任务做任何参数的更新，只是在上下文中给了这个任务的描述以及样例，通过语言模型自回归地生成去完成任务</p>
+<p>Mixture of Experts：把模型参数分成一块一块的模块，每次模型的输入会调用其中的部分子模块来参与计算。每一个子模块相当于experts。</p>
+<h2 id="transformer-使用">Transformer 使用
+</h2><h3 id="pipeline">Pipeline
+</h3><p>自动帮忙选择适配任务的模型</p>
+<h3 id="tokenization">Tokenization
+</h3><p>不同的模型有不同的tokenization方式</p>
+<h2 id="prompt-learning">Prompt-learning
+</h2><p>Promopt-learning给模型额外加一些上下文，去trigger一些想要的token，再用这些token进行后续的处理，进行分类等操作。</p>
+<ol>
+<li>prompt-learning使用预训练语言模型作为基础的encoders</li>
+<li>其加入了一些额外的包含mask的内容，称为template</li>
+<li>将标签映射为标签词的过程，称为verbalizer</li>
+</ol>
+<h3 id="verbalizer">Verbalizer
+</h3><p>构成：</p>
+<ol>
+<li>人经验的选取一个初始词</li>
+<li>利用初始词，进行同义词改写扩大词表</li>
+<li>利用初始词，用额外的知识库扩大词表</li>
+<li>把一个长label分解为多个label</li>
+</ol>
+<h2 id="bmtrain">BMtrain
+</h2><h3 id="数据并行">数据并行
+</h3><p>把数据分成3份，送至3张显卡上，且每张显卡复制所有的参数。每张显卡对数据进行前向传播和反向传播，得到各自的梯度。将所有梯度进行聚合，利用聚合好的参数调整模型。</p>
+<h4 id="分布式数据并行">分布式数据并行
+</h4><p>其没有参数服务器。</p>
+<p>每张显卡各自完成参数的更新，让所有显卡参数更新保持一致。</p>
+<h3 id="模型并行">模型并行
+</h3><p>以线性层为例，把模型分成很多个小的部分，即将参数分成n份，n为显卡的个数，分别发送至每张显卡上，每张显卡上的参数与完整的输入数据进行乘法。最后进行聚合。 由于每张显卡都需要处理完整的输入数据，导致其中间计算结果并没有减少，仍然可能造成显存的溢出。</p>
 
 </section>
 

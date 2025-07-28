@@ -254,6 +254,7 @@
             <li><a href="#fatal-unable-to-access-httpsgithubcomgit-could-not-resolve-host-githubcom">fatal: unable to access ‘https://github.com/&hellip;/.git‘: Could not resolve host: github.com</a></li>
           </ol>
         </li>
+        <li><a href="#git-配置代理解决-failed-to-connect-to-githubcom-port-443-及-recv-failure-connection-was-reset-等问题">Git 配置代理，解决 &ldquo;Failed to connect to github.com port 443&rdquo; 及 &ldquo;Recv failure: Connection was reset&rdquo; 等问题</a></li>
       </ol>
     </li>
   </ol>
@@ -336,7 +337,28 @@
 </div>
 </div><p>解决方案：cmd下命令执行 ipconfig/flushdns
 清理dns缓存</p>
-
+<h3 id="git-配置代理解决-failed-to-connect-to-githubcom-port-443-及-recv-failure-connection-was-reset-等问题">Git 配置代理，解决 &ldquo;Failed to connect to github.com port 443&rdquo; 及 &ldquo;Recv failure: Connection was reset&rdquo; 等问题
+</h3><p>确认你的代理程序提供的端口，一种常见的情况是 7890</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --global http.proxy http://127.0.0.1:7890
+</span></span><span class="line"><span class="cl">git config --global https.proxy http://127.0.0.1:7890
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>配置完成后，可以使用以下命令查看并修改 Git 的配置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --global --edit
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
